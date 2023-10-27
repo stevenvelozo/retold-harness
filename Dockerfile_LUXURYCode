@@ -79,13 +79,11 @@ RUN echo "...installing node version manager..."
 # Because there is a .bashrc chicken/egg problem, we will create one here to simulate logging in.  This is not great.
 RUN touch ~/.bashrc && chmod +x ~/.bashrc
 RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+RUN chmod +x ~/.nvm/nvm.sh
 
 RUN echo "...installing node version 14 as the default..."
 RUN . ~/.nvm/nvm.sh && source ~/.bashrc && nvm install 14
 RUN . ~/.nvm/nvm.sh && source ~/.bashrc && nvm alias default 14
-
-# Install PM2
-RUN . ~/.nvm/nvm.sh && source ~/.bashrc && npm install pm2 -g
 
 WORKDIR /home/coder/retold-harness
 

@@ -11,7 +11,9 @@ module.exports = (
 		"LogStreams":
 			[
 				{
-					"streamtype": "console"
+					"streamtype": "simpleflatfile",
+					"level": "trace",
+					"path": "./Retold-Harness-Requests.log"
 				}
 			],
 

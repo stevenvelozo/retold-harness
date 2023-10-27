@@ -1,6 +1,6 @@
 {
     "name": "retold-harness",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Restful API harness.  Serves on 8086.",
     "main": "source/Retold-Harness.js",
     "scripts": {
