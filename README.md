@@ -52,19 +52,39 @@ npm run docker-dev-run
 
 ![Docker statistics after a few minutes of running](./images/Docker-Container-Resources.png)
 
-### Some REST API Examples
+## Some REST API Examples
 
 The REST endpoints are provided by the [meadow-endpoints](https://www.npmjs.com/package/meadow-endpoints) library on NPM.  Some examples of queries you can make:
 
-## List the first 100 Books in the database: (http://localhost:8086/1.0/Books/0/100)
+### List the first 100 Books in the database: (http://localhost:8086/1.0/Books/0/100)
 
 ![The first 100 Books](./images/API-Book-List.png)
-## Get the book with `IDBook` 1: (http://localhost:8086/1.0/Book/1)
+### Get the book with `IDBook` 1: (http://localhost:8086/1.0/Book/1)
 
 You will notice that when requesting a single book, there is an `Authors` array populated with the connected authors for the particular book.  But in the list, the array was not filled out.  This is because in meadow-endpoints there is a post-operation behavior hook only attached to the read single record endpoint.  This is reflected in the `/source/Retold-Harness.js` code file in lines 14-41.
 
 ![Book 1](./images/API-Book-First.png)
 
-## List the first 10 Authors in the database whose name begins with `Susan`:  (http://localhost:8086/1.0/Authors/FilteredTo/FBV~Name~LK~Susan%25/0/10)
+### List the first 10 Authors in the database whose name begins with `Susan`:  (http://localhost:8086/1.0/Authors/FilteredTo/FBV~Name~LK~Susan%25/0/10)
 
 ![The first 10 Susans](./images/API-Author-Susans.png)
+
+## Luxury Code
+
+Luxury code is a set of tools to provide easy debugging and test running regardless of environment.  These tools leverage the code-server browser implementation of the Visual Studio Code editor.  The first time you launch the browser editor, you will be asked for a password.  The password is: `luxury`
+
+![Launching Luxury Code requires a Password: luxury](./images/vscode-Login.png)
+
+![Visual Studio Code Editor with Config and Source](./images/vscode-Editor.png)
+
+## MySQL
+
+The docker image also exposes a MySQL server (it's actually MariaDB but nobody is the wiser).  You can connect to and query this database directly from your tool of choice or other applications.  The user is: `root`, the port is `3306` and the password is: `123456789`
+
+![MySQL Connection Info](./images/SQL-Connection.png)
+
+![MySQL Query](./images/SQL-Query.png)
+
+## Customizing your Environment
+
+If you dislike the ports, passwords or anything else about this configuration all the code is readily available.  In the `package.json` file, the two convenience docker spin-up commands are there.  This is where you would change the port mapping for the API server, SQL server and other services.  Remember.... you broke it, you bought it.
