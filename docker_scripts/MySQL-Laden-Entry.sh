@@ -27,13 +27,15 @@ done
 
 echo "=> MySQL service startup finished. <="
 
-# Install the latest pm2 process manager
-# This is *quite complex* because we want to run as the synthesized user pulled in to match the user in our environment
+# This junk below is *quite complex* because we want to run as the synthesized user pulled in to match the user in our environment
 #    FOR POSTERITY: Running bash in interactive mode, trying to manually source the bashrc, etc. all failed due to
 #                   the complex way docker and the base image set the user (we have an explicit user ID).  This method
 #                   works but is ugly as heck.
+# Install the latest pm2 process manager
 export HOME=/home/coder
 bash -i <(echo "npm install pm2 -g")
+# Install the dependencies for node
+bash -i <(echo "npm install")
 # Now run the harness API within the pm2 process manager
 # Twiddling for posterity (these didn't work)
 #bash -c "pm2 start /home/coder/retold-harness/source/Retold-Harness.js"
