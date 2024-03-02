@@ -15,8 +15,8 @@ let libRetoldDataService = _Fable.serviceManager.instantiateServiceProvider('Ret
     });
 
 
-libRetoldDataService.onAfterInitializeAsync =
-    (fAfterInitializeComplete) =>
+libRetoldDataService.initializeService(
+    (pError) =>
     {
         // Create a post operation behavior for the book Read singular record endpoint only
         _Fable.MeadowEndpoints.Book.controller.BehaviorInjection.setBehavior('Read-PostOperation',
@@ -49,15 +49,4 @@ libRetoldDataService.onAfterInitializeAsync =
                         }
                     });
             });
-
-        return fAfterInitializeComplete();
-    };
-
-libRetoldDataService.initializeAsync(
-    (pError) =>
-    {
-        if (pError)
-        {
-            _Fable.log.error(`Error initializing `)
-        }
     });

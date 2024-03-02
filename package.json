@@ -5,13 +5,10 @@
     "main": "source/Retold-Harness.js",
     "scripts": {
         "start": "node source/Retold-Harness.js",
-
         "test": "npx mocha -u tdd -R spec",
         "tests": "npx mocha -u tdd --exit -R spec --grep",
         "coverage": "npx nyc --reporter=lcov --reporter=text-lcov npx mocha -- -u tdd -R spec",
-
         "build": "npx quack build",
-
         "docker-dev-build": "docker build ./ -f Dockerfile_LUXURYCode -t retold-harness-image:local",
         "docker-dev-run": "docker run -it -d --name retold-harness-dev -p 20001:8080 -p 8086:8086 -p 3306:3306 -v \"$PWD/.config:/home/coder/.config\"  -v \"$PWD:/home/coder/retold-harness\" -u \"$(id -u):$(id -g)\" -e \"DOCKER_USER=$USER\" retold-harness-image:local",
         "docker-dev-shell": "docker exec -it retold-harness-dev /bin/bash"
@@ -27,10 +24,10 @@
     },
     "homepage": "https://github.com/stevenvelozo/retold-harness#readme",
     "dependencies": {
-        "retold-data-service": "^1.0.4"
+        "retold-data-service": "^2.0.1"
     },
     "devDependencies": {
-        "quackage": "^1.0.24"
+        "quackage": "^1.0.28"
     },
     "mocha": {
         "diff": true,
