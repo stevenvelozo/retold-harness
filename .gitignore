@@ -1,5 +1,7 @@
 package-lock.json
 
+update-notifier-npm.json
+
 # Logs
 logs
 *.log
