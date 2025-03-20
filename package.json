@@ -11,7 +11,10 @@
         "build": "npx quack build",
         "docker-dev-build": "docker build ./ -f Dockerfile_LUXURYCode -t retold-harness-image:local",
         "docker-dev-run": "docker run -it -d --name retold-harness-dev -p 20001:8080 -p 8086:8086 -p 31306:3306 -v \"$PWD/.config:/home/coder/.config\"  -v \"$PWD:/home/coder/retold-harness\" -u \"$(id -u):$(id -g)\" -e \"DOCKER_USER=$USER\" retold-harness-image:local",
-        "docker-dev-shell": "docker exec -it retold-harness-dev /bin/bash"
+        "docker-dev-shell": "docker exec -it retold-harness-dev /bin/bash",
+        "docker-dev-service-build": "docker build ./ -f Dockerfile_Service -t retold-harness-service-image:local",
+        "docker-dev-service-run": "docker run -it --init -d --name retold-harness-dev-service -p 8086:8086 -p 31306:3306 -v \"$(pwd):/retold-harness:z\" retold-harness-service-image:local",
+        "docker-dev-service-shell": "docker exec -it retold-harness-dev-service /bin/bash"
     },
     "repository": {
         "type": "git",
