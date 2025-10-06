@@ -11,22 +11,6 @@ RUN sudo apt install vim curl tmux -y
 
 RUN echo "Building development image..."
 
-RUN echo "...installing vscode extensions..."
-
-# Mocha unit testing in the sidebar
-RUN code-server --install-extension hbenl.vscode-mocha-test-adapter
-RUN code-server --install-extension hbenl.test-adapter-converter
-RUN code-server --install-extension hbenl.vscode-test-explorer
-
-# Magic indentation rainbow
-RUN code-server --install-extension oderwat.indent-rainbow
-RUN code-server --install-extension dbaeumer.vscode-eslint
-
-# Contextual git
-RUN code-server --install-extension eamodio.gitlens
-
-# Other extensions (uncomment them to have them automagic, or run this from a terminal to install in the container):
-
 RUN echo "...configuring mariadb (mysql) server...."
 RUN sudo apt install default-mysql-server default-mysql-client -y
 RUN sudo sed -i "s|bind-address|#bind-address|g" /etc/mysql/mariadb.conf.d/50-server.cnf
