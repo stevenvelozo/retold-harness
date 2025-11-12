@@ -1,0 +1,523 @@
+{
+    "Tables": {
+        "User": {
+            "TableName": "User",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDUser",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "LoginID",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "Password",
+                    "DataType": "String",
+                    "Size": "255"
+                },
+                {
+                    "Column": "NameFirst",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "NameLast",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "FullName",
+                    "DataType": "String",
+                    "Size": "255"
+                },
+                {
+                    "Column": "Config",
+                    "DataType": "String",
+                    "Size": "64"
+                }
+            ],
+            "Description": ""
+        },
+        "Book": {
+            "TableName": "Book",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDBook",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDBook",
+                    "DataType": "GUID",
+                    "Size": "36"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Title",
+                    "DataType": "String",
+                    "Size": "200"
+                },
+                {
+                    "Column": "Type",
+                    "DataType": "String",
+                    "Size": "32"
+                },
+                {
+                    "Column": "Genre",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "ISBN",
+                    "DataType": "String",
+                    "Size": "64"
+                },
+                {
+                    "Column": "Language",
+                    "DataType": "String",
+                    "Size": "12"
+                },
+                {
+                    "Column": "ImageURL",
+                    "DataType": "String",
+                    "Size": "254"
+                },
+                {
+                    "Column": "PublicationYear",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                }
+            ],
+            "Description": ""
+        },
+        "BookAuthorJoin": {
+            "TableName": "BookAuthorJoin",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDBookAuthorJoin",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDBookAuthorJoin",
+                    "DataType": "GUID",
+                    "Size": "36"
+                },
+                {
+                    "Column": "IDBook",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDBook"
+                },
+                {
+                    "Column": "IDAuthor",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDAuthor"
+                }
+            ],
+            "Description": ""
+        },
+        "Author": {
+            "TableName": "Author",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDAuthor",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDAuthor",
+                    "DataType": "GUID",
+                    "Size": "36"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "DataType": "String",
+                    "Size": "200"
+                },
+                {
+                    "Column": "IDUser",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDUser"
+                }
+            ],
+            "Description": ""
+        },
+        "BookPrice": {
+            "TableName": "BookPrice",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDBookPrice",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDBookPrice",
+                    "DataType": "GUID",
+                    "Size": "36"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Price",
+                    "DataType": "Decimal",
+                    "Size": "8,2"
+                },
+                {
+                    "Column": "StartDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "EndDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "Discountable",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "CouponCode",
+                    "DataType": "String",
+                    "Size": "16"
+                },
+                {
+                    "Column": "IDBook",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDBook"
+                }
+            ],
+            "Description": ""
+        },
+        "BookStore": {
+            "TableName": "BookStore",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDBookStore",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDBookStore",
+                    "DataType": "GUID",
+                    "Size": "36"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "DataType": "String",
+                    "Size": "200"
+                },
+                {
+                    "Column": "Address",
+                    "DataType": "String",
+                    "Size": "64"
+                },
+                {
+                    "Column": "City",
+                    "DataType": "String",
+                    "Size": "64"
+                },
+                {
+                    "Column": "State",
+                    "DataType": "String",
+                    "Size": "24"
+                },
+                {
+                    "Column": "Postal",
+                    "DataType": "String",
+                    "Size": "16"
+                },
+                {
+                    "Column": "Country",
+                    "DataType": "String",
+                    "Size": "64"
+                }
+            ],
+            "Description": ""
+        },
+        "BookStoreInventory": {
+            "TableName": "BookStoreInventory",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDBookStoreInventory",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDBookStoreInventory",
+                    "DataType": "GUID",
+                    "Size": "36"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "StockDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "BookCount",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "AggregateBookCount",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "IDBook",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDBook"
+                },
+                {
+                    "Column": "IDBookStore",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDBookStore"
+                },
+                {
+                    "Column": "IDBookPrice",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDBookPrice"
+                },
+                {
+                    "Column": "StockingAssociate",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDUser"
+                }
+            ],
+            "Description": ""
+        },
+        "Review": {
+            "TableName": "Review",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDReview",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDReview",
+                    "DataType": "GUID",
+                    "Size": "36"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Text",
+                    "DataType": "Text"
+                },
+                {
+                    "Column": "Rating",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "IDBook",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDBook"
+                },
+                {
+                    "Column": "IDUser",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDUser"
+                }
+            ],
+            "Description": ""
+        }
+    }
+}

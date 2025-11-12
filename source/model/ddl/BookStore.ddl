@@ -1,3 +1,13 @@
+!User
+@IDUser
+#GUIDUser
+$LoginID 128
+$Password 255
+$NameFirst 128
+$NameLast 128
+$FullName 255
+$Config
+
 !Book
 @IDBook
 %GUIDBook
@@ -33,6 +43,7 @@ $ImageURL 254
 &DeleteDate
 #DeletingIDUser
 $Name 200
+#IDUser -> IDUser
 
 !BookPrice
 @IDBookPrice
@@ -51,9 +62,44 @@ $Name 200
 $CouponCode 16
 #IDBook -> IDBook
 
+!BookStore
+@IDBookStore
+%GUIDBookStore
+&CreateDate
+#CreatingIDUser
+&UpdateDate
+#UpdatingIDUser
+^Deleted
+&DeleteDate
+#DeletingIDUser
+$Name 200
+$Address
+$City 64
+$State 24
+$Postal 16
+$Country 64
+
+!BookStoreInventory
+@IDBookStoreInventory
+%GUIDBookStoreInventory
+&CreateDate
+#CreatingIDUser
+&UpdateDate
+#UpdatingIDUser
+^Deleted
+&DeleteDate
+#DeletingIDUser
+&StockDate
+#BookCount
+#AggregateBookCount
+#IDBook -> IDBook
+#IDBookStore -> IDBookStore
+#IDBookPrice -> IDBookPrice
+#StockingAssociate -> IDUser
+
 !Review
-@IDReviews
-%GUIDReviews
+@IDReview
+%GUIDReview
 &CreateDate
 #CreatingIDUser
 &UpdateDate
@@ -64,3 +110,4 @@ $CouponCode 16
 *Text
 #Rating
 #IDBook -> IDBook
+#IDUser -> IDUser
