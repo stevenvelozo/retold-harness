@@ -8,13 +8,21 @@ Entirely self-contained.
 ## Manual MariaDB in Docker
 
 ```shell
-docker run -d \
-  --name mariadb \
-  -p 3306:3306 \
-  -e MARIADB_ROOT_PASSWORD=123456789 \
-  -e MARIADB_DATABASE=bookstore \
-  mariadb:latest
+docker run -d --name mariadb -p 3306:3306 -e MARIADB_ROOT_PASSWORD=123456789 -e MARIADB_DATABASE=bookstore mariadb:latest
 ```
+
+And then to create the tables:
+
+```shell
+cat ./source/model/mysql_create/MeadowModel-CreateMySQLDatabase.mysql.sql | docker exec -i mariadb mariadb -u root -p123456789 bookstore
+```
+
+(alternatively if you're using a true mysql image)
+
+```shell
+cat ./source/model/mysql_create/MeadowModel-CreateMySQLDatabase.mysql.sql | docker exec -i mariadb mysql -u root -p123456789 bookstore
+```
+
 
 ## Getting up and Running
 

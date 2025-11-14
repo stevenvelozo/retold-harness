@@ -7,15 +7,10 @@ _Fable = new libFable(_Settings);
 
 // Add the data service type and initialize it
 _Fable.serviceManager.addServiceType('RetoldDataService', require('retold-data-service'));
-// Initialize it with relative paths for the model from this code folder, regardless of where we run this from
-let libRetoldDataService = _Fable.serviceManager.instantiateServiceProvider('RetoldDataService',
-    {
-        "FullMeadowSchemaPath": `${__dirname}/model/`,
-		"DALMeadowSchemaPath": `${__dirname}/model/meadow/`
-    });
+_Fable.serviceManager.instantiateServiceProvider('RetoldDataService', _Settings.RetoldDataServiceOptions);
 
 
-libRetoldDataService.initializeService(
+_Fable.RetoldDataService.initializeService(
     (pError) =>
     {
         // Create a post operation behavior for the book Read singular record endpoint only
