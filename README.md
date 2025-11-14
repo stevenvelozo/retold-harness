@@ -5,6 +5,17 @@ images for the cover of each book.  Useful for more complex harnesses.
 
 Entirely self-contained.
 
+## Manual MariaDB in Docker
+
+```shell
+docker run -d \
+  --name mariadb \
+  -p 3306:3306 \
+  -e MARIADB_ROOT_PASSWORD=123456789 \
+  -e MARIADB_DATABASE=bookstore \
+  mariadb:latest
+```
+
 ## Getting up and Running
 
 This package requires Docker to be installed on your workstation.  You can get 

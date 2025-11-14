@@ -19,6 +19,15 @@ module.exports = (
 
 		"APIServerPort": 8086,
 
+		"RetoldDataServiceOptions":
+		{
+			"StorageProvider": "MySQL",
+			"StorageProviderModule": "meadow-connection-mysql",
+
+			"FullMeadowSchemaPath": `${__dirname}/model/`,
+			"FullMeadowSchemaFilename": `MeadowModel-Extended.json`,
+		},
+
 		"MySQL":
 			{
 				"Server": "127.0.0.1",
