@@ -22,4 +22,4 @@ CouponCode | 16 | String |
 IDBook | int | Numeric | Book.IDBook 
 - - -
 
-Generated on 2025-11-13 at 15:53
+Generated on 2025-11-14 at 20:20

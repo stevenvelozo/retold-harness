@@ -301,7 +301,7 @@
                 {
                     "Column": "GUIDBook",
                     "DataType": "GUID",
-                    "Size": "36"
+                    "Size": "128"
                 },
                 {
                     "Column": "CreateDate",
@@ -384,7 +384,7 @@
                     {
                         "Column": "GUIDBook",
                         "Type": "AutoGUID",
-                        "Size": "36"
+                        "Size": "128"
                     },
                     {
                         "Column": "CreateDate",
@@ -485,7 +485,7 @@
                         },
                         "GUIDBook": {
                             "type": "string",
-                            "size": "36"
+                            "size": "128"
                         },
                         "CreateDate": {
                             "type": "string",
@@ -558,7 +558,7 @@
                             {
                                 "Column": "GUIDBook",
                                 "DataType": "GUID",
-                                "Size": "36"
+                                "Size": "128"
                             },
                             {
                                 "Column": "CreateDate",
@@ -641,7 +641,7 @@
                                 {
                                     "Column": "GUIDBook",
                                     "Type": "AutoGUID",
-                                    "Size": "36"
+                                    "Size": "128"
                                 },
                                 {
                                     "Column": "CreateDate",
@@ -742,7 +742,7 @@
                                     },
                                     "GUIDBook": {
                                         "type": "string",
-                                        "size": "36"
+                                        "size": "128"
                                     },
                                     "CreateDate": {
                                         "type": "string",
@@ -823,7 +823,7 @@
                 {
                     "Column": "GUIDBookAuthorJoin",
                     "DataType": "GUID",
-                    "Size": "36"
+                    "Size": "255"
                 },
                 {
                     "Column": "IDBook",
@@ -852,7 +852,7 @@
                     {
                         "Column": "GUIDBookAuthorJoin",
                         "Type": "AutoGUID",
-                        "Size": "36"
+                        "Size": "255"
                     },
                     {
                         "Column": "IDBook",
@@ -881,7 +881,7 @@
                         },
                         "GUIDBookAuthorJoin": {
                             "type": "string",
-                            "size": "36"
+                            "size": "255"
                         },
                         "IDBook": {
                             "type": "integer",
@@ -906,7 +906,7 @@
                             {
                                 "Column": "GUIDBookAuthorJoin",
                                 "DataType": "GUID",
-                                "Size": "36"
+                                "Size": "255"
                             },
                             {
                                 "Column": "IDBook",
@@ -935,7 +935,7 @@
                                 {
                                     "Column": "GUIDBookAuthorJoin",
                                     "Type": "AutoGUID",
-                                    "Size": "36"
+                                    "Size": "255"
                                 },
                                 {
                                     "Column": "IDBook",
@@ -964,7 +964,7 @@
                                     },
                                     "GUIDBookAuthorJoin": {
                                         "type": "string",
-                                        "size": "36"
+                                        "size": "255"
                                     },
                                     "IDBook": {
                                         "type": "integer",
@@ -997,7 +997,7 @@
                 {
                     "Column": "GUIDAuthor",
                     "DataType": "GUID",
-                    "Size": "36"
+                    "Size": "128"
                 },
                 {
                     "Column": "CreateDate",
@@ -1056,7 +1056,7 @@
                     {
                         "Column": "GUIDAuthor",
                         "Type": "AutoGUID",
-                        "Size": "36"
+                        "Size": "128"
                     },
                     {
                         "Column": "CreateDate",
@@ -1127,7 +1127,7 @@
                         },
                         "GUIDAuthor": {
                             "type": "string",
-                            "size": "36"
+                            "size": "128"
                         },
                         "CreateDate": {
                             "type": "string",
@@ -1180,7 +1180,7 @@
                             {
                                 "Column": "GUIDAuthor",
                                 "DataType": "GUID",
-                                "Size": "36"
+                                "Size": "128"
                             },
                             {
                                 "Column": "CreateDate",
@@ -1239,7 +1239,7 @@
                                 {
                                     "Column": "GUIDAuthor",
                                     "Type": "AutoGUID",
-                                    "Size": "36"
+                                    "Size": "128"
                                 },
                                 {
                                     "Column": "CreateDate",
@@ -1310,7 +1310,7 @@
                                     },
                                     "GUIDAuthor": {
                                         "type": "string",
-                                        "size": "36"
+                                        "size": "128"
                                     },
                                     "CreateDate": {
                                         "type": "string",

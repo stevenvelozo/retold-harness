@@ -57,7 +57,7 @@
                 {
                     "Column": "GUIDBook",
                     "DataType": "GUID",
-                    "Size": "36"
+                    "Size": "128"
                 },
                 {
                     "Column": "CreateDate",
@@ -139,7 +139,7 @@
                 {
                     "Column": "GUIDBookAuthorJoin",
                     "DataType": "GUID",
-                    "Size": "36"
+                    "Size": "255"
                 },
                 {
                     "Column": "IDBook",
@@ -167,7 +167,7 @@
                 {
                     "Column": "GUIDAuthor",
                     "DataType": "GUID",
-                    "Size": "36"
+                    "Size": "128"
                 },
                 {
                     "Column": "CreateDate",

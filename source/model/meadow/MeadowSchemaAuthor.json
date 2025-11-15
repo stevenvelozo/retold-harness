@@ -11,7 +11,7 @@
         {
             "Column": "GUIDAuthor",
             "Type": "AutoGUID",
-            "Size": "36"
+            "Size": "128"
         },
         {
             "Column": "CreateDate",
@@ -82,7 +82,7 @@
             },
             "GUIDAuthor": {
                 "type": "string",
-                "size": "36"
+                "size": "128"
             },
             "CreateDate": {
                 "type": "string",
@@ -137,7 +137,7 @@
                 {
                     "Column": "GUIDAuthor",
                     "Type": "AutoGUID",
-                    "Size": "36"
+                    "Size": "128"
                 },
                 {
                     "Column": "CreateDate",

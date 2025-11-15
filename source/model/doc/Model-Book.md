@@ -6,7 +6,7 @@ Book
 Column Name | Size | Data Type | Join 
 ----------- | ---: | --------- | ---- 
 IDBook |  | ID |  
-GUIDBook | 36 | GUID |  
+GUIDBook | 128 | GUID |  
 CreateDate |  | DateTime |  
 CreatingIDUser | int | Numeric |  
 UpdateDate |  | DateTime |  
@@ -23,4 +23,4 @@ ImageURL | 254 | String |
 PublicationYear | int | Numeric |  
 - - -
 
-Generated on 2025-11-13 at 15:53
+Generated on 2025-11-14 at 20:20

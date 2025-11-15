@@ -6,7 +6,7 @@ Author
 Column Name | Size | Data Type | Join 
 ----------- | ---: | --------- | ---- 
 IDAuthor |  | ID |  
-GUIDAuthor | 36 | GUID |  
+GUIDAuthor | 128 | GUID |  
 CreateDate |  | DateTime |  
 CreatingIDUser | int | Numeric |  
 UpdateDate |  | DateTime |  
@@ -18,4 +18,4 @@ Name | 200 | String |
 IDUser | int | Numeric | User.IDUser 
 - - -
 
-Generated on 2025-11-13 at 15:53
+Generated on 2025-11-14 at 20:20

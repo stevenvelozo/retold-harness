@@ -11,7 +11,7 @@
         {
             "Column": "GUIDBook",
             "Type": "AutoGUID",
-            "Size": "36"
+            "Size": "128"
         },
         {
             "Column": "CreateDate",
@@ -112,7 +112,7 @@
             },
             "GUIDBook": {
                 "type": "string",
-                "size": "36"
+                "size": "128"
             },
             "CreateDate": {
                 "type": "string",
@@ -187,7 +187,7 @@
                 {
                     "Column": "GUIDBook",
                     "Type": "AutoGUID",
-                    "Size": "36"
+                    "Size": "128"
                 },
                 {
                     "Column": "CreateDate",

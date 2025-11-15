@@ -12,7 +12,7 @@ module.exports = (
 			[
 				{
 					"streamtype": "simpleflatfile",
-					"level": "trace",
+					"level": "info",
 					"path": "./Retold-Harness-Requests.log"
 				}
 			],

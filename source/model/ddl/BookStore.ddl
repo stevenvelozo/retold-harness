@@ -10,7 +10,7 @@ $Config
 
 !Book
 @IDBook
-%GUIDBook
+%GUIDBook 128
 &CreateDate
 #CreatingIDUser
 &UpdateDate
@@ -28,13 +28,13 @@ $ImageURL 254
 
 !BookAuthorJoin
 @IDBookAuthorJoin
-%GUIDBookAuthorJoin
+%GUIDBookAuthorJoin 255
 #IDBook -> IDBook
 #IDAuthor -> IDAuthor
 
 !Author
 @IDAuthor
-%GUIDAuthor
+%GUIDAuthor 128
 &CreateDate
 #CreatingIDUser
 &UpdateDate

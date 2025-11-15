@@ -1,4 +1,4 @@
-## Table Connection Graph -- Generated 2025-11-13T23:53:36.227Z
+## Table Connection Graph -- Generated 2025-11-15T04:20:59.110Z
 digraph DataModel {
 rankdir=LR
 User;

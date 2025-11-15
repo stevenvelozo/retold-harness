@@ -11,7 +11,7 @@
         {
             "Column": "GUIDBookAuthorJoin",
             "Type": "AutoGUID",
-            "Size": "36"
+            "Size": "255"
         },
         {
             "Column": "IDBook",
@@ -40,7 +40,7 @@
             },
             "GUIDBookAuthorJoin": {
                 "type": "string",
-                "size": "36"
+                "size": "255"
             },
             "IDBook": {
                 "type": "integer",
@@ -67,7 +67,7 @@
                 {
                     "Column": "GUIDBookAuthorJoin",
                     "Type": "AutoGUID",
-                    "Size": "36"
+                    "Size": "255"
                 },
                 {
                     "Column": "IDBook",
