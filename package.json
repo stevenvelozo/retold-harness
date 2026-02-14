@@ -9,7 +9,7 @@
         "tests": "npx mocha -u tdd --exit -R spec --grep",
         "coverage": "npx nyc --reporter=lcov --reporter=text-lcov npx mocha -- -u tdd -R spec",
         "build": "npx quack build",
-		"build-model": "cd source && npx stricture -i model/ddl/BookStore.ddl",
+        "build-model": "cd source && npx stricture -i model/ddl/BookStore.ddl",
         "docker-dev-build": "docker build ./ -f Dockerfile_LUXURYCode -t retold-harness-image:local",
         "docker-dev-run": "docker run -it -d --name retold-harness-dev -p 20001:8080 -p 8086:8086 -p 31306:3306 -v \"$PWD/.config:/home/coder/.config\"  -v \"$PWD:/home/coder/retold-harness\" -u \"$(id -u):$(id -g)\" -e \"DOCKER_USER=$USER\" retold-harness-image:local",
         "docker-dev-shell": "docker exec -it retold-harness-dev /bin/bash",
@@ -28,11 +28,10 @@
     },
     "homepage": "https://github.com/stevenvelozo/retold-harness#readme",
     "dependencies": {
-        "retold-data-service": "file:../retold-data-service"
+        "retold-data-service": "^2.0.9"
     },
     "devDependencies": {
         "chai": "^4.3.6",
-        "meadow-connection-sqlite": "file:../meadow-connection-sqlite",
         "mocha": "^10.2.0",
         "quackage": "^1.0.45",
         "stricture": "^1.0.37",
