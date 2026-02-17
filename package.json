@@ -32,14 +32,15 @@
     },
     "homepage": "https://github.com/stevenvelozo/retold-harness#readme",
     "dependencies": {
-        "meadow-connection-sqlite": "^1.0.0",
-        "retold-data-service": "^2.0.9"
+        "foxhound": "^2.0.16",
+        "meadow-connection-sqlite": "^1.0.11",
+        "retold-data-service": "^2.0.11"
     },
     "devDependencies": {
         "chai": "^4.3.6",
         "mocha": "^10.2.0",
-        "quackage": "^1.0.45",
-        "stricture": "^1.0.37",
+        "quackage": "^1.0.50",
+        "stricture": "^1.0.38",
         "supertest": "^6.3.3"
     },
     "mocha": {
