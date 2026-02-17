@@ -97,6 +97,17 @@ _Fable.MeadowSQLiteProvider.connectAsync(
 							});
 					});
 
-				_Fable.log.info(`Retold Harness running on port ${_Settings.APIServerPort} with SQLite`);
+				// Serve the web UI at the root URL
+			let tmpWebUIHTML = libFS.readFileSync(libPath.join(__dirname, 'web', 'index.html'), 'utf8');
+			_Fable.OratorServiceServer.server.get('/',
+				(pRequest, pResponse, fNext) =>
+				{
+					pResponse.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+					pResponse.end(tmpWebUIHTML);
+					return fNext();
+				});
+
+			_Fable.log.info(`Retold Harness running on port ${_Settings.APIServerPort} with SQLite`);
+			_Fable.log.info(`Web UI available at http://localhost:${_Settings.APIServerPort}/`);
 			});
 	});

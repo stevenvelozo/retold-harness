@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retold Harness</title>
+<style>
+	*{box-sizing:border-box;margin:0;padding:0}
+	body{font-family:-apple-system,system-ui,sans-serif;background:#0d1117;color:#c9d1d9;line-height:1.6;padding:2rem}
+	a{color:#58a6ff;text-decoration:none}
+	a:hover{text-decoration:underline}
+	h1{font-size:1.8rem;color:#f0f6fc;margin-bottom:0.25rem}
+	h2{font-size:1.2rem;color:#8b949e;margin-bottom:1.5rem;font-weight:normal}
+	h3{font-size:1rem;color:#f0f6fc;margin:1.25rem 0 0.5rem;padding-bottom:0.25rem;border-bottom:1px solid #21262d}
+	.header{margin-bottom:2rem}
+	.header span{color:#8b949e;font-size:0.85rem}
+	.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:1.25rem;margin-bottom:2rem}
+	.card{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:1.25rem}
+	.card-title{font-size:1.1rem;color:#f0f6fc;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem}
+	.card-title .icon{font-size:1.3rem}
+	.link-row{display:flex;align-items:baseline;gap:0.5rem;margin:0.35rem 0;padding:0.3rem 0.5rem;border-radius:4px;transition:background 0.15s}
+	.link-row:hover{background:#1c2128}
+	.link-row a{font-family:'SFMono-Regular',Consolas,monospace;font-size:0.85rem;white-space:nowrap}
+	.link-row .desc{color:#8b949e;font-size:0.8rem;margin-left:auto;text-align:right;flex-shrink:0}
+	.section-label{font-size:0.75rem;color:#484f58;text-transform:uppercase;letter-spacing:0.05em;margin:0.75rem 0 0.25rem 0.5rem}
+	.try-it{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:1.25rem;margin-bottom:2rem}
+	.try-it h3{margin-top:0}
+	.try-row{display:flex;gap:0.5rem;margin-top:0.75rem;align-items:center;flex-wrap:wrap}
+	.try-row input{background:#0d1117;border:1px solid #30363d;color:#c9d1d9;padding:0.4rem 0.75rem;border-radius:4px;font-family:monospace;font-size:0.85rem;flex:1;min-width:200px}
+	.try-row input:focus{outline:none;border-color:#58a6ff}
+	.try-row button{background:#21262d;border:1px solid #30363d;color:#c9d1d9;padding:0.4rem 1rem;border-radius:4px;cursor:pointer;font-size:0.85rem;white-space:nowrap}
+	.try-row button:hover{background:#30363d}
+	.result-box{margin-top:0.75rem;background:#0d1117;border:1px solid #21262d;border-radius:4px;padding:0.75rem;font-family:monospace;font-size:0.8rem;max-height:300px;overflow:auto;white-space:pre-wrap;display:none;color:#7ee787}
+	.counts{display:flex;gap:1rem;flex-wrap:wrap;margin:0.75rem 0}
+	.count-badge{background:#0d1117;border:1px solid #30363d;border-radius:4px;padding:0.3rem 0.75rem;font-size:0.8rem}
+	.count-badge strong{color:#f0f6fc}
+	.status{display:inline-block;width:8px;height:8px;border-radius:50%;background:#3fb950;margin-right:0.5rem}
+	.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #21262d;color:#484f58;font-size:0.8rem}
+</style>
+</head>
+<body>
+
+<div class="header">
+	<h1><span class="status"></span>Retold Harness</h1>
+	<h2>BookStore API Explorer</h2>
+	<span>SQLite-backed REST API &mdash; <span id="bookCount">...</span> books, <span id="authorCount">...</span> authors</span>
+</div>
+
+<div class="try-it">
+	<h3>Try Any Endpoint</h3>
+	<div class="try-row">
+		<span style="color:#484f58">GET</span>
+		<input type="text" id="endpoint" value="/1.0/Books/0/5" placeholder="/1.0/Books/0/10">
+		<button onclick="tryEndpoint()">Fetch</button>
+		<button onclick="openEndpoint()">Open in Tab</button>
+	</div>
+	<pre class="result-box" id="result"></pre>
+</div>
+
+<div class="grid">
+
+	<!-- Books -->
+	<div class="card">
+		<div class="card-title"><span class="icon">&#x1f4da;</span> Books</div>
+
+		<div class="section-label">Browse</div>
+		<div class="link-row">
+			<a href="/1.0/Books/0/10">/1.0/Books/0/10</a>
+			<span class="desc">First 10 books</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Books/10/10">/1.0/Books/10/10</a>
+			<span class="desc">Books 11&ndash;20</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Books/100/25">/1.0/Books/100/25</a>
+			<span class="desc">25 books starting at row 100</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Book/1">/1.0/Book/1</a>
+			<span class="desc">Single book by ID (with Authors)</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Book/42">/1.0/Book/42</a>
+			<span class="desc">Book #42 (with Authors)</span>
+		</div>
+
+		<div class="section-label">Filter by Title</div>
+		<div class="link-row">
+			<a href="/1.0/Books/FilteredTo/FBV~Title~LK~%25Harry%25">/...FBV~Title~LK~%25Harry%25</a>
+			<span class="desc">Title LIKE '%Harry%'</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Books/FilteredTo/FBV~Title~LK~%25Lord%25">/...FBV~Title~LK~%25Lord%25</a>
+			<span class="desc">Title LIKE '%Lord%'</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Books/FilteredTo/FBV~Title~LK~%25Love%25/0/10">/...Title~LK~%25Love%25/0/10</a>
+			<span class="desc">Title LIKE '%Love%', first 10</span>
+		</div>
+
+		<div class="section-label">Filter by Language</div>
+		<div class="link-row">
+			<a href="/1.0/Books/FilteredTo/FBV~Language~EQ~eng">/...FBV~Language~EQ~eng</a>
+			<span class="desc">Language = eng (6,341 books)</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Books/FilteredTo/FBV~Language~EQ~fre">/...FBV~Language~EQ~fre</a>
+			<span class="desc">Language = fre (French)</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Books/FilteredTo/FBV~Language~EQ~ara">/...FBV~Language~EQ~ara</a>
+			<span class="desc">Language = ara (Arabic)</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Books/FilteredTo/FBV~Language~EQ~spa">/...FBV~Language~EQ~spa</a>
+			<span class="desc">Language = spa (Spanish)</span>
+		</div>
+
+		<div class="section-label">Filter by Year</div>
+		<div class="link-row">
+			<a href="/1.0/Books/FilteredTo/FBV~PublicationYear~LT~1950/0/20">/...PublicationYear~LT~1950/0/20</a>
+			<span class="desc">Published before 1950</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Books/FilteredTo/FBV~PublicationYear~GTE~2010/0/20">/...PublicationYear~GTE~2010/0/20</a>
+			<span class="desc">Published 2010 or later, first 20</span>
+		</div>
+
+		<div class="section-label">Count &amp; Schema</div>
+		<div class="link-row">
+			<a href="/1.0/Books/Count">/1.0/Books/Count</a>
+			<span class="desc">Total book count</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Books/Count/FilteredTo/FBV~Language~EQ~eng">/...Count/.../Language~EQ~eng</a>
+			<span class="desc">Count of English books</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Book/Schema">/1.0/Book/Schema</a>
+			<span class="desc">Book JSON schema</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Book/Schema/New">/1.0/Book/Schema/New</a>
+			<span class="desc">Default new Book object</span>
+		</div>
+	</div>
+
+	<!-- Authors -->
+	<div class="card">
+		<div class="card-title"><span class="icon">&#x270d;&#xfe0f;</span> Authors</div>
+
+		<div class="section-label">Browse</div>
+		<div class="link-row">
+			<a href="/1.0/Authors/0/10">/1.0/Authors/0/10</a>
+			<span class="desc">First 10 authors</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Authors/50/10">/1.0/Authors/50/10</a>
+			<span class="desc">Authors 51&ndash;60</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Author/1">/1.0/Author/1</a>
+			<span class="desc">Single author by ID</span>
+		</div>
+
+		<div class="section-label">Filter</div>
+		<div class="link-row">
+			<a href="/1.0/Authors/FilteredTo/FBV~Name~LK~%25Tolkien%25">/...Name~LK~%25Tolkien%25</a>
+			<span class="desc">Name LIKE '%Tolkien%'</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Authors/FilteredTo/FBV~Name~LK~%25Stephen%25">/...Name~LK~%25Stephen%25</a>
+			<span class="desc">Name LIKE '%Stephen%'</span>
+		</div>
+
+		<div class="section-label">Count</div>
+		<div class="link-row">
+			<a href="/1.0/Authors/Count">/1.0/Authors/Count</a>
+			<span class="desc">Total author count</span>
+		</div>
+	</div>
+
+	<!-- Book-Author Joins -->
+	<div class="card">
+		<div class="card-title"><span class="icon">&#x1f517;</span> Book &harr; Author Joins</div>
+
+		<div class="section-label">Browse</div>
+		<div class="link-row">
+			<a href="/1.0/BookAuthorJoins/0/10">/1.0/BookAuthorJoins/0/10</a>
+			<span class="desc">First 10 joins</span>
+		</div>
+
+		<div class="section-label">Filter</div>
+		<div class="link-row">
+			<a href="/1.0/BookAuthorJoins/FilteredTo/FBV~IDBook~EQ~1">/...FBV~IDBook~EQ~1</a>
+			<span class="desc">Authors for Book #1</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/BookAuthorJoins/FilteredTo/FBV~IDAuthor~EQ~2">/...FBV~IDAuthor~EQ~2</a>
+			<span class="desc">Books by Author #2</span>
+		</div>
+
+		<div class="section-label">Count</div>
+		<div class="link-row">
+			<a href="/1.0/BookAuthorJoins/Count">/1.0/BookAuthorJoins/Count</a>
+			<span class="desc">Total join count</span>
+		</div>
+	</div>
+
+	<!-- Users -->
+	<div class="card">
+		<div class="card-title"><span class="icon">&#x1f464;</span> Users</div>
+
+		<div class="section-label">Browse</div>
+		<div class="link-row">
+			<a href="/1.0/Users">/1.0/Users</a>
+			<span class="desc">All users</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/User/1">/1.0/User/1</a>
+			<span class="desc">Admin user</span>
+		</div>
+
+		<div class="section-label">Count &amp; Schema</div>
+		<div class="link-row">
+			<a href="/1.0/Users/Count">/1.0/Users/Count</a>
+			<span class="desc">Total user count</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/User/Schema">/1.0/User/Schema</a>
+			<span class="desc">User JSON schema</span>
+		</div>
+	</div>
+
+	<!-- BookPrices -->
+	<div class="card">
+		<div class="card-title"><span class="icon">&#x1f4b2;</span> Book Prices</div>
+
+		<div class="section-label">Browse</div>
+		<div class="link-row">
+			<a href="/1.0/BookPrices/0/20">/1.0/BookPrices/0/20</a>
+			<span class="desc">First 20 prices</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/BookPrice/1">/1.0/BookPrice/1</a>
+			<span class="desc">Single price record</span>
+		</div>
+
+		<div class="section-label">Filter</div>
+		<div class="link-row">
+			<a href="/1.0/BookPrices/FilteredTo/FBV~IDBook~EQ~1">/...FBV~IDBook~EQ~1</a>
+			<span class="desc">Prices for Book #1</span>
+		</div>
+
+		<div class="section-label">Count</div>
+		<div class="link-row">
+			<a href="/1.0/BookPrices/Count">/1.0/BookPrices/Count</a>
+			<span class="desc">Total price records</span>
+		</div>
+	</div>
+
+	<!-- BookStores -->
+	<div class="card">
+		<div class="card-title"><span class="icon">&#x1f3ea;</span> Book Stores</div>
+
+		<div class="section-label">Browse</div>
+		<div class="link-row">
+			<a href="/1.0/BookStores">/1.0/BookStores</a>
+			<span class="desc">All stores</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/BookStore/1">/1.0/BookStore/1</a>
+			<span class="desc">Single store</span>
+		</div>
+
+		<div class="section-label">Filter</div>
+		<div class="link-row">
+			<a href="/1.0/BookStores/FilteredTo/FBV~State~EQ~OR">/...FBV~State~EQ~OR</a>
+			<span class="desc">Stores in Oregon</span>
+		</div>
+
+		<div class="section-label">Count</div>
+		<div class="link-row">
+			<a href="/1.0/BookStores/Count">/1.0/BookStores/Count</a>
+			<span class="desc">Total stores</span>
+		</div>
+	</div>
+
+	<!-- Inventory -->
+	<div class="card">
+		<div class="card-title"><span class="icon">&#x1f4e6;</span> Inventory</div>
+
+		<div class="section-label">Browse</div>
+		<div class="link-row">
+			<a href="/1.0/BookStoreInventorys/0/20">/1.0/BookStoreInventorys/0/20</a>
+			<span class="desc">First 20 inventory records</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/BookStoreInventory/1">/1.0/BookStoreInventory/1</a>
+			<span class="desc">Single inventory record</span>
+		</div>
+
+		<div class="section-label">Filter</div>
+		<div class="link-row">
+			<a href="/1.0/BookStoreInventorys/FilteredTo/FBV~IDBookStore~EQ~1">/...IDBookStore~EQ~1</a>
+			<span class="desc">Inventory for Store #1</span>
+		</div>
+
+		<div class="section-label">Count</div>
+		<div class="link-row">
+			<a href="/1.0/BookStoreInventorys/Count">/1.0/BookStoreInventorys/Count</a>
+			<span class="desc">Total inventory records</span>
+		</div>
+	</div>
+
+	<!-- Reviews -->
+	<div class="card">
+		<div class="card-title"><span class="icon">&#x2b50;</span> Reviews</div>
+
+		<div class="section-label">Browse</div>
+		<div class="link-row">
+			<a href="/1.0/Reviews/0/10">/1.0/Reviews/0/10</a>
+			<span class="desc">First 10 reviews</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Review/1">/1.0/Review/1</a>
+			<span class="desc">Single review</span>
+		</div>
+
+		<div class="section-label">Filter</div>
+		<div class="link-row">
+			<a href="/1.0/Reviews/FilteredTo/FBV~IDBook~EQ~1">/...FBV~IDBook~EQ~1</a>
+			<span class="desc">Reviews for Book #1</span>
+		</div>
+		<div class="link-row">
+			<a href="/1.0/Reviews/FilteredTo/FBV~Rating~EQ~5">/...FBV~Rating~EQ~5</a>
+			<span class="desc">5-star reviews</span>
+		</div>
+
+		<div class="section-label">Count</div>
+		<div class="link-row">
+			<a href="/1.0/Reviews/Count">/1.0/Reviews/Count</a>
+			<span class="desc">Total reviews</span>
+		</div>
+	</div>
+
+</div>
+
+<div class="card" style="max-width:860px">
+	<div class="card-title"><span class="icon">&#x1f4d6;</span> Filter Syntax Reference</div>
+	<p style="color:#8b949e;font-size:0.85rem;margin-bottom:0.75rem">
+		Filters use the <code style="color:#f0f6fc;background:#21262d;padding:0.15rem 0.4rem;border-radius:3px">FilteredTo/FBV~Column~Operator~Value</code> pattern in the URL.
+	</p>
+	<div style="display:grid;grid-template-columns:auto 1fr;gap:0.25rem 1rem;font-size:0.85rem;margin-top:0.5rem">
+		<code style="color:#ff7b72">EQ</code><span style="color:#8b949e">Equals &mdash; exact match</span>
+		<code style="color:#ff7b72">NE</code><span style="color:#8b949e">Not equals</span>
+		<code style="color:#ff7b72">GT</code><span style="color:#8b949e">Greater than</span>
+		<code style="color:#ff7b72">GTE</code><span style="color:#8b949e">Greater than or equal</span>
+		<code style="color:#ff7b72">LT</code><span style="color:#8b949e">Less than</span>
+		<code style="color:#ff7b72">LTE</code><span style="color:#8b949e">Less than or equal</span>
+		<code style="color:#ff7b72">LK</code><span style="color:#8b949e">LIKE &mdash; use <code>%25</code> for wildcard (URL-encoded %)</span>
+	</div>
+	<p style="color:#8b949e;font-size:0.85rem;margin-top:0.75rem">
+		Pagination: append <code style="color:#f0f6fc;background:#21262d;padding:0.15rem 0.4rem;border-radius:3px">/{Begin}/{Cap}</code> to any plural endpoint. Begin is 0-based offset, Cap is max rows.
+	</p>
+</div>
+
+<div class="footer">
+	Retold Harness &mdash; SQLite-backed BookStore API on port 8086
+</div>
+
+<script>
+function tryEndpoint()
+{
+	var tmpInput = document.getElementById('endpoint');
+	var tmpResult = document.getElementById('result');
+	tmpResult.style.display = 'block';
+	tmpResult.textContent = 'Loading...';
+	fetch(tmpInput.value)
+		.then(function(r) { return r.text(); })
+		.then(function(t)
+		{
+			try { tmpResult.textContent = JSON.stringify(JSON.parse(t), null, 2); }
+			catch(e) { tmpResult.textContent = t; }
+		})
+		.catch(function(e) { tmpResult.textContent = 'Error: ' + e.message; });
+}
+
+function openEndpoint()
+{
+	window.open(document.getElementById('endpoint').value, '_blank');
+}
+
+// Let the user press Enter in the input to fetch
+document.getElementById('endpoint').addEventListener('keydown', function(e)
+{
+	if (e.key === 'Enter') { tryEndpoint(); }
+});
+
+// Load counts on page load
+fetch('/1.0/Books/Count').then(function(r){return r.json();}).then(function(d){document.getElementById('bookCount').textContent=d.Count.toLocaleString();}).catch(function(){});
+fetch('/1.0/Authors/Count').then(function(r){return r.json();}).then(function(d){document.getElementById('authorCount').textContent=d.Count.toLocaleString();}).catch(function(){});
+</script>
+
+</body>
+</html>
