@@ -1,6 +1,6 @@
-# Use the codercom/code-server image
+# Use the codercom/code-server image for the VS Code browser IDE
 FROM codercom/code-server:latest
-MAINTAINER steven velozo
+LABEL maintainer="steven velozo <steven@velozo.com>"
 
 VOLUME /home/coder/.config
 VOLUME /home/coder/.vscode
@@ -11,23 +11,6 @@ RUN sudo apt install vim curl tmux -y
 
 RUN echo "Building development image..."
 
-RUN echo "...configuring mariadb (mysql) server...."
-RUN sudo apt install default-mysql-server default-mysql-client -y
-RUN sudo sed -i "s|bind-address|#bind-address|g" /etc/mysql/mariadb.conf.d/50-server.cnf
-ADD ./source/model/mysql_create/MySQL-Configure-Security.sql /home/coder/MySQL-Configure-Security.sql
-ADD ./docker_scripts/MySQL-Laden-Entry.sh /usr/bin/MySQL-Laden-Entry.sh
-RUN ( sudo mysqld_safe --skip-grant-tables --skip-networking & ) && sleep 5 &&  mysql -u root < /home/coder/MySQL-Configure-Security.sql
-
-# Import the initial database
-COPY ./source/model/mysql_create/MeadowModel-CreateMySQLDatabase.mysql.sql /home/coder/MeadowModel-CreateMySQLDatabase.mysql.sql
-COPY ./source/model/mysql_create/MeadowModel-PopulateDatabase.sql /home/coder/MeadowModel-PopulateDatabase.sql
-
-RUN sudo service mariadb restart && sleep 5 && mysql -u root -p"123456789" -e "CREATE DATABASE bookstore;"
-RUN sudo service mariadb restart && sleep 5 && mysql -u root -p"123456789" bookstore < /home/coder/MeadowModel-CreateMySQLDatabase.mysql.sql
-RUN sudo service mariadb restart && sleep 5 && mysql -u root -p"123456789" bookstore < /home/coder/MeadowModel-PopulateDatabase.sql
-
-RUN echo "...mapping library specific volumes..."
-
 # Volume mapping for code
 VOLUME /home/coder/retold-harness
 
@@ -35,15 +18,15 @@ SHELL ["/bin/bash", "-c"]
 USER coder
 
 RUN echo "...installing node version manager..."
-# Because there is a .bashrc chicken/egg problem, we will create one here to simulate logging in.  This is not great.
 RUN touch ~/.bashrc && chmod +x ~/.bashrc
 RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 RUN chmod +x ~/.nvm/nvm.sh
 
 RUN echo "...installing node version 20 as the default..."
 RUN . ~/.nvm/nvm.sh && source ~/.bashrc && nvm install 20
-RUN . ~/.nvm/nvm.sh && source ~/.bashrc && nvm alias default 20 
+RUN . ~/.nvm/nvm.sh && source ~/.bashrc && nvm alias default 20
 
 WORKDIR /home/coder/retold-harness
 
-ENTRYPOINT ["/usr/bin/MySQL-Laden-Entry.sh"]
+COPY --chmod=755 ./docker_scripts/Entry.sh /usr/bin/Entry.sh
+ENTRYPOINT ["/usr/bin/Entry.sh"]

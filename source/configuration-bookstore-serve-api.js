@@ -21,21 +21,15 @@ module.exports = (
 
 		"RetoldDataServiceOptions":
 		{
-			"StorageProvider": "MySQL",
-			"StorageProviderModule": "meadow-connection-mysql",
+			"StorageProvider": "SQLite",
+			"StorageProviderModule": "meadow-connection-sqlite",
 
 			"FullMeadowSchemaPath": `${__dirname}/model/`,
 			"FullMeadowSchemaFilename": `MeadowModel-Extended.json`,
 		},
 
-		"MySQL":
+		"SQLite":
 			{
-				"Server": "127.0.0.1",
-				"Port": 3306,
-				"User": "root",
-				"Password": "123456789",
-				"Database": "bookstore",
-				"ConnectionPoolLimit": 20
-			},
-		"MeadowConnectionMySQLAutoConnect": true
+				"SQLiteFilePath": `${__dirname}/../data/bookstore.sqlite`
+			}
 	});
