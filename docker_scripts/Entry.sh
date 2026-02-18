@@ -14,6 +14,9 @@ export HOME=/home/coder
 bash -i <(echo "npm install pm2 -g")
 # Install the dependencies for node
 bash -i <(echo "npm install")
+# Rebuild native addons for the container platform (the volume mount
+# brings in the host's node_modules which may have Mac/Windows binaries)
+bash -i <(echo "npm rebuild better-sqlite3")
 # Now run the harness API within the pm2 process manager
 bash -i <(echo "pm2 start /home/coder/retold-harness/source/Retold-Harness.js")
 

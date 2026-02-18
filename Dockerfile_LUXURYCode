@@ -7,7 +7,7 @@ VOLUME /home/coder/.vscode
 
 RUN echo "...installing debian dependencies..."
 RUN sudo apt update
-RUN sudo apt install vim curl tmux -y
+RUN sudo apt install vim curl tmux python3 make g++ -y
 
 RUN echo "Building development image..."
 
