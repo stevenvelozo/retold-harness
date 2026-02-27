@@ -36,8 +36,6 @@
         "retold-data-service": "^2.0.11"
     },
     "devDependencies": {
-        "chai": "^4.3.6",
-        "mocha": "^10.2.0",
         "quackage": "^1.0.50",
         "stricture": "^1.0.38",
         "supertest": "^6.3.3"
