@@ -145,3 +145,8 @@ dist
 
 # SQLite database files
 data/
+
+# Added by quackage update-node-gitignore
+
+# Test Environment
+debug/testenv
