@@ -1,6 +1,6 @@
 {
     "name": "retold-harness",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Restful API harness.  Serves on 8086.",
     "main": "source/Retold-Harness.js",
     "bin": {
@@ -33,11 +33,11 @@
     "homepage": "https://github.com/stevenvelozo/retold-harness#readme",
     "dependencies": {
         "meadow-connection-sqlite": "^1.0.11",
-        "retold-data-service": "^2.0.11"
+        "retold-data-service": "^2.0.12"
     },
     "devDependencies": {
         "quackage": "^1.0.58",
-        "stricture": "^1.0.38",
+        "stricture": "^3.0.1",
         "supertest": "^6.3.3"
     },
     "mocha": {
