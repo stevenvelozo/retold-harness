@@ -150,3 +150,8 @@ data/
 
 # Test Environment
 debug/testenv
+
+# Added by quackage update-node-gitignore
+
+# Quackage takes care of these for me!
+*.quackage.bak
