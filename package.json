@@ -36,7 +36,7 @@
         "retold-data-service": "^2.0.11"
     },
     "devDependencies": {
-        "quackage": "^1.0.50",
+        "quackage": "^1.0.58",
         "stricture": "^1.0.38",
         "supertest": "^6.3.3"
     },
