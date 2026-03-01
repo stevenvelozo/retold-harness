@@ -125,7 +125,7 @@ class ProcessManager extends libFableServiceProviderBase
 		let tmpCmd = `docker compose -f "${this._DockerComposePath}" up ${pServiceName} -d`;
 		this.log.info(`Starting Docker service: ${tmpCmd}`);
 
-		libChildProcess.exec(tmpCmd, { timeout: 60000 },
+		libChildProcess.exec(tmpCmd, { timeout: 60000, cwd: this._HarnessPath },
 			(pError, pStdout, pStderr) =>
 			{
 				if (pError)
@@ -152,7 +152,7 @@ class ProcessManager extends libFableServiceProviderBase
 		let tmpCmd = `docker compose -f "${this._DockerComposePath}" stop ${pServiceName}`;
 		this.log.info(`Stopping Docker service: ${tmpCmd}`);
 
-		libChildProcess.exec(tmpCmd, { timeout: 30000 },
+		libChildProcess.exec(tmpCmd, { timeout: 30000, cwd: this._HarnessPath },
 			(pError, pStdout, pStderr) =>
 			{
 				if (pError)
