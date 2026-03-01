@@ -258,8 +258,8 @@ suite
 						_Fable.serviceManager.addServiceType('RetoldDataService', libRetoldDataService);
 						_RetoldDataService = _Fable.serviceManager.instantiateServiceProvider('RetoldDataService',
 							{
-								FullMeadowSchemaPath: `${__dirname}/../source/model/`,
-								FullMeadowSchemaFilename: `MeadowModel-Extended.json`,
+								FullMeadowSchemaPath: `${__dirname}/../source/schemas/bookstore/`,
+								FullMeadowSchemaFilename: `Schema.json`,
 
 								StorageProvider: 'SQLite',
 								StorageProviderModule: 'meadow-connection-sqlite',
@@ -2211,8 +2211,8 @@ suite
 						let tmpService = tmpFable.serviceManager.instantiateServiceProvider('RetoldDataService',
 							{
 								AutoStartOrator: false,
-								FullMeadowSchemaPath: `${__dirname}/../source/model/`,
-								FullMeadowSchemaFilename: `MeadowModel-Extended.json`
+								FullMeadowSchemaPath: `${__dirname}/../source/schemas/bookstore/`,
+								FullMeadowSchemaFilename: `Schema.json`
 							});
 						tmpService.stopService(
 							(pError) =>

@@ -19,13 +19,16 @@ module.exports = (
 
 		"APIServerPort": parseInt(process.env.PORT, 10) || 8086,
 
+		"HarnessSchema": process.env.HARNESS_SCHEMA || "bookstore",
+		"HarnessProvider": process.env.HARNESS_PROVIDER || "sqlite",
+
 		"RetoldDataServiceOptions":
 		{
 			"StorageProvider": "SQLite",
 			"StorageProviderModule": "meadow-connection-sqlite",
 
-			"FullMeadowSchemaPath": `${__dirname}/model/`,
-			"FullMeadowSchemaFilename": `MeadowModel-Extended.json`,
+			"FullMeadowSchemaPath": `${__dirname}/schemas/bookstore/`,
+			"FullMeadowSchemaFilename": `Schema.json`,
 		},
 
 		"SQLite":
