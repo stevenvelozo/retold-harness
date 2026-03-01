@@ -4,23 +4,20 @@
     "description": "Restful API harness.  Serves on 8086.",
     "main": "source/Retold-Harness.js",
     "bin": {
-        "retold-harness": "./bin/retold-harness.js"
+        "retold-harness": "./bin/retold-harness.js",
+        "retold-harness-management-tool": "./source/management-tool/bin/retold-harness-management-tool.js"
     },
     "scripts": {
         "start": "node source/Retold-Harness.js",
-        "harness": "node source/Retold-Harness.js",
+        "manage": "node source/management-tool/Retold-Harness-Management-Tool.js",
         "test": "npx quack test",
         "tests": "npx quack test -g",
         "coverage": "npx quack coverage",
-        "build": "npx quack build",
         "build-model": "npm run build-schema-bookstore",
         "build-schema-bookstore": "cd source/schemas/bookstore && npx stricture -i BookStore.ddl -c Compile -f ./ -o MeadowModel && cp MeadowModel-Extended.json Schema.json",
-        "docker-dev-build": "docker build ./ -f Dockerfile_LUXURYCode -t retold-harness-image:local",
-        "docker-dev-run": "docker run -it -d --name retold-harness-dev -p 20001:8080 -p 8086:8086 -v \"$PWD/.config:/home/coder/.config\" -v \"$PWD:/home/coder/retold-harness\" -u \"$(id -u):$(id -g)\" -e \"DOCKER_USER=$USER\" retold-harness-image:local",
-        "docker-dev-shell": "docker exec -it retold-harness-dev /bin/bash",
-        "docker-dev-service-build": "docker build ./ -f Dockerfile_Service -t retold-harness-service-image:local",
-        "docker-dev-service-run": "docker run -it --init -d --name retold-harness-dev-service -p 8086:8086 -v \"$(pwd):/retold-harness:z\" retold-harness-service-image:local",
-        "docker-dev-service-shell": "docker exec -it retold-harness-dev-service /bin/bash"
+        "docker-dev-build": "docker build ./ -f Dockerfile_Service -t retold-harness-image:local",
+        "docker-dev-run": "docker run -it --init -d --name retold-harness-dev -p 8086:8086 -v \"$(pwd):/retold-harness:z\" retold-harness-image:local",
+        "docker-dev-shell": "docker exec -it retold-harness-dev /bin/bash"
     },
     "repository": {
         "type": "git",
@@ -33,13 +30,24 @@
     },
     "homepage": "https://github.com/stevenvelozo/retold-harness#readme",
     "dependencies": {
-        "meadow-connection-sqlite": "^1.0.11",
-        "retold-data-service": "^2.0.12"
+        "blessed": "^0.1.81",
+        "meadow-connection-dgraph": "^1.0.0",
+        "meadow-connection-mongodb": "^1.0.0",
+        "meadow-connection-mssql": "^1.0.12",
+        "meadow-connection-mysql": "^1.0.9",
+        "meadow-connection-postgresql": "^1.0.0",
+        "meadow-connection-solr": "^1.0.0",
+        "meadow-connection-sqlite": "^1.0.13",
+        "pict": "^1.0.343",
+        "pict-application": "^1.0.28",
+        "pict-terminalui": "^0.0.3",
+        "pict-view": "^1.0.64",
+        "retold-data": "^2.0.12"
     },
     "devDependencies": {
         "quackage": "^1.0.59",
         "stricture": "^3.0.1",
-        "supertest": "^6.3.3"
+        "supertest": "^7.2.2"
     },
     "mocha": {
         "diff": true,

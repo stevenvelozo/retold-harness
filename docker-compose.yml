@@ -1,0 +1,107 @@
+# Retold Harness - Database Services
+#
+# Start databases for development:
+#   docker compose up -d                # Start all databases
+#   docker compose up mysql -d          # Start MySQL only
+#   docker compose up mssql -d          # Start MSSQL only
+#   docker compose up postgresql -d     # Start PostgreSQL only
+#   docker compose up mongodb -d        # Start MongoDB only
+#   docker compose up dgraph -d         # Start DGraph only
+#   docker compose up solr -d           # Start Solr only
+#
+# Then run the harness with the desired provider:
+#   HARNESS_PROVIDER=sqlite npm start       # SQLite (default, no Docker needed)
+#   HARNESS_PROVIDER=mysql npm start        # MySQL
+#   HARNESS_PROVIDER=mssql npm start        # MSSQL
+#   HARNESS_PROVIDER=postgresql npm start   # PostgreSQL
+#   HARNESS_PROVIDER=mongodb npm start      # MongoDB
+#   HARNESS_PROVIDER=dgraph npm start       # DGraph
+#   HARNESS_PROVIDER=solr npm start         # Solr
+#
+# Stop databases:
+#   docker compose down
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: retold-harness-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234567890"
+      MYSQL_DATABASE: bookstore
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p1234567890"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    platform: linux/amd64
+    container_name: retold-harness-mssql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Retold1234567890!"
+    ports:
+      - "1433:1433"
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'Retold1234567890!' -C -Q 'SELECT 1' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 15s
+
+  postgresql:
+    image: postgres:16
+    container_name: retold-harness-postgresql
+    environment:
+      POSTGRES_PASSWORD: "retold1234567890"
+      POSTGRES_DB: bookstore
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+  mongodb:
+    image: mongo:7
+    container_name: retold-harness-mongodb
+    ports:
+      - "27017:27017"
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+  dgraph:
+    image: dgraph/standalone:latest
+    container_name: retold-harness-dgraph
+    ports:
+      - "8080:8080"
+      - "9080:9080"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8080/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 15s
+
+  solr:
+    image: solr:9
+    container_name: retold-harness-solr
+    ports:
+      - "8983:8983"
+    command: solr-precreate bookstore
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8983/solr/bookstore/admin/ping || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s

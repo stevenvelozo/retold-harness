@@ -84,6 +84,18 @@ class RetoldHarnessSchemaProvider extends libFableServiceProviderBase
 	}
 
 	/**
+	 * Get a SQL query that checks whether seed data has already been loaded.
+	 * Should return a query that produces a { cnt } result where cnt > 0
+	 * means data exists. Return false if seeding should always run.
+	 *
+	 * @returns {string|boolean} SQL query string or false
+	 */
+	getSeedCheckQuery()
+	{
+		return false;
+	}
+
+	/**
 	 * Apply endpoint behaviors after the data service is initialized.
 	 * Default is a no-op. Override to inject behaviors.
 	 *

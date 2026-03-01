@@ -10,17 +10,23 @@
 */
 const libFable = require('fable');
 
-const _Settings = require('./configuration-bookstore-serve-api.js');
+const _Settings = require('./schemas/configuration-bookstore-serve-api.js');
 
 // Schema and provider maps -- add new schemas/providers here
 const _SchemaMap =
 {
-	'bookstore': require('./Retold-Harness-Service-Schema-Bookstore.js')
+	'bookstore': require('./schemas/Retold-Harness-Service-Schema-Bookstore.js')
 };
 
 const _ProviderMap =
 {
-	'sqlite': require('./Retold-Harness-Service-Provider-SQLite.js')
+	'sqlite': require('./providers/Retold-Harness-Service-Provider-SQLite.js'),
+	'mysql': require('./providers/Retold-Harness-Service-Provider-MySQL.js'),
+	'mssql': require('./providers/Retold-Harness-Service-Provider-MSSQL.js'),
+	'postgresql': require('./providers/Retold-Harness-Service-Provider-PostgreSQL.js'),
+	'mongodb': require('./providers/Retold-Harness-Service-Provider-MongoDB.js'),
+	'dgraph': require('./providers/Retold-Harness-Service-Provider-DGraph.js'),
+	'solr': require('./providers/Retold-Harness-Service-Provider-Solr.js')
 };
 
 // Initialize fable

@@ -111,7 +111,7 @@ class RetoldHarnessMeadowProviderConfigurator extends libFableServiceProviderBas
 	 */
 	serveWebUI(fCallback)
 	{
-		let tmpWebUIPath = libPath.join(__dirname, 'web', 'index.html');
+		let tmpWebUIPath = libPath.join(__dirname, '..', 'web', 'index.html');
 
 		if (!libFS.existsSync(tmpWebUIPath))
 		{
