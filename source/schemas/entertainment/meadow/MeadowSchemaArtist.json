@@ -1,0 +1,575 @@
+{
+    "Scope": "Artist",
+    "DefaultIdentifier": "IDArtist",
+    "Domain": "Default",
+    "Schema": [
+        {
+            "Column": "IDArtist",
+            "Type": "AutoIdentity",
+            "Size": "Default"
+        },
+        {
+            "Column": "GUIDArtist",
+            "Type": "AutoGUID",
+            "Size": "128"
+        },
+        {
+            "Column": "CreateDate",
+            "Type": "CreateDate",
+            "Size": "Default"
+        },
+        {
+            "Column": "CreatingIDUser",
+            "Type": "CreateIDUser",
+            "Size": "int"
+        },
+        {
+            "Column": "UpdateDate",
+            "Type": "UpdateDate",
+            "Size": "Default"
+        },
+        {
+            "Column": "UpdatingIDUser",
+            "Type": "UpdateIDUser",
+            "Size": "int"
+        },
+        {
+            "Column": "Deleted",
+            "Type": "Deleted",
+            "Size": "Default"
+        },
+        {
+            "Column": "DeleteDate",
+            "Type": "DeleteDate",
+            "Size": "Default"
+        },
+        {
+            "Column": "DeletingIDUser",
+            "Type": "DeleteIDUser",
+            "Size": "int"
+        },
+        {
+            "Column": "Name",
+            "Type": "String",
+            "Size": "255"
+        },
+        {
+            "Column": "SortName",
+            "Type": "String",
+            "Size": "255"
+        },
+        {
+            "Column": "ExternalID",
+            "Type": "String",
+            "Size": "64"
+        },
+        {
+            "Column": "ArtistType",
+            "Type": "String",
+            "Size": "32"
+        },
+        {
+            "Column": "BeginYear",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "EndYear",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "Country",
+            "Type": "String",
+            "Size": "128"
+        },
+        {
+            "Column": "Disambiguation",
+            "Type": "String",
+            "Size": "512"
+        },
+        {
+            "Column": "IDPerson",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "IDDataSource",
+            "Type": "Integer",
+            "Size": "int"
+        }
+    ],
+    "DefaultObject": {
+        "IDArtist": 0,
+        "GUIDArtist": "0x0000000000000000",
+        "CreateDate": null,
+        "CreatingIDUser": 0,
+        "UpdateDate": null,
+        "UpdatingIDUser": 0,
+        "Deleted": false,
+        "DeleteDate": null,
+        "DeletingIDUser": 0,
+        "Name": "",
+        "SortName": "",
+        "ExternalID": "",
+        "ArtistType": "",
+        "BeginYear": 0,
+        "EndYear": 0,
+        "Country": "",
+        "Disambiguation": "",
+        "IDPerson": 0,
+        "IDDataSource": 0
+    },
+    "JsonSchema": {
+        "title": "Artist",
+        "type": "object",
+        "properties": {
+            "IDArtist": {
+                "type": "integer",
+                "size": "Default"
+            },
+            "GUIDArtist": {
+                "type": "string",
+                "size": "128"
+            },
+            "CreateDate": {
+                "type": "string",
+                "size": "Default"
+            },
+            "CreatingIDUser": {
+                "type": "integer",
+                "size": "int"
+            },
+            "UpdateDate": {
+                "type": "string",
+                "size": "Default"
+            },
+            "UpdatingIDUser": {
+                "type": "integer",
+                "size": "int"
+            },
+            "Deleted": {
+                "type": "boolean",
+                "size": "Default"
+            },
+            "DeleteDate": {
+                "type": "string",
+                "size": "Default"
+            },
+            "DeletingIDUser": {
+                "type": "integer",
+                "size": "int"
+            },
+            "Name": {
+                "type": "string",
+                "size": "255"
+            },
+            "SortName": {
+                "type": "string",
+                "size": "255"
+            },
+            "ExternalID": {
+                "type": "string",
+                "size": "64"
+            },
+            "ArtistType": {
+                "type": "string",
+                "size": "32"
+            },
+            "BeginYear": {
+                "type": "integer",
+                "size": "int"
+            },
+            "EndYear": {
+                "type": "integer",
+                "size": "int"
+            },
+            "Country": {
+                "type": "string",
+                "size": "128"
+            },
+            "Disambiguation": {
+                "type": "string",
+                "size": "512"
+            },
+            "IDPerson": {
+                "type": "integer",
+                "size": "int"
+            },
+            "IDDataSource": {
+                "type": "integer",
+                "size": "int"
+            }
+        },
+        "required": [
+            "IDArtist"
+        ],
+        "MeadowSchema": {
+            "Scope": "Artist",
+            "DefaultIdentifier": "IDArtist",
+            "Domain": "Default",
+            "Schema": [
+                {
+                    "Column": "IDArtist",
+                    "Type": "AutoIdentity",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "GUIDArtist",
+                    "Type": "AutoGUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "Type": "CreateDate",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "Type": "CreateIDUser",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "Type": "UpdateDate",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "Type": "UpdateIDUser",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "Type": "Deleted",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "Type": "DeleteDate",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "Type": "DeleteIDUser",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "Type": "String",
+                    "Size": "255"
+                },
+                {
+                    "Column": "SortName",
+                    "Type": "String",
+                    "Size": "255"
+                },
+                {
+                    "Column": "ExternalID",
+                    "Type": "String",
+                    "Size": "64"
+                },
+                {
+                    "Column": "ArtistType",
+                    "Type": "String",
+                    "Size": "32"
+                },
+                {
+                    "Column": "BeginYear",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "EndYear",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Country",
+                    "Type": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "Disambiguation",
+                    "Type": "String",
+                    "Size": "512"
+                },
+                {
+                    "Column": "IDPerson",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "IDDataSource",
+                    "Type": "Integer",
+                    "Size": "int"
+                }
+            ],
+            "DefaultObject": {
+                "IDArtist": 0,
+                "GUIDArtist": "0x0000000000000000",
+                "CreateDate": null,
+                "CreatingIDUser": 0,
+                "UpdateDate": null,
+                "UpdatingIDUser": 0,
+                "Deleted": false,
+                "DeleteDate": null,
+                "DeletingIDUser": 0,
+                "Name": "",
+                "SortName": "",
+                "ExternalID": "",
+                "ArtistType": "",
+                "BeginYear": 0,
+                "EndYear": 0,
+                "Country": "",
+                "Disambiguation": "",
+                "IDPerson": 0,
+                "IDDataSource": 0
+            },
+            "Authorization": {
+                "__DefaultAPISecurity": {
+                    "Create": "Deny",
+                    "Read": "Deny",
+                    "Reads": "Deny",
+                    "ReadsBy": "Deny",
+                    "ReadMax": "Deny",
+                    "ReadSelectList": "Deny",
+                    "Update": "Deny",
+                    "Delete": "Deny",
+                    "Count": "Deny",
+                    "CountBy": "Deny",
+                    "Schema": "Deny",
+                    "Validate": "Deny",
+                    "New": "Deny"
+                },
+                "Unauthenticated": {
+                    "Create": "Deny",
+                    "Read": "Deny",
+                    "Reads": "Deny",
+                    "ReadsBy": "Deny",
+                    "ReadMax": "Deny",
+                    "ReadSelectList": "Deny",
+                    "Update": "Deny",
+                    "Delete": "Deny",
+                    "Count": "Deny",
+                    "CountBy": "Deny",
+                    "Schema": "Deny",
+                    "Validate": "Deny",
+                    "New": "Deny"
+                },
+                "Readonly": {
+                    "Create": "Deny",
+                    "Read": "Allow",
+                    "Reads": "Allow",
+                    "ReadsBy": "Allow",
+                    "ReadMax": "Allow",
+                    "ReadSelectList": "Allow",
+                    "Update": "Deny",
+                    "Delete": "Deny",
+                    "Count": "Allow",
+                    "CountBy": "Allow",
+                    "Schema": "Allow",
+                    "Validate": "Allow",
+                    "New": "Deny"
+                },
+                "User": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "Mine",
+                    "Delete": "Mine",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Manager": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "Mine",
+                    "Delete": "Mine",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Director": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "MyCustomer",
+                    "Delete": "MyCustomer",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Executive": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "MyCustomer",
+                    "Delete": "MyCustomer",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Administrator": {
+                    "Create": "Allow",
+                    "Read": "Allow",
+                    "Reads": "Allow",
+                    "ReadsBy": "Allow",
+                    "ReadMax": "Allow",
+                    "ReadSelectList": "Allow",
+                    "Update": "Allow",
+                    "Delete": "Allow",
+                    "Count": "Allow",
+                    "CountBy": "Allow",
+                    "Schema": "Allow",
+                    "Validate": "Allow",
+                    "New": "Allow"
+                }
+            }
+        }
+    },
+    "Authorization": {
+        "__DefaultAPISecurity": {
+            "Create": "Deny",
+            "Read": "Deny",
+            "Reads": "Deny",
+            "ReadsBy": "Deny",
+            "ReadMax": "Deny",
+            "ReadSelectList": "Deny",
+            "Update": "Deny",
+            "Delete": "Deny",
+            "Count": "Deny",
+            "CountBy": "Deny",
+            "Schema": "Deny",
+            "Validate": "Deny",
+            "New": "Deny"
+        },
+        "Unauthenticated": {
+            "Create": "Deny",
+            "Read": "Deny",
+            "Reads": "Deny",
+            "ReadsBy": "Deny",
+            "ReadMax": "Deny",
+            "ReadSelectList": "Deny",
+            "Update": "Deny",
+            "Delete": "Deny",
+            "Count": "Deny",
+            "CountBy": "Deny",
+            "Schema": "Deny",
+            "Validate": "Deny",
+            "New": "Deny"
+        },
+        "Readonly": {
+            "Create": "Deny",
+            "Read": "Allow",
+            "Reads": "Allow",
+            "ReadsBy": "Allow",
+            "ReadMax": "Allow",
+            "ReadSelectList": "Allow",
+            "Update": "Deny",
+            "Delete": "Deny",
+            "Count": "Allow",
+            "CountBy": "Allow",
+            "Schema": "Allow",
+            "Validate": "Allow",
+            "New": "Deny"
+        },
+        "User": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "Mine",
+            "Delete": "Mine",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Manager": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "Mine",
+            "Delete": "Mine",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Director": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "MyCustomer",
+            "Delete": "MyCustomer",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Executive": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "MyCustomer",
+            "Delete": "MyCustomer",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Administrator": {
+            "Create": "Allow",
+            "Read": "Allow",
+            "Reads": "Allow",
+            "ReadsBy": "Allow",
+            "ReadMax": "Allow",
+            "ReadSelectList": "Allow",
+            "Update": "Allow",
+            "Delete": "Allow",
+            "Count": "Allow",
+            "CountBy": "Allow",
+            "Schema": "Allow",
+            "Validate": "Allow",
+            "New": "Allow"
+        }
+    }
+}

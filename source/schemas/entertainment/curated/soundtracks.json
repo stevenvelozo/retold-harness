@@ -1,0 +1,202 @@
+[
+	{
+		"movieIMDbID": "tt1375666",
+		"movieTitle": "Inception",
+		"songs": [
+			{ "title": "Half Remembered Dream", "artist": "Hans Zimmer", "role": "score", "composer": "Hans Zimmer" },
+			{ "title": "We Built Our Own World", "artist": "Hans Zimmer", "role": "score", "composer": "Hans Zimmer" },
+			{ "title": "Dream Is Collapsing", "artist": "Hans Zimmer", "role": "score", "composer": "Hans Zimmer" },
+			{ "title": "Radical Notion", "artist": "Hans Zimmer", "role": "score", "composer": "Hans Zimmer" },
+			{ "title": "Old Souls", "artist": "Hans Zimmer", "role": "score", "composer": "Hans Zimmer" },
+			{ "title": "Time", "artist": "Hans Zimmer", "role": "theme", "composer": "Hans Zimmer" }
+		]
+	},
+	{
+		"movieIMDbID": "tt0816692",
+		"movieTitle": "Interstellar",
+		"songs": [
+			{ "title": "Dreaming of the Crash", "artist": "Hans Zimmer", "role": "score", "composer": "Hans Zimmer" },
+			{ "title": "Cornfield Chase", "artist": "Hans Zimmer", "role": "score", "composer": "Hans Zimmer" },
+			{ "title": "No Time for Caution", "artist": "Hans Zimmer", "role": "score", "composer": "Hans Zimmer" },
+			{ "title": "Stay", "artist": "Hans Zimmer", "role": "theme", "composer": "Hans Zimmer" },
+			{ "title": "Where We're Going", "artist": "Hans Zimmer", "role": "end credits", "composer": "Hans Zimmer" }
+		]
+	},
+	{
+		"movieIMDbID": "tt1160419",
+		"movieTitle": "Dune",
+		"songs": [
+			{ "title": "Dream of Arrakis", "artist": "Hans Zimmer", "role": "score", "composer": "Hans Zimmer" },
+			{ "title": "Herald of the Change", "artist": "Hans Zimmer", "role": "score", "composer": "Hans Zimmer" },
+			{ "title": "Ripples in the Sand", "artist": "Hans Zimmer", "role": "score", "composer": "Hans Zimmer" },
+			{ "title": "Paul's Dream", "artist": "Hans Zimmer", "role": "theme", "composer": "Hans Zimmer" },
+			{ "title": "My Road Leads into the Desert", "artist": "Hans Zimmer", "role": "end credits", "composer": "Hans Zimmer" }
+		]
+	},
+	{
+		"movieIMDbID": "tt14539740",
+		"movieTitle": "Dune: Part Two",
+		"songs": [
+			{ "title": "Harkonnen Arena", "artist": "Hans Zimmer", "role": "score", "composer": "Hans Zimmer" },
+			{ "title": "A Time of Quiet Between the Storms", "artist": "Hans Zimmer", "role": "score", "composer": "Hans Zimmer" },
+			{ "title": "Kiss the Ring", "artist": "Hans Zimmer", "role": "score", "composer": "Hans Zimmer" },
+			{ "title": "Only I Will Remain", "artist": "Hans Zimmer", "role": "theme", "composer": "Hans Zimmer" }
+		]
+	},
+	{
+		"movieIMDbID": "tt15398776",
+		"movieTitle": "Oppenheimer",
+		"songs": [
+			{ "title": "Fission", "artist": "Ludwig Goransson", "role": "score", "composer": "Ludwig Goransson" },
+			{ "title": "Can You Hear the Music", "artist": "Ludwig Goransson", "role": "theme", "composer": "Ludwig Goransson" },
+			{ "title": "Quantum Mechanics", "artist": "Ludwig Goransson", "role": "score", "composer": "Ludwig Goransson" },
+			{ "title": "Ground Zero", "artist": "Ludwig Goransson", "role": "score", "composer": "Ludwig Goransson" },
+			{ "title": "Destroyer of Worlds", "artist": "Ludwig Goransson", "role": "end credits", "composer": "Ludwig Goransson" }
+		]
+	},
+	{
+		"movieIMDbID": "tt1517268",
+		"movieTitle": "Barbie",
+		"songs": [
+			{ "title": "Dance the Night", "artist": "Dua Lipa", "role": "featured", "composer": "Dua Lipa" },
+			{ "title": "What Was I Made For?", "artist": "Billie Eilish", "role": "featured", "composer": "Billie Eilish" },
+			{ "title": "Barbie World", "artist": "Nicki Minaj", "role": "featured", "composer": "Nicki Minaj" },
+			{ "title": "Speed Drive", "artist": "Charli XCX", "role": "featured", "composer": "Charli XCX" }
+		]
+	},
+	{
+		"movieIMDbID": "tt4154796",
+		"movieTitle": "Avengers: Endgame",
+		"songs": [
+			{ "title": "Totally Fine", "artist": "Alan Silvestri", "role": "score", "composer": "Alan Silvestri" },
+			{ "title": "Portals", "artist": "Alan Silvestri", "role": "theme", "composer": "Alan Silvestri" },
+			{ "title": "The Real Hero", "artist": "Alan Silvestri", "role": "end credits", "composer": "Alan Silvestri" },
+			{ "title": "Main on End", "artist": "Alan Silvestri", "role": "end credits", "composer": "Alan Silvestri" }
+		]
+	},
+	{
+		"movieIMDbID": "tt4154756",
+		"movieTitle": "Avengers: Infinity War",
+		"songs": [
+			{ "title": "The Avengers", "artist": "Alan Silvestri", "role": "theme", "composer": "Alan Silvestri" },
+			{ "title": "Forge", "artist": "Alan Silvestri", "role": "score", "composer": "Alan Silvestri" },
+			{ "title": "Infinity War", "artist": "Alan Silvestri", "role": "score", "composer": "Alan Silvestri" },
+			{ "title": "Porch", "artist": "Alan Silvestri", "role": "end credits", "composer": "Alan Silvestri" }
+		]
+	},
+	{
+		"movieIMDbID": "tt2380307",
+		"movieTitle": "Coco",
+		"songs": [
+			{ "title": "Remember Me", "artist": "Anthony Gonzalez", "role": "theme", "composer": "Robert Lopez" },
+			{ "title": "Un Poco Loco", "artist": "Anthony Gonzalez", "role": "featured", "composer": "Adrian Molina" },
+			{ "title": "The World Es Mi Familia", "artist": "Anthony Gonzalez", "role": "featured", "composer": "Adrian Molina" },
+			{ "title": "Proud Corazon", "artist": "Anthony Gonzalez", "role": "end credits", "composer": "Adrian Molina" }
+		]
+	},
+	{
+		"movieIMDbID": "tt6751668",
+		"movieTitle": "Parasite",
+		"songs": [
+			{ "title": "Opening", "artist": "Jung Jae-il", "role": "score", "composer": "Jung Jae-il" },
+			{ "title": "Belt of Faith", "artist": "Jung Jae-il", "role": "score", "composer": "Jung Jae-il" },
+			{ "title": "The Fumigation", "artist": "Jung Jae-il", "role": "score", "composer": "Jung Jae-il" },
+			{ "title": "A Glass of Soju", "artist": "Jung Jae-il", "role": "end credits", "composer": "Jung Jae-il" }
+		]
+	},
+	{
+		"movieIMDbID": "tt9362722",
+		"movieTitle": "Spider-Man: Across the Spider-Verse",
+		"songs": [
+			{ "title": "Annihilate", "artist": "Metro Boomin", "role": "featured", "composer": "Metro Boomin" },
+			{ "title": "Calling", "artist": "Metro Boomin", "role": "featured", "composer": "Metro Boomin" },
+			{ "title": "Self Love", "artist": "Metro Boomin", "role": "featured", "composer": "Metro Boomin" },
+			{ "title": "Hummingbird", "artist": "Metro Boomin", "role": "featured", "composer": "Metro Boomin" }
+		]
+	},
+	{
+		"movieIMDbID": "tt1853728",
+		"movieTitle": "Django Unchained",
+		"songs": [
+			{ "title": "Django", "artist": "Luis Bacalov", "role": "theme", "composer": "Luis Bacalov" },
+			{ "title": "Freedom", "artist": "Anthony Hamilton", "role": "featured", "composer": "Anthony Hamilton" },
+			{ "title": "100 Black Coffins", "artist": "Rick Ross", "role": "featured", "composer": "Rick Ross" },
+			{ "title": "Who Did That to You", "artist": "John Legend", "role": "featured", "composer": "John Legend" }
+		]
+	},
+	{
+		"movieIMDbID": "tt2096673",
+		"movieTitle": "Inside Out",
+		"songs": [
+			{ "title": "Bundle of Joy", "artist": "Michael Giacchino", "role": "score", "composer": "Michael Giacchino" },
+			{ "title": "Nomanisan Island", "artist": "Michael Giacchino", "role": "score", "composer": "Michael Giacchino" },
+			{ "title": "Riled Up", "artist": "Michael Giacchino", "role": "score", "composer": "Michael Giacchino" },
+			{ "title": "The Joy of Credits", "artist": "Michael Giacchino", "role": "end credits", "composer": "Michael Giacchino" }
+		]
+	},
+	{
+		"movieIMDbID": "tt3170832",
+		"movieTitle": "Room",
+		"songs": [
+			{ "title": "Elephants", "artist": "Stephen Rennicks", "role": "score", "composer": "Stephen Rennicks" },
+			{ "title": "Skylight", "artist": "Stephen Rennicks", "role": "theme", "composer": "Stephen Rennicks" }
+		]
+	},
+	{
+		"movieIMDbID": "tt5311514",
+		"movieTitle": "Your Name",
+		"songs": [
+			{ "title": "Zen Zen Zense", "artist": "RADWIMPS", "role": "theme", "composer": "Yojiro Noda" },
+			{ "title": "Sparkle", "artist": "RADWIMPS", "role": "featured", "composer": "Yojiro Noda" },
+			{ "title": "Nandemonaiya", "artist": "RADWIMPS", "role": "end credits", "composer": "Yojiro Noda" },
+			{ "title": "Dream Lantern", "artist": "RADWIMPS", "role": "featured", "composer": "Yojiro Noda" }
+		]
+	},
+	{
+		"movieIMDbID": "tt2267998",
+		"movieTitle": "Gone Girl",
+		"songs": [
+			{ "title": "What Have We Done to Each Other?", "artist": "Trent Reznor", "role": "score", "composer": "Trent Reznor" },
+			{ "title": "Sugar Storm", "artist": "Trent Reznor", "role": "score", "composer": "Trent Reznor" },
+			{ "title": "Consummation", "artist": "Trent Reznor", "role": "theme", "composer": "Trent Reznor" }
+		]
+	},
+	{
+		"movieIMDbID": "tt3315342",
+		"movieTitle": "Logan",
+		"songs": [
+			{ "title": "Main Titles", "artist": "Marco Beltrami", "role": "score", "composer": "Marco Beltrami" },
+			{ "title": "Old Man Logan", "artist": "Marco Beltrami", "role": "theme", "composer": "Marco Beltrami" },
+			{ "title": "Don't Be What They Made You", "artist": "Marco Beltrami", "role": "end credits", "composer": "Marco Beltrami" }
+		]
+	},
+	{
+		"movieIMDbID": "tt2015381",
+		"movieTitle": "Guardians of the Galaxy",
+		"songs": [
+			{ "title": "Hooked on a Feeling", "artist": "Blue Swede", "role": "featured", "composer": "Mark James" },
+			{ "title": "Come and Get Your Love", "artist": "Redbone", "role": "featured", "composer": "Lolly Vegas" },
+			{ "title": "Spirit in the Sky", "artist": "Norman Greenbaum", "role": "featured", "composer": "Norman Greenbaum" },
+			{ "title": "Ain't No Mountain High Enough", "artist": "Marvin Gaye", "role": "featured", "composer": "Ashford and Simpson" }
+		]
+	},
+	{
+		"movieIMDbID": "tt3501632",
+		"movieTitle": "Thor: Ragnarok",
+		"songs": [
+			{ "title": "Immigrant Song", "artist": "Led Zeppelin", "role": "featured", "composer": "Jimmy Page" },
+			{ "title": "Ragnarok Suite", "artist": "Mark Mothersbaugh", "role": "score", "composer": "Mark Mothersbaugh" },
+			{ "title": "Planet Sakaar", "artist": "Mark Mothersbaugh", "role": "score", "composer": "Mark Mothersbaugh" }
+		]
+	},
+	{
+		"movieIMDbID": "tt1745960",
+		"movieTitle": "Top Gun: Maverick",
+		"songs": [
+			{ "title": "Hold My Hand", "artist": "Lady Gaga", "role": "theme", "composer": "Lady Gaga" },
+			{ "title": "Danger Zone", "artist": "Kenny Loggins", "role": "featured", "composer": "Giorgio Moroder" },
+			{ "title": "Darkstar", "artist": "Hans Zimmer", "role": "score", "composer": "Hans Zimmer" },
+			{ "title": "The Man, the Legend", "artist": "Hans Zimmer", "role": "score", "composer": "Hans Zimmer" }
+		]
+	}
+]

@@ -1,0 +1,13 @@
+{
+	"Entity": "Person",
+	"GUIDTemplate": "Person-{~D:Record.nconst~}",
+	"Mappings":
+	{
+		"Name": "{~D:Record.primaryName~}",
+		"ExternalID": "{~D:Record.nconst~}",
+		"BirthYear": "{~D:Record.birthYear~}",
+		"DeathYear": "{~D:Record.deathYear~}",
+		"PrimaryProfessions": "{~D:Record.primaryProfession~}",
+		"KnownForTitles": "{~D:Record.knownForTitles~}"
+	}
+}

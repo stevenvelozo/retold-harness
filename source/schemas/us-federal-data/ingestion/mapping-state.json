@@ -1,0 +1,11 @@
+{
+	"Entity": "State",
+	"GUIDTemplate": "State-{~D:Record.STUSAB~}",
+	"Mappings":
+	{
+		"Name": "{~D:Record.STATE_NAME~}",
+		"Abbreviation": "{~D:Record.STUSAB~}",
+		"StateFIPS": "{~D:Record.STATE~}",
+		"ANSI": "{~D:Record.STATENS~}"
+	}
+}

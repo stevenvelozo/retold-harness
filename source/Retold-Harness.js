@@ -10,12 +10,24 @@
 */
 const libFable = require('fable');
 
-const _Settings = require('./schemas/configuration-bookstore-serve-api.js');
+// Configuration maps -- each schema has its own config file
+const _ConfigMap =
+{
+	'bookstore': require('./schemas/configuration-bookstore-serve-api.js'),
+	'us-federal-data': require('./schemas/configuration-us-federal-data-serve-api.js'),
+	'entertainment': require('./schemas/configuration-entertainment-serve-api.js')
+};
+
+// Select configuration based on HARNESS_SCHEMA env var (before Fable init)
+let tmpSchemaConfigKey = (process.env.HARNESS_SCHEMA || 'bookstore').toLowerCase();
+const _Settings = _ConfigMap[tmpSchemaConfigKey] || _ConfigMap['bookstore'];
 
 // Schema and provider maps -- add new schemas/providers here
 const _SchemaMap =
 {
-	'bookstore': require('./schemas/Retold-Harness-Service-Schema-Bookstore.js')
+	'bookstore': require('./schemas/Retold-Harness-Service-Schema-Bookstore.js'),
+	'us-federal-data': require('./schemas/Retold-Harness-Service-Schema-USFederalData.js'),
+	'entertainment': require('./schemas/Retold-Harness-Service-Schema-Entertainment.js')
 };
 
 const _ProviderMap =

@@ -1,0 +1,16 @@
+{
+	"Entity": "ZIPCode",
+	"GUIDTemplate": "ZIPCode-{~D:Record.GEOID~}",
+	"Mappings":
+	{
+		"ZIPCode": "{~D:Record.GEOID~}",
+		"GEOID": "{~D:Record.GEOID~}",
+		"LandArea": "{~D:Record.ALAND~}",
+		"WaterArea": "{~D:Record.AWATER~}",
+		"LandAreaSqMi": "{~D:Record.ALAND_SQMI~}",
+		"WaterAreaSqMi": "{~D:Record.AWATER_SQMI~}",
+		"Latitude": "{~D:Record.INTPTLAT~}",
+		"Longitude": "{~D:Record.INTPTLONG~}",
+		"GUIDState": "{~D:Record._GUIDState~}"
+	}
+}

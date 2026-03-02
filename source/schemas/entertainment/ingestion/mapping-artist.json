@@ -1,0 +1,13 @@
+{
+	"Entity": "Artist",
+	"GUIDTemplate": "Artist-{~D:Record.artistQID~}",
+	"Mappings":
+	{
+		"Name": "{~D:Record.artistLabel~}",
+		"ExternalID": "{~D:Record.artistQID~}",
+		"ArtistType": "{~D:Record.artistType~}",
+		"BeginYear": "{~D:Record.beginYear~}",
+		"EndYear": "{~D:Record.endYear~}",
+		"Country": "{~D:Record.countryLabel~}"
+	}
+}

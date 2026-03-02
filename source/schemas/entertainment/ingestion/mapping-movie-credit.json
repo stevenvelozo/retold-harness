@@ -1,0 +1,13 @@
+{
+	"Entity": "MovieCredit",
+	"GUIDTemplate": "Credit-{~D:Record.tconst~}-{~D:Record.nconst~}-{~D:Record.ordering~}",
+	"Mappings":
+	{
+		"Ordering": "{~D:Record.ordering~}",
+		"Category": "{~D:Record.category~}",
+		"Job": "{~D:Record.job~}",
+		"Characters": "{~D:Record.characters~}",
+		"GUIDMovie": "Movie-{~D:Record.tconst~}",
+		"GUIDPerson": "Person-{~D:Record.nconst~}"
+	}
+}

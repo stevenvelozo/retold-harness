@@ -1,10 +1,10 @@
 # Docker Setup
 
-Retold Harness includes two Docker configurations: a full development environment with a browser-based IDE, and a lightweight service container.
+Retold Harness includes Docker configurations for running each database provider in its own container.
 
 ## Development Environment
 
-The development image includes MariaDB, Node.js, and Luxury Code (browser-based VS Code).
+The development image includes MariaDB and Node.js.
 
 ### Build and Run
 
@@ -19,7 +19,6 @@ npm run docker-dev-run
 |------|---------|
 | 8086 | REST API |
 | 3306 (mapped to 31306) | MariaDB |
-| 20001 | Luxury Code (VS Code) |
 
 ### Shell Access
 

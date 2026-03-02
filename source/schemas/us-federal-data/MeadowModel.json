@@ -1,0 +1,835 @@
+{
+    "Tables": {
+        "User": {
+            "TableName": "User",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDUser",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "LoginID",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "Password",
+                    "DataType": "String",
+                    "Size": "255"
+                },
+                {
+                    "Column": "NameFirst",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "NameLast",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "FullName",
+                    "DataType": "String",
+                    "Size": "255"
+                },
+                {
+                    "Column": "Config",
+                    "DataType": "String",
+                    "Size": "64"
+                }
+            ],
+            "Description": ""
+        },
+        "DataSource": {
+            "TableName": "DataSource",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDDataSource",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDDataSource",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "DataType": "String",
+                    "Size": "200"
+                },
+                {
+                    "Column": "URL",
+                    "DataType": "String",
+                    "Size": "512"
+                },
+                {
+                    "Column": "Description",
+                    "DataType": "Text"
+                },
+                {
+                    "Column": "FileFormat",
+                    "DataType": "String",
+                    "Size": "64"
+                },
+                {
+                    "Column": "Vintage",
+                    "DataType": "String",
+                    "Size": "32"
+                },
+                {
+                    "Column": "LastRetrieved",
+                    "DataType": "DateTime"
+                }
+            ],
+            "Description": ""
+        },
+        "CensusRegion": {
+            "TableName": "CensusRegion",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDCensusRegion",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDCensusRegion",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "RegionCode",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                }
+            ],
+            "Description": ""
+        },
+        "CensusDivision": {
+            "TableName": "CensusDivision",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDCensusDivision",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDCensusDivision",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "DivisionCode",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "IDCensusRegion",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDCensusRegion"
+                }
+            ],
+            "Description": ""
+        },
+        "State": {
+            "TableName": "State",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDState",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDState",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "Abbreviation",
+                    "DataType": "String",
+                    "Size": "2"
+                },
+                {
+                    "Column": "StateFIPS",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "ANSI",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "IDCensusRegion",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDCensusRegion"
+                },
+                {
+                    "Column": "IDCensusDivision",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDCensusDivision"
+                }
+            ],
+            "Description": ""
+        },
+        "County": {
+            "TableName": "County",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDCounty",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDCounty",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "DataType": "String",
+                    "Size": "200"
+                },
+                {
+                    "Column": "StateFIPS",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "CountyFIPS",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "ClassFP",
+                    "DataType": "String",
+                    "Size": "4"
+                },
+                {
+                    "Column": "IDState",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDState"
+                }
+            ],
+            "Description": ""
+        },
+        "City": {
+            "TableName": "City",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDCity",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDCity",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "DataType": "String",
+                    "Size": "200"
+                },
+                {
+                    "Column": "USPS",
+                    "DataType": "String",
+                    "Size": "2"
+                },
+                {
+                    "Column": "GEOID",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "ANSICODE",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "LSAD",
+                    "DataType": "String",
+                    "Size": "4"
+                },
+                {
+                    "Column": "FunctionalStatus",
+                    "DataType": "String",
+                    "Size": "2"
+                },
+                {
+                    "Column": "LandArea",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "WaterArea",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "LandAreaSqMi",
+                    "DataType": "Decimal",
+                    "Size": "12,4"
+                },
+                {
+                    "Column": "WaterAreaSqMi",
+                    "DataType": "Decimal",
+                    "Size": "12,4"
+                },
+                {
+                    "Column": "Latitude",
+                    "DataType": "Decimal",
+                    "Size": "12,7"
+                },
+                {
+                    "Column": "Longitude",
+                    "DataType": "Decimal",
+                    "Size": "13,7"
+                },
+                {
+                    "Column": "IDState",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDState"
+                }
+            ],
+            "Description": ""
+        },
+        "ZIPCode": {
+            "TableName": "ZIPCode",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDZIPCode",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDZIPCode",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "ZIPCode",
+                    "DataType": "String",
+                    "Size": "10"
+                },
+                {
+                    "Column": "GEOID",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "LandArea",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "WaterArea",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "LandAreaSqMi",
+                    "DataType": "Decimal",
+                    "Size": "12,4"
+                },
+                {
+                    "Column": "WaterAreaSqMi",
+                    "DataType": "Decimal",
+                    "Size": "12,4"
+                },
+                {
+                    "Column": "Latitude",
+                    "DataType": "Decimal",
+                    "Size": "12,7"
+                },
+                {
+                    "Column": "Longitude",
+                    "DataType": "Decimal",
+                    "Size": "13,7"
+                },
+                {
+                    "Column": "IDState",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDState"
+                }
+            ],
+            "Description": ""
+        },
+        "CongressionalDistrict": {
+            "TableName": "CongressionalDistrict",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDCongressionalDistrict",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDCongressionalDistrict",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "DataType": "String",
+                    "Size": "200"
+                },
+                {
+                    "Column": "USPS",
+                    "DataType": "String",
+                    "Size": "2"
+                },
+                {
+                    "Column": "GEOID",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "LSAD",
+                    "DataType": "String",
+                    "Size": "4"
+                },
+                {
+                    "Column": "Congress",
+                    "DataType": "String",
+                    "Size": "8"
+                },
+                {
+                    "Column": "FunctionalStatus",
+                    "DataType": "String",
+                    "Size": "2"
+                },
+                {
+                    "Column": "LandArea",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "WaterArea",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "LandAreaSqMi",
+                    "DataType": "Decimal",
+                    "Size": "12,4"
+                },
+                {
+                    "Column": "WaterAreaSqMi",
+                    "DataType": "Decimal",
+                    "Size": "12,4"
+                },
+                {
+                    "Column": "Latitude",
+                    "DataType": "Decimal",
+                    "Size": "12,7"
+                },
+                {
+                    "Column": "Longitude",
+                    "DataType": "Decimal",
+                    "Size": "13,7"
+                },
+                {
+                    "Column": "IDState",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDState"
+                }
+            ],
+            "Description": ""
+        },
+        "CountySubdivision": {
+            "TableName": "CountySubdivision",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDCountySubdivision",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDCountySubdivision",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "DataType": "String",
+                    "Size": "200"
+                },
+                {
+                    "Column": "USPS",
+                    "DataType": "String",
+                    "Size": "2"
+                },
+                {
+                    "Column": "GEOID",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "ANSICODE",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "LSAD",
+                    "DataType": "String",
+                    "Size": "4"
+                },
+                {
+                    "Column": "FunctionalStatus",
+                    "DataType": "String",
+                    "Size": "2"
+                },
+                {
+                    "Column": "LandArea",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "WaterArea",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "LandAreaSqMi",
+                    "DataType": "Decimal",
+                    "Size": "12,4"
+                },
+                {
+                    "Column": "WaterAreaSqMi",
+                    "DataType": "Decimal",
+                    "Size": "12,4"
+                },
+                {
+                    "Column": "Latitude",
+                    "DataType": "Decimal",
+                    "Size": "12,7"
+                },
+                {
+                    "Column": "Longitude",
+                    "DataType": "Decimal",
+                    "Size": "13,7"
+                },
+                {
+                    "Column": "IDState",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDState"
+                },
+                {
+                    "Column": "IDCounty",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDCounty"
+                }
+            ],
+            "Description": ""
+        }
+    }
+}

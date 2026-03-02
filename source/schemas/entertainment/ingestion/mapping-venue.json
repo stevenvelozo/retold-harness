@@ -1,0 +1,14 @@
+{
+	"Entity": "Venue",
+	"GUIDTemplate": "Venue-{~D:Record.venueQID~}",
+	"Mappings":
+	{
+		"Name": "{~D:Record.venueLabel~}",
+		"City": "{~D:Record.cityLabel~}",
+		"Country": "{~D:Record.countryLabel~}",
+		"Capacity": "{~D:Record.capacity~}",
+		"Latitude": "{~D:Record.lat~}",
+		"Longitude": "{~D:Record.lon~}",
+		"ExternalID": "{~D:Record.venueQID~}"
+	}
+}

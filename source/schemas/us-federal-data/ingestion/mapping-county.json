@@ -1,0 +1,12 @@
+{
+	"Entity": "County",
+	"GUIDTemplate": "County-{~D:Record.STATEFP~}{~D:Record.COUNTYFP~}",
+	"Mappings":
+	{
+		"Name": "{~D:Record.COUNTYNAME~}",
+		"StateFIPS": "{~D:Record.STATEFP~}",
+		"CountyFIPS": "{~D:Record.COUNTYFP~}",
+		"ClassFP": "{~D:Record.CLASSFP~}",
+		"GUIDState": "State-{~D:Record.STATE~}"
+	}
+}

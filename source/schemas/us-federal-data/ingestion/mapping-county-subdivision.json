@@ -1,0 +1,21 @@
+{
+	"Entity": "CountySubdivision",
+	"GUIDTemplate": "CoSub-{~D:Record.GEOID~}",
+	"Mappings":
+	{
+		"Name": "{~D:Record.NAME~}",
+		"USPS": "{~D:Record.USPS~}",
+		"GEOID": "{~D:Record.GEOID~}",
+		"ANSICODE": "{~D:Record.ANSICODE~}",
+		"LSAD": "",
+		"FunctionalStatus": "{~D:Record.FUNCSTAT~}",
+		"LandArea": "{~D:Record.ALAND~}",
+		"WaterArea": "{~D:Record.AWATER~}",
+		"LandAreaSqMi": "{~D:Record.ALAND_SQMI~}",
+		"WaterAreaSqMi": "{~D:Record.AWATER_SQMI~}",
+		"Latitude": "{~D:Record.INTPTLAT~}",
+		"Longitude": "{~D:Record.INTPTLONG~}",
+		"GUIDState": "State-{~D:Record.USPS~}",
+		"GUIDCounty": "{~D:Record._GUIDCounty~}"
+	}
+}

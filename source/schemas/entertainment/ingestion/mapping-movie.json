@@ -1,0 +1,15 @@
+{
+	"Entity": "Movie",
+	"GUIDTemplate": "Movie-{~D:Record.tconst~}",
+	"Mappings":
+	{
+		"Title": "{~D:Record.primaryTitle~}",
+		"OriginalTitle": "{~D:Record.originalTitle~}",
+		"ExternalID": "{~D:Record.tconst~}",
+		"IsAdult": "{~D:Record.isAdult~}",
+		"StartYear": "{~D:Record.startYear~}",
+		"EndYear": "{~D:Record.endYear~}",
+		"RuntimeMinutes": "{~D:Record.runtimeMinutes~}",
+		"GenreList": "{~D:Record.genres~}"
+	}
+}

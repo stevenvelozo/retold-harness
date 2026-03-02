@@ -1,0 +1,20 @@
+{
+	"Entity": "CongressionalDistrict",
+	"GUIDTemplate": "CD-{~D:Record.GEOID~}",
+	"Mappings":
+	{
+		"Name": "Congressional District {~D:Record.GEOID~}",
+		"USPS": "{~D:Record.USPS~}",
+		"GEOID": "{~D:Record.GEOID~}",
+		"LSAD": "",
+		"Congress": "119",
+		"FunctionalStatus": "",
+		"LandArea": "{~D:Record.ALAND~}",
+		"WaterArea": "{~D:Record.AWATER~}",
+		"LandAreaSqMi": "{~D:Record.ALAND_SQMI~}",
+		"WaterAreaSqMi": "{~D:Record.AWATER_SQMI~}",
+		"Latitude": "{~D:Record.INTPTLAT~}",
+		"Longitude": "{~D:Record.INTPTLONG~}",
+		"GUIDState": "State-{~D:Record.USPS~}"
+	}
+}

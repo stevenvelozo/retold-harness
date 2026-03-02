@@ -1,0 +1,10 @@
+{
+	"Entity": "MovieRating",
+	"GUIDTemplate": "Rating-{~D:Record.tconst~}",
+	"Mappings":
+	{
+		"AverageRating": "{~D:Record.averageRating~}",
+		"NumVotes": "{~D:Record.numVotes~}",
+		"GUIDMovie": "Movie-{~D:Record.tconst~}"
+	}
+}

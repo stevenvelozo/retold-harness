@@ -1,88 +1,107 @@
 # Retold Harness
 
-> A self-contained REST API harness for the Retold framework
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Retold Harness brings together the full Retold stack into a running bookstore application.  Point a browser at `http://localhost:8086/1.0/Books/0/100` and you have a working REST API backed by 10,000+ book records, author joins, pricing, store inventory, and reviews -- all auto-generated from a Stricture DDL.
+> A composable REST API harness for the Retold framework
+
+Retold Harness brings together pluggable schemas and database providers into a running application with auto-generated CRUD endpoints, pre-loaded sample data, and a terminal-based management tool.  Pick a schema, pick a provider, and get a fully operational REST API backed by real data in seconds.
 
 ## Features
 
-- **8-Entity Bookstore Model** - Users, Books, Authors, Joins, Prices, Stores, Inventory, and Reviews
-- **Auto-Generated CRUD** - Every entity gets Create, Read, Reads, Update, Delete, Count, Schema, and New endpoints
-- **Author Enrichment** - Single Book reads include an Authors array via behavior injection
-- **Pre-Loaded Data** - 10,000+ book records with associated authors for realistic testing
-- **Docker Containerized** - MariaDB database and API server in a single container
-- **Luxury Code IDE** - Browser-based VS Code for in-container development
-- **SQLite Testing** - In-memory test suite requires no external database
+- **Composable Architecture** -- pluggable schema providers and database providers via Fable services
+- **3 Data Schemas** -- Bookstore (8 entities, 10k+ records), US Federal Data, Entertainment
+- **7 Database Providers** -- SQLite, MySQL, MSSQL, PostgreSQL, MongoDB, DGraph, Solr
+- **Auto-Generated CRUD** -- every entity gets Create, Read, Reads, Update, Delete, Count, Schema, and New endpoints
+- **Behavior Injection** -- post-operation hooks on endpoints (e.g., Author enrichment on Book reads)
+- **Terminal Management Tool** -- TUI app built on blessed/pict-terminalui for managing Docker containers and harness processes
+- **Consistency Proxy** -- launch a proxy to compare responses across multiple providers
+- **Pre-Loaded Sample Data** -- 10,000+ book records with associated authors for realistic testing
+- **Docker Support** -- containerized environments for each database provider
+- **Environment-Driven** -- select schema and provider via `HARNESS_SCHEMA` and `HARNESS_PROVIDER` environment variables
+- **SQLite Testing** -- in-memory test suite requires no external database
+- **Fable Service Architecture** -- built on fable-serviceproviderbase for service injection
 
-## Quick Start (Docker)
+## Installation
 
 ```bash
-git clone https://github.com/stevenvelozo/retold-harness
-cd retold-harness
-npm run docker-dev-build
-npm run docker-dev-run
+npm install retold-harness
+```
+
+## Quick Start
+
+### Start with Defaults (Bookstore + SQLite)
+
+```bash
+npm start
 ```
 
 The REST API is now at `http://localhost:8086`.
 
-![Building the docker image](./images/Docker-Build-Image.png)
-
-## Quick Start (Manual)
+### Start with a Specific Schema and Provider
 
 ```bash
-# Start a MariaDB container
-docker run -d --name mariadb -p 3306:3306 \
-  -e MARIADB_ROOT_PASSWORD=123456789 \
-  -e MARIADB_DATABASE=bookstore \
-  mariadb:latest
-
-# Create the tables
-cat ./source/model/mysql_create/MeadowModel-CreateMySQLDatabase.mysql.sql \
-  | docker exec -i mariadb mariadb -u root -p123456789 bookstore
-
-# Install and start
-npm install
-npm start
+HARNESS_SCHEMA=bookstore HARNESS_PROVIDER=mysql npm start
 ```
 
-Alternatively, if using a true MySQL image:
+### Launch the Management Tool
 
 ```bash
-cat ./source/model/mysql_create/MeadowModel-CreateMySQLDatabase.mysql.sql \
-  | docker exec -i mariadb mysql -u root -p123456789 bookstore
+npm run manage
+```
+
+### CLI Usage
+
+```bash
+# Default bookstore + sqlite
+retold-harness
+
+# Launch TUI management tool
+retold-harness-management-tool
 ```
 
 ## Architecture
 
 ```
 Retold Harness
+  ├── Schema Provider (Bookstore / USFederalData / Entertainment)
+  │     ├── Table Generation (DDL from Stricture)
+  │     ├── Seed Data Loading
+  │     └── Behavior Injection (e.g. Author enrichment)
+  ├── Provider Configurator (SQLite / MySQL / MSSQL / PostgreSQL / MongoDB / DGraph / Solr)
+  │     ├── Database Connection (via meadow-connection-*)
+  │     ├── Schema Initialization
+  │     └── Data Service Bootstrap
   ├── Retold Data Service
-  │     ├── Orator + Restify (HTTP Server, port 8086)
+  │     ├── Orator + Restify (HTTP Server)
   │     ├── Meadow (DAL for each entity)
-  │     │     └── Provider (MySQL / SQLite)
   │     └── Meadow Endpoints (REST Routes)
-  │           └── Behavior Injection (Author enrichment)
-  ├── Data Model (8 entities from Stricture DDL)
-  └── Docker Environment
-        ├── MariaDB (pre-loaded bookstore database)
-        └── Luxury Code (browser VS Code, port 20001)
+  └── Management Tool (Terminal UI)
+        ├── Docker Container Management
+        ├── Harness Process Launcher
+        └── Consistency Proxy Control
 ```
 
 ## REST API Examples
 
-### List the first 100 books: `http://localhost:8086/1.0/Books/0/100`
+### List the first 100 books
 
-![The first 100 Books](./images/API-Book-List.png)
+```
+GET http://localhost:8086/1.0/Books/0/100
+```
 
-### Get a single book with authors: `http://localhost:8086/1.0/Book/1`
+### Get a single book with authors
 
-When fetching a single book, the response includes an `Authors` array populated via the behavior injection hook in `source/Retold-Harness.js`.  In the multi-record list, the array is not included because the hook is only on the singular Read endpoint.
+```
+GET http://localhost:8086/1.0/Book/1
+```
 
-![Book 1](./images/API-Book-First.png)
+When fetching a single book, the response includes an `Authors` array populated via the behavior injection hook.  In the multi-record list, the array is not included because the hook is only on the singular Read endpoint.
 
-### Filter authors by name: `http://localhost:8086/1.0/Authors/FilteredTo/FBV~Name~LK~Susan%25/0/10`
+### Filter authors by name
 
-![The first 10 Susans](./images/API-Author-Susans.png)
+```
+GET http://localhost:8086/1.0/Authors/FilteredTo/FBV~Name~LK~Susan%25/0/10
+```
 
 ### Count books by genre
 
@@ -90,7 +109,7 @@ When fetching a single book, the response includes an `Authors` array populated 
 GET http://localhost:8086/1.0/Books/Count/FilteredTo/FBV~Genre~EQ~Science Fiction
 ```
 
-## Data Model
+## Data Model (Bookstore)
 
 | Entity | Columns | Description |
 |--------|---------|-------------|
@@ -107,49 +126,62 @@ GET http://localhost:8086/1.0/Books/Count/FilteredTo/FBV~Genre~EQ~Science Fictio
 
 | Port | Service |
 |------|---------|
-| 8086 | REST API |
-| 31306 | MariaDB (mapped from 3306) |
-| 20001 | Luxury Code (VS Code in browser) |
+| 8086 | REST API (SQLite) |
+| 8087 | REST API (MySQL) |
+| 8088 | REST API (MSSQL) |
+| 8089 | REST API (PostgreSQL) |
+| 8090 | REST API (MongoDB) |
+| 8091 | REST API (DGraph) |
+| 8092 | REST API (Solr) |
+| 9090 | Consistency Proxy |
 
-### Database Credentials
-
-| Setting | Value |
-|---------|-------|
-| User | `root` |
-| Password | `123456789` |
-| Database | `bookstore` |
-
-## Luxury Code
-
-Luxury Code provides a browser-based VS Code environment inside the Docker container.  Open `http://localhost:20001` after launching the container.  Password: `luxury`
-
-![Launching Luxury Code requires a Password: luxury](./images/vscode-Login.png)
-
-![Visual Studio Code Editor with Config and Source](./images/vscode-Editor.png)
-
-## MySQL
-
-The Docker image exposes a MariaDB server.  Connect with your tool of choice using the credentials above.
-
-![MySQL Connection Info](./images/SQL-Connection.png)
-
-![MySQL Query](./images/SQL-Query.png)
-
-## Source Code
-
-The harness is intentionally minimal:
-
-- `source/Retold-Harness.js` (47 lines) -- Initializes Fable, creates the data service, installs the Author enrichment hook
-- `source/configuration-bookstore-serve-api.js` (41 lines) -- Configuration with MySQL connection details and server port
-- `source/model/` -- Compiled Stricture model, DDL source, SQL scripts, and sample data
-
-## Building the Model
-
-To recompile the DDL after schema changes:
+### Docker Quick Start
 
 ```bash
-npm run build-model
+npm run docker-dev-build
+npm run docker-dev-run
 ```
+
+### Docker Shell Access
+
+```bash
+npm run docker-dev-shell
+```
+
+## Schemas
+
+### Bookstore
+
+The default schema with 8 entities and 10,000+ book records including authors, pricing, store inventory, and reviews.
+
+```bash
+npm run build-schema-bookstore
+```
+
+### US Federal Data
+
+Federal government data sets compiled into a Stricture model.
+
+```bash
+npm run build-schema-us-federal-data
+npm run ingest-federal-data
+```
+
+### Entertainment
+
+Entertainment industry data with its own ingestion pipeline.
+
+```bash
+npm run build-schema-entertainment
+npm run ingest-entertainment
+```
+
+## Environment Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `HARNESS_SCHEMA` | `bookstore` | Schema provider to load (`bookstore`, `us-federal-data`, `entertainment`) |
+| `HARNESS_PROVIDER` | `sqlite` | Database provider to use (`sqlite`, `mysql`, `mssql`, `postgresql`, `mongodb`, `dgraph`, `solr`) |
 
 ## Testing
 
@@ -157,7 +189,13 @@ npm run build-model
 npm test
 ```
 
-The test suite contains 90 tests covering all 8 entities, behavior injection, DAL access, filtering, pagination, and soft deletes.  Tests use in-memory SQLite and require no external database.
+Tests use an in-memory SQLite provider and require no external database server.
+
+For coverage:
+
+```bash
+npm run coverage
+```
 
 ## Documentation
 
@@ -167,16 +205,17 @@ Detailed documentation is available in the `docs/` folder and can be served loca
 npx docsify-cli serve docs
 ```
 
-## Customizing
-
-All ports, passwords, and configuration are in `source/configuration-bookstore-serve-api.js` and `package.json`.  Docker port mappings are in the npm scripts.
-
 ## Related Packages
 
-- [retold-data-service](https://github.com/stevenvelozo/retold-data-service) - All-in-one data service
-- [meadow](https://github.com/stevenvelozo/meadow) - Data access layer and ORM
-- [meadow-endpoints](https://github.com/stevenvelozo/meadow-endpoints) - Automatic REST endpoint generation
-- [foxhound](https://github.com/stevenvelozo/foxhound) - Query DSL for SQL generation
-- [stricture](https://github.com/stevenvelozo/stricture) - Schema definition language
-- [orator](https://github.com/stevenvelozo/orator) - API server abstraction
-- [fable](https://github.com/stevenvelozo/fable) - Service provider framework
+- [retold-harness-consistency-proxy](https://github.com/stevenvelozo/retold-harness-consistency-proxy) -- compare responses across providers
+- [retold-data-service](https://github.com/stevenvelozo/retold-data-service) -- all-in-one data service
+- [meadow](https://github.com/stevenvelozo/meadow) -- data access layer and ORM
+- [meadow-endpoints](https://github.com/stevenvelozo/meadow-endpoints) -- automatic REST endpoint generation
+- [foxhound](https://github.com/stevenvelozo/foxhound) -- query DSL for SQL generation
+- [stricture](https://github.com/stevenvelozo/stricture) -- schema definition language
+- [orator](https://github.com/stevenvelozo/orator) -- API server abstraction
+- [fable](https://github.com/stevenvelozo/fable) -- service provider framework
+
+## License
+
+MIT

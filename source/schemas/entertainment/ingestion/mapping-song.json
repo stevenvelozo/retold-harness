@@ -1,0 +1,12 @@
+{
+	"Entity": "Song",
+	"GUIDTemplate": "Song-{~D:Record.songQID~}",
+	"Mappings":
+	{
+		"Title": "{~D:Record.songLabel~}",
+		"ExternalID": "{~D:Record.songQID~}",
+		"DurationSeconds": "{~D:Record.duration~}",
+		"ReleaseYear": "{~D:Record.year~}",
+		"GUIDArtist": "Artist-{~D:Record.artistQID~}"
+	}
+}

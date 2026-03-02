@@ -1,0 +1,182 @@
+{
+	"Generated": "2026-03-02T03:11:17.737Z",
+	"GitHubOrg": "stevenvelozo",
+	"DefaultBranch": "master",
+	"Groups": [
+		{
+			"Name": ".config",
+			"Key": ".config",
+			"Description": "",
+			"Modules": [
+				{
+					"Name": "code-server",
+					"Repo": "code-server",
+					"Group": ".config",
+					"Branch": "master",
+					"HasDocs": false,
+					"HasCover": false,
+					"Sidebar": [],
+					"DocFiles": []
+				},
+				{
+					"Name": "configstore",
+					"Repo": "configstore",
+					"Group": ".config",
+					"Branch": "master",
+					"HasDocs": false,
+					"HasCover": false,
+					"Sidebar": [],
+					"DocFiles": []
+				},
+				{
+					"Name": "vscode-sqltools",
+					"Repo": "vscode-sqltools",
+					"Group": ".config",
+					"Branch": "master",
+					"HasDocs": false,
+					"HasCover": false,
+					"Sidebar": [],
+					"DocFiles": []
+				}
+			]
+		},
+		{
+			"Name": "Data",
+			"Key": "data",
+			"Description": "",
+			"Modules": [
+				{
+					"Name": "entertainment",
+					"Repo": "entertainment",
+					"Group": "data",
+					"Branch": "master",
+					"HasDocs": false,
+					"HasCover": false,
+					"Sidebar": [],
+					"DocFiles": []
+				}
+			]
+		},
+		{
+			"Name": "Dist",
+			"Key": "dist",
+			"Description": "",
+			"Modules": [
+				{
+					"Name": "indoctrinate_content_staging",
+					"Repo": "indoctrinate_content_staging",
+					"Group": "dist",
+					"Branch": "master",
+					"HasDocs": false,
+					"HasCover": false,
+					"Sidebar": [],
+					"DocFiles": []
+				}
+			]
+		},
+		{
+			"Name": "Docs",
+			"Key": "docs",
+			"Description": "",
+			"Modules": [
+				{
+					"Name": "api",
+					"Repo": "api",
+					"Group": "docs",
+					"Branch": "master",
+					"HasDocs": true,
+					"HasCover": false,
+					"Sidebar": [],
+					"DocFiles": [
+						"api/meadow-provider-configurator.md",
+						"api/process-manager.md",
+						"api/reference.md",
+						"api/retold-harness.md",
+						"api/schema-provider.md"
+					]
+				},
+				{
+					"Name": "css",
+					"Repo": "css",
+					"Group": "docs",
+					"Branch": "master",
+					"HasDocs": true,
+					"HasCover": false,
+					"Sidebar": [],
+					"DocFiles": [
+						"css/docuserve.css"
+					]
+				}
+			]
+		},
+		{
+			"Name": "Source",
+			"Key": "source",
+			"Description": "",
+			"Modules": [
+				{
+					"Name": "management-tool",
+					"Repo": "management-tool",
+					"Group": "source",
+					"Branch": "master",
+					"HasDocs": true,
+					"HasCover": false,
+					"Sidebar": [],
+					"DocFiles": [
+						"dgraph/linux.md",
+						"dgraph/mac.md",
+						"dgraph/windows.md",
+						"mongodb/linux.md",
+						"mongodb/mac.md",
+						"mongodb/windows.md",
+						"mssql/linux.md",
+						"mssql/mac.md",
+						"mssql/windows.md",
+						"mysql/linux.md",
+						"mysql/mac.md",
+						"mysql/windows.md",
+						"postgresql/linux.md",
+						"postgresql/mac.md",
+						"postgresql/windows.md",
+						"solr/linux.md",
+						"solr/mac.md",
+						"solr/windows.md",
+						"sqlite/linux.md",
+						"sqlite/mac.md",
+						"sqlite/windows.md"
+					]
+				},
+				{
+					"Name": "providers",
+					"Repo": "providers",
+					"Group": "source",
+					"Branch": "master",
+					"HasDocs": false,
+					"HasCover": false,
+					"Sidebar": [],
+					"DocFiles": []
+				},
+				{
+					"Name": "schemas",
+					"Repo": "schemas",
+					"Group": "source",
+					"Branch": "master",
+					"HasDocs": false,
+					"HasCover": false,
+					"Sidebar": [],
+					"DocFiles": []
+				},
+				{
+					"Name": "web",
+					"Repo": "web",
+					"Group": "source",
+					"Branch": "master",
+					"HasDocs": false,
+					"HasCover": false,
+					"Sidebar": [],
+					"DocFiles": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,559 @@
+{
+    "Scope": "ZIPCode",
+    "DefaultIdentifier": "IDZIPCode",
+    "Domain": "Default",
+    "Schema": [
+        {
+            "Column": "IDZIPCode",
+            "Type": "AutoIdentity",
+            "Size": "Default"
+        },
+        {
+            "Column": "GUIDZIPCode",
+            "Type": "AutoGUID",
+            "Size": "128"
+        },
+        {
+            "Column": "CreateDate",
+            "Type": "CreateDate",
+            "Size": "Default"
+        },
+        {
+            "Column": "CreatingIDUser",
+            "Type": "CreateIDUser",
+            "Size": "int"
+        },
+        {
+            "Column": "UpdateDate",
+            "Type": "UpdateDate",
+            "Size": "Default"
+        },
+        {
+            "Column": "UpdatingIDUser",
+            "Type": "UpdateIDUser",
+            "Size": "int"
+        },
+        {
+            "Column": "Deleted",
+            "Type": "Deleted",
+            "Size": "Default"
+        },
+        {
+            "Column": "DeleteDate",
+            "Type": "DeleteDate",
+            "Size": "Default"
+        },
+        {
+            "Column": "DeletingIDUser",
+            "Type": "DeleteIDUser",
+            "Size": "int"
+        },
+        {
+            "Column": "ZIPCode",
+            "Type": "String",
+            "Size": "10"
+        },
+        {
+            "Column": "GEOID",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "LandArea",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "WaterArea",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "LandAreaSqMi",
+            "Type": "Decimal",
+            "Size": "12,4"
+        },
+        {
+            "Column": "WaterAreaSqMi",
+            "Type": "Decimal",
+            "Size": "12,4"
+        },
+        {
+            "Column": "Latitude",
+            "Type": "Decimal",
+            "Size": "12,7"
+        },
+        {
+            "Column": "Longitude",
+            "Type": "Decimal",
+            "Size": "13,7"
+        },
+        {
+            "Column": "IDState",
+            "Type": "Integer",
+            "Size": "int"
+        }
+    ],
+    "DefaultObject": {
+        "IDZIPCode": 0,
+        "GUIDZIPCode": "0x0000000000000000",
+        "CreateDate": null,
+        "CreatingIDUser": 0,
+        "UpdateDate": null,
+        "UpdatingIDUser": 0,
+        "Deleted": false,
+        "DeleteDate": null,
+        "DeletingIDUser": 0,
+        "ZIPCode": "",
+        "GEOID": 0,
+        "LandArea": 0,
+        "WaterArea": 0,
+        "LandAreaSqMi": 0,
+        "WaterAreaSqMi": 0,
+        "Latitude": 0,
+        "Longitude": 0,
+        "IDState": 0
+    },
+    "JsonSchema": {
+        "title": "ZIPCode",
+        "type": "object",
+        "properties": {
+            "IDZIPCode": {
+                "type": "integer",
+                "size": "Default"
+            },
+            "GUIDZIPCode": {
+                "type": "string",
+                "size": "128"
+            },
+            "CreateDate": {
+                "type": "string",
+                "size": "Default"
+            },
+            "CreatingIDUser": {
+                "type": "integer",
+                "size": "int"
+            },
+            "UpdateDate": {
+                "type": "string",
+                "size": "Default"
+            },
+            "UpdatingIDUser": {
+                "type": "integer",
+                "size": "int"
+            },
+            "Deleted": {
+                "type": "boolean",
+                "size": "Default"
+            },
+            "DeleteDate": {
+                "type": "string",
+                "size": "Default"
+            },
+            "DeletingIDUser": {
+                "type": "integer",
+                "size": "int"
+            },
+            "ZIPCode": {
+                "type": "string",
+                "size": "10"
+            },
+            "GEOID": {
+                "type": "integer",
+                "size": "int"
+            },
+            "LandArea": {
+                "type": "integer",
+                "size": "int"
+            },
+            "WaterArea": {
+                "type": "integer",
+                "size": "int"
+            },
+            "LandAreaSqMi": {
+                "type": "number",
+                "size": "12,4"
+            },
+            "WaterAreaSqMi": {
+                "type": "number",
+                "size": "12,4"
+            },
+            "Latitude": {
+                "type": "number",
+                "size": "12,7"
+            },
+            "Longitude": {
+                "type": "number",
+                "size": "13,7"
+            },
+            "IDState": {
+                "type": "integer",
+                "size": "int"
+            }
+        },
+        "required": [
+            "IDZIPCode"
+        ],
+        "MeadowSchema": {
+            "Scope": "ZIPCode",
+            "DefaultIdentifier": "IDZIPCode",
+            "Domain": "Default",
+            "Schema": [
+                {
+                    "Column": "IDZIPCode",
+                    "Type": "AutoIdentity",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "GUIDZIPCode",
+                    "Type": "AutoGUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "Type": "CreateDate",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "Type": "CreateIDUser",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "Type": "UpdateDate",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "Type": "UpdateIDUser",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "Type": "Deleted",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "Type": "DeleteDate",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "Type": "DeleteIDUser",
+                    "Size": "int"
+                },
+                {
+                    "Column": "ZIPCode",
+                    "Type": "String",
+                    "Size": "10"
+                },
+                {
+                    "Column": "GEOID",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "LandArea",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "WaterArea",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "LandAreaSqMi",
+                    "Type": "Decimal",
+                    "Size": "12,4"
+                },
+                {
+                    "Column": "WaterAreaSqMi",
+                    "Type": "Decimal",
+                    "Size": "12,4"
+                },
+                {
+                    "Column": "Latitude",
+                    "Type": "Decimal",
+                    "Size": "12,7"
+                },
+                {
+                    "Column": "Longitude",
+                    "Type": "Decimal",
+                    "Size": "13,7"
+                },
+                {
+                    "Column": "IDState",
+                    "Type": "Integer",
+                    "Size": "int"
+                }
+            ],
+            "DefaultObject": {
+                "IDZIPCode": 0,
+                "GUIDZIPCode": "0x0000000000000000",
+                "CreateDate": null,
+                "CreatingIDUser": 0,
+                "UpdateDate": null,
+                "UpdatingIDUser": 0,
+                "Deleted": false,
+                "DeleteDate": null,
+                "DeletingIDUser": 0,
+                "ZIPCode": "",
+                "GEOID": 0,
+                "LandArea": 0,
+                "WaterArea": 0,
+                "LandAreaSqMi": 0,
+                "WaterAreaSqMi": 0,
+                "Latitude": 0,
+                "Longitude": 0,
+                "IDState": 0
+            },
+            "Authorization": {
+                "__DefaultAPISecurity": {
+                    "Create": "Deny",
+                    "Read": "Deny",
+                    "Reads": "Deny",
+                    "ReadsBy": "Deny",
+                    "ReadMax": "Deny",
+                    "ReadSelectList": "Deny",
+                    "Update": "Deny",
+                    "Delete": "Deny",
+                    "Count": "Deny",
+                    "CountBy": "Deny",
+                    "Schema": "Deny",
+                    "Validate": "Deny",
+                    "New": "Deny"
+                },
+                "Unauthenticated": {
+                    "Create": "Deny",
+                    "Read": "Deny",
+                    "Reads": "Deny",
+                    "ReadsBy": "Deny",
+                    "ReadMax": "Deny",
+                    "ReadSelectList": "Deny",
+                    "Update": "Deny",
+                    "Delete": "Deny",
+                    "Count": "Deny",
+                    "CountBy": "Deny",
+                    "Schema": "Deny",
+                    "Validate": "Deny",
+                    "New": "Deny"
+                },
+                "Readonly": {
+                    "Create": "Deny",
+                    "Read": "Allow",
+                    "Reads": "Allow",
+                    "ReadsBy": "Allow",
+                    "ReadMax": "Allow",
+                    "ReadSelectList": "Allow",
+                    "Update": "Deny",
+                    "Delete": "Deny",
+                    "Count": "Allow",
+                    "CountBy": "Allow",
+                    "Schema": "Allow",
+                    "Validate": "Allow",
+                    "New": "Deny"
+                },
+                "User": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "Mine",
+                    "Delete": "Mine",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Manager": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "Mine",
+                    "Delete": "Mine",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Director": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "MyCustomer",
+                    "Delete": "MyCustomer",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Executive": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "MyCustomer",
+                    "Delete": "MyCustomer",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Administrator": {
+                    "Create": "Allow",
+                    "Read": "Allow",
+                    "Reads": "Allow",
+                    "ReadsBy": "Allow",
+                    "ReadMax": "Allow",
+                    "ReadSelectList": "Allow",
+                    "Update": "Allow",
+                    "Delete": "Allow",
+                    "Count": "Allow",
+                    "CountBy": "Allow",
+                    "Schema": "Allow",
+                    "Validate": "Allow",
+                    "New": "Allow"
+                }
+            }
+        }
+    },
+    "Authorization": {
+        "__DefaultAPISecurity": {
+            "Create": "Deny",
+            "Read": "Deny",
+            "Reads": "Deny",
+            "ReadsBy": "Deny",
+            "ReadMax": "Deny",
+            "ReadSelectList": "Deny",
+            "Update": "Deny",
+            "Delete": "Deny",
+            "Count": "Deny",
+            "CountBy": "Deny",
+            "Schema": "Deny",
+            "Validate": "Deny",
+            "New": "Deny"
+        },
+        "Unauthenticated": {
+            "Create": "Deny",
+            "Read": "Deny",
+            "Reads": "Deny",
+            "ReadsBy": "Deny",
+            "ReadMax": "Deny",
+            "ReadSelectList": "Deny",
+            "Update": "Deny",
+            "Delete": "Deny",
+            "Count": "Deny",
+            "CountBy": "Deny",
+            "Schema": "Deny",
+            "Validate": "Deny",
+            "New": "Deny"
+        },
+        "Readonly": {
+            "Create": "Deny",
+            "Read": "Allow",
+            "Reads": "Allow",
+            "ReadsBy": "Allow",
+            "ReadMax": "Allow",
+            "ReadSelectList": "Allow",
+            "Update": "Deny",
+            "Delete": "Deny",
+            "Count": "Allow",
+            "CountBy": "Allow",
+            "Schema": "Allow",
+            "Validate": "Allow",
+            "New": "Deny"
+        },
+        "User": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "Mine",
+            "Delete": "Mine",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Manager": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "Mine",
+            "Delete": "Mine",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Director": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "MyCustomer",
+            "Delete": "MyCustomer",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Executive": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "MyCustomer",
+            "Delete": "MyCustomer",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Administrator": {
+            "Create": "Allow",
+            "Read": "Allow",
+            "Reads": "Allow",
+            "ReadsBy": "Allow",
+            "ReadMax": "Allow",
+            "ReadSelectList": "Allow",
+            "Update": "Allow",
+            "Delete": "Allow",
+            "Count": "Allow",
+            "CountBy": "Allow",
+            "Schema": "Allow",
+            "Validate": "Allow",
+            "New": "Allow"
+        }
+    }
+}

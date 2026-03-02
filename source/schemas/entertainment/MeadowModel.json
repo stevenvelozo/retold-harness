@@ -1,0 +1,1238 @@
+{
+    "Tables": {
+        "User": {
+            "TableName": "User",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDUser",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "LoginID",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "Password",
+                    "DataType": "String",
+                    "Size": "255"
+                },
+                {
+                    "Column": "NameFirst",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "NameLast",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "FullName",
+                    "DataType": "String",
+                    "Size": "255"
+                },
+                {
+                    "Column": "Config",
+                    "DataType": "String",
+                    "Size": "64"
+                }
+            ],
+            "Description": ""
+        },
+        "DataSource": {
+            "TableName": "DataSource",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDDataSource",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDDataSource",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "DataType": "String",
+                    "Size": "200"
+                },
+                {
+                    "Column": "URL",
+                    "DataType": "String",
+                    "Size": "512"
+                },
+                {
+                    "Column": "Description",
+                    "DataType": "Text"
+                },
+                {
+                    "Column": "FileFormat",
+                    "DataType": "String",
+                    "Size": "64"
+                },
+                {
+                    "Column": "Vintage",
+                    "DataType": "String",
+                    "Size": "32"
+                },
+                {
+                    "Column": "LastRetrieved",
+                    "DataType": "DateTime"
+                }
+            ],
+            "Description": ""
+        },
+        "Genre": {
+            "TableName": "Genre",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDGenre",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDGenre",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "Category",
+                    "DataType": "String",
+                    "Size": "32"
+                },
+                {
+                    "Column": "IDDataSource",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDDataSource"
+                }
+            ],
+            "Description": ""
+        },
+        "Person": {
+            "TableName": "Person",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDPerson",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDPerson",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "DataType": "String",
+                    "Size": "255"
+                },
+                {
+                    "Column": "ExternalID",
+                    "DataType": "String",
+                    "Size": "32"
+                },
+                {
+                    "Column": "BirthYear",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "DeathYear",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "PrimaryProfessions",
+                    "DataType": "String",
+                    "Size": "512"
+                },
+                {
+                    "Column": "KnownForTitles",
+                    "DataType": "String",
+                    "Size": "512"
+                },
+                {
+                    "Column": "IDDataSource",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDDataSource"
+                }
+            ],
+            "Description": ""
+        },
+        "Movie": {
+            "TableName": "Movie",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDMovie",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDMovie",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Title",
+                    "DataType": "String",
+                    "Size": "512"
+                },
+                {
+                    "Column": "OriginalTitle",
+                    "DataType": "String",
+                    "Size": "512"
+                },
+                {
+                    "Column": "ExternalID",
+                    "DataType": "String",
+                    "Size": "32"
+                },
+                {
+                    "Column": "IsAdult",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "StartYear",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "EndYear",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "RuntimeMinutes",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "GenreList",
+                    "DataType": "String",
+                    "Size": "256"
+                },
+                {
+                    "Column": "IDDataSource",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDDataSource"
+                }
+            ],
+            "Description": ""
+        },
+        "MovieGenre": {
+            "TableName": "MovieGenre",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDMovieGenre",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDMovieGenre",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "IDMovie",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDMovie"
+                },
+                {
+                    "Column": "IDGenre",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDGenre"
+                }
+            ],
+            "Description": ""
+        },
+        "MovieCredit": {
+            "TableName": "MovieCredit",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDMovieCredit",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDMovieCredit",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Ordering",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Category",
+                    "DataType": "String",
+                    "Size": "64"
+                },
+                {
+                    "Column": "Job",
+                    "DataType": "String",
+                    "Size": "512"
+                },
+                {
+                    "Column": "Characters",
+                    "DataType": "String",
+                    "Size": "1024"
+                },
+                {
+                    "Column": "IDMovie",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDMovie"
+                },
+                {
+                    "Column": "IDPerson",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDPerson"
+                },
+                {
+                    "Column": "IDDataSource",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDDataSource"
+                }
+            ],
+            "Description": ""
+        },
+        "MovieRating": {
+            "TableName": "MovieRating",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDMovieRating",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDMovieRating",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "AverageRating",
+                    "DataType": "Decimal",
+                    "Size": "4,1"
+                },
+                {
+                    "Column": "NumVotes",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "IDMovie",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDMovie"
+                },
+                {
+                    "Column": "IDDataSource",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDDataSource"
+                }
+            ],
+            "Description": ""
+        },
+        "Artist": {
+            "TableName": "Artist",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDArtist",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDArtist",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "DataType": "String",
+                    "Size": "255"
+                },
+                {
+                    "Column": "SortName",
+                    "DataType": "String",
+                    "Size": "255"
+                },
+                {
+                    "Column": "ExternalID",
+                    "DataType": "String",
+                    "Size": "64"
+                },
+                {
+                    "Column": "ArtistType",
+                    "DataType": "String",
+                    "Size": "32"
+                },
+                {
+                    "Column": "BeginYear",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "EndYear",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Country",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "Disambiguation",
+                    "DataType": "String",
+                    "Size": "512"
+                },
+                {
+                    "Column": "IDPerson",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDPerson"
+                },
+                {
+                    "Column": "IDDataSource",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDDataSource"
+                }
+            ],
+            "Description": ""
+        },
+        "Album": {
+            "TableName": "Album",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDAlbum",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDAlbum",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Title",
+                    "DataType": "String",
+                    "Size": "512"
+                },
+                {
+                    "Column": "ExternalID",
+                    "DataType": "String",
+                    "Size": "64"
+                },
+                {
+                    "Column": "AlbumType",
+                    "DataType": "String",
+                    "Size": "32"
+                },
+                {
+                    "Column": "ReleaseYear",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Country",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "TrackCount",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "IDArtist",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDArtist"
+                },
+                {
+                    "Column": "IDDataSource",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDDataSource"
+                }
+            ],
+            "Description": ""
+        },
+        "Song": {
+            "TableName": "Song",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDSong",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDSong",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Title",
+                    "DataType": "String",
+                    "Size": "512"
+                },
+                {
+                    "Column": "ExternalID",
+                    "DataType": "String",
+                    "Size": "64"
+                },
+                {
+                    "Column": "DurationSeconds",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "ReleaseYear",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "IDArtist",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDArtist"
+                },
+                {
+                    "Column": "IDDataSource",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDDataSource"
+                }
+            ],
+            "Description": ""
+        },
+        "AlbumTrack": {
+            "TableName": "AlbumTrack",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDAlbumTrack",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDAlbumTrack",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "TrackNumber",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "DiscNumber",
+                    "DataType": "String",
+                    "Size": "8"
+                },
+                {
+                    "Column": "IDAlbum",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDAlbum"
+                },
+                {
+                    "Column": "IDSong",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDSong"
+                }
+            ],
+            "Description": ""
+        },
+        "Soundtrack": {
+            "TableName": "Soundtrack",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDSoundtrack",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDSoundtrack",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Role",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "Composer",
+                    "DataType": "String",
+                    "Size": "255"
+                },
+                {
+                    "Column": "IDMovie",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDMovie"
+                },
+                {
+                    "Column": "IDSong",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDSong"
+                },
+                {
+                    "Column": "IDDataSource",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDDataSource"
+                }
+            ],
+            "Description": ""
+        },
+        "Venue": {
+            "TableName": "Venue",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDVenue",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDVenue",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "DataType": "String",
+                    "Size": "255"
+                },
+                {
+                    "Column": "City",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "State",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "Country",
+                    "DataType": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "Latitude",
+                    "DataType": "Decimal",
+                    "Size": "12,7"
+                },
+                {
+                    "Column": "Longitude",
+                    "DataType": "Decimal",
+                    "Size": "13,7"
+                },
+                {
+                    "Column": "Capacity",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "ExternalID",
+                    "DataType": "String",
+                    "Size": "64"
+                },
+                {
+                    "Column": "IDDataSource",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDDataSource"
+                }
+            ],
+            "Description": ""
+        },
+        "Concert": {
+            "TableName": "Concert",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDConcert",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDConcert",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "DataType": "String",
+                    "Size": "512"
+                },
+                {
+                    "Column": "EventDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "TourName",
+                    "DataType": "String",
+                    "Size": "255"
+                },
+                {
+                    "Column": "IDArtist",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDArtist"
+                },
+                {
+                    "Column": "IDVenue",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDVenue"
+                },
+                {
+                    "Column": "IDDataSource",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDDataSource"
+                }
+            ],
+            "Description": ""
+        },
+        "SetlistEntry": {
+            "TableName": "SetlistEntry",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDSetlistEntry",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDSetlistEntry",
+                    "DataType": "GUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "DataType": "DateTime"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Position",
+                    "DataType": "Numeric",
+                    "Size": "int"
+                },
+                {
+                    "Column": "IsEncore",
+                    "DataType": "Boolean"
+                },
+                {
+                    "Column": "Info",
+                    "DataType": "String",
+                    "Size": "512"
+                },
+                {
+                    "Column": "IDConcert",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDConcert"
+                },
+                {
+                    "Column": "IDSong",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDSong"
+                },
+                {
+                    "Column": "IDDataSource",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDDataSource"
+                }
+            ],
+            "Description": ""
+        }
+    }
+}

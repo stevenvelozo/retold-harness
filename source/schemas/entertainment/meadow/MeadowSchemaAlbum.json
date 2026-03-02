@@ -1,0 +1,543 @@
+{
+    "Scope": "Album",
+    "DefaultIdentifier": "IDAlbum",
+    "Domain": "Default",
+    "Schema": [
+        {
+            "Column": "IDAlbum",
+            "Type": "AutoIdentity",
+            "Size": "Default"
+        },
+        {
+            "Column": "GUIDAlbum",
+            "Type": "AutoGUID",
+            "Size": "128"
+        },
+        {
+            "Column": "CreateDate",
+            "Type": "CreateDate",
+            "Size": "Default"
+        },
+        {
+            "Column": "CreatingIDUser",
+            "Type": "CreateIDUser",
+            "Size": "int"
+        },
+        {
+            "Column": "UpdateDate",
+            "Type": "UpdateDate",
+            "Size": "Default"
+        },
+        {
+            "Column": "UpdatingIDUser",
+            "Type": "UpdateIDUser",
+            "Size": "int"
+        },
+        {
+            "Column": "Deleted",
+            "Type": "Deleted",
+            "Size": "Default"
+        },
+        {
+            "Column": "DeleteDate",
+            "Type": "DeleteDate",
+            "Size": "Default"
+        },
+        {
+            "Column": "DeletingIDUser",
+            "Type": "DeleteIDUser",
+            "Size": "int"
+        },
+        {
+            "Column": "Title",
+            "Type": "String",
+            "Size": "512"
+        },
+        {
+            "Column": "ExternalID",
+            "Type": "String",
+            "Size": "64"
+        },
+        {
+            "Column": "AlbumType",
+            "Type": "String",
+            "Size": "32"
+        },
+        {
+            "Column": "ReleaseYear",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "Country",
+            "Type": "String",
+            "Size": "128"
+        },
+        {
+            "Column": "TrackCount",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "IDArtist",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "IDDataSource",
+            "Type": "Integer",
+            "Size": "int"
+        }
+    ],
+    "DefaultObject": {
+        "IDAlbum": 0,
+        "GUIDAlbum": "0x0000000000000000",
+        "CreateDate": null,
+        "CreatingIDUser": 0,
+        "UpdateDate": null,
+        "UpdatingIDUser": 0,
+        "Deleted": false,
+        "DeleteDate": null,
+        "DeletingIDUser": 0,
+        "Title": "",
+        "ExternalID": "",
+        "AlbumType": "",
+        "ReleaseYear": 0,
+        "Country": "",
+        "TrackCount": 0,
+        "IDArtist": 0,
+        "IDDataSource": 0
+    },
+    "JsonSchema": {
+        "title": "Album",
+        "type": "object",
+        "properties": {
+            "IDAlbum": {
+                "type": "integer",
+                "size": "Default"
+            },
+            "GUIDAlbum": {
+                "type": "string",
+                "size": "128"
+            },
+            "CreateDate": {
+                "type": "string",
+                "size": "Default"
+            },
+            "CreatingIDUser": {
+                "type": "integer",
+                "size": "int"
+            },
+            "UpdateDate": {
+                "type": "string",
+                "size": "Default"
+            },
+            "UpdatingIDUser": {
+                "type": "integer",
+                "size": "int"
+            },
+            "Deleted": {
+                "type": "boolean",
+                "size": "Default"
+            },
+            "DeleteDate": {
+                "type": "string",
+                "size": "Default"
+            },
+            "DeletingIDUser": {
+                "type": "integer",
+                "size": "int"
+            },
+            "Title": {
+                "type": "string",
+                "size": "512"
+            },
+            "ExternalID": {
+                "type": "string",
+                "size": "64"
+            },
+            "AlbumType": {
+                "type": "string",
+                "size": "32"
+            },
+            "ReleaseYear": {
+                "type": "integer",
+                "size": "int"
+            },
+            "Country": {
+                "type": "string",
+                "size": "128"
+            },
+            "TrackCount": {
+                "type": "integer",
+                "size": "int"
+            },
+            "IDArtist": {
+                "type": "integer",
+                "size": "int"
+            },
+            "IDDataSource": {
+                "type": "integer",
+                "size": "int"
+            }
+        },
+        "required": [
+            "IDAlbum"
+        ],
+        "MeadowSchema": {
+            "Scope": "Album",
+            "DefaultIdentifier": "IDAlbum",
+            "Domain": "Default",
+            "Schema": [
+                {
+                    "Column": "IDAlbum",
+                    "Type": "AutoIdentity",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "GUIDAlbum",
+                    "Type": "AutoGUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "Type": "CreateDate",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "Type": "CreateIDUser",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "Type": "UpdateDate",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "Type": "UpdateIDUser",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "Type": "Deleted",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "Type": "DeleteDate",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "Type": "DeleteIDUser",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Title",
+                    "Type": "String",
+                    "Size": "512"
+                },
+                {
+                    "Column": "ExternalID",
+                    "Type": "String",
+                    "Size": "64"
+                },
+                {
+                    "Column": "AlbumType",
+                    "Type": "String",
+                    "Size": "32"
+                },
+                {
+                    "Column": "ReleaseYear",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Country",
+                    "Type": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "TrackCount",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "IDArtist",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "IDDataSource",
+                    "Type": "Integer",
+                    "Size": "int"
+                }
+            ],
+            "DefaultObject": {
+                "IDAlbum": 0,
+                "GUIDAlbum": "0x0000000000000000",
+                "CreateDate": null,
+                "CreatingIDUser": 0,
+                "UpdateDate": null,
+                "UpdatingIDUser": 0,
+                "Deleted": false,
+                "DeleteDate": null,
+                "DeletingIDUser": 0,
+                "Title": "",
+                "ExternalID": "",
+                "AlbumType": "",
+                "ReleaseYear": 0,
+                "Country": "",
+                "TrackCount": 0,
+                "IDArtist": 0,
+                "IDDataSource": 0
+            },
+            "Authorization": {
+                "__DefaultAPISecurity": {
+                    "Create": "Deny",
+                    "Read": "Deny",
+                    "Reads": "Deny",
+                    "ReadsBy": "Deny",
+                    "ReadMax": "Deny",
+                    "ReadSelectList": "Deny",
+                    "Update": "Deny",
+                    "Delete": "Deny",
+                    "Count": "Deny",
+                    "CountBy": "Deny",
+                    "Schema": "Deny",
+                    "Validate": "Deny",
+                    "New": "Deny"
+                },
+                "Unauthenticated": {
+                    "Create": "Deny",
+                    "Read": "Deny",
+                    "Reads": "Deny",
+                    "ReadsBy": "Deny",
+                    "ReadMax": "Deny",
+                    "ReadSelectList": "Deny",
+                    "Update": "Deny",
+                    "Delete": "Deny",
+                    "Count": "Deny",
+                    "CountBy": "Deny",
+                    "Schema": "Deny",
+                    "Validate": "Deny",
+                    "New": "Deny"
+                },
+                "Readonly": {
+                    "Create": "Deny",
+                    "Read": "Allow",
+                    "Reads": "Allow",
+                    "ReadsBy": "Allow",
+                    "ReadMax": "Allow",
+                    "ReadSelectList": "Allow",
+                    "Update": "Deny",
+                    "Delete": "Deny",
+                    "Count": "Allow",
+                    "CountBy": "Allow",
+                    "Schema": "Allow",
+                    "Validate": "Allow",
+                    "New": "Deny"
+                },
+                "User": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "Mine",
+                    "Delete": "Mine",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Manager": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "Mine",
+                    "Delete": "Mine",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Director": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "MyCustomer",
+                    "Delete": "MyCustomer",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Executive": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "MyCustomer",
+                    "Delete": "MyCustomer",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Administrator": {
+                    "Create": "Allow",
+                    "Read": "Allow",
+                    "Reads": "Allow",
+                    "ReadsBy": "Allow",
+                    "ReadMax": "Allow",
+                    "ReadSelectList": "Allow",
+                    "Update": "Allow",
+                    "Delete": "Allow",
+                    "Count": "Allow",
+                    "CountBy": "Allow",
+                    "Schema": "Allow",
+                    "Validate": "Allow",
+                    "New": "Allow"
+                }
+            }
+        }
+    },
+    "Authorization": {
+        "__DefaultAPISecurity": {
+            "Create": "Deny",
+            "Read": "Deny",
+            "Reads": "Deny",
+            "ReadsBy": "Deny",
+            "ReadMax": "Deny",
+            "ReadSelectList": "Deny",
+            "Update": "Deny",
+            "Delete": "Deny",
+            "Count": "Deny",
+            "CountBy": "Deny",
+            "Schema": "Deny",
+            "Validate": "Deny",
+            "New": "Deny"
+        },
+        "Unauthenticated": {
+            "Create": "Deny",
+            "Read": "Deny",
+            "Reads": "Deny",
+            "ReadsBy": "Deny",
+            "ReadMax": "Deny",
+            "ReadSelectList": "Deny",
+            "Update": "Deny",
+            "Delete": "Deny",
+            "Count": "Deny",
+            "CountBy": "Deny",
+            "Schema": "Deny",
+            "Validate": "Deny",
+            "New": "Deny"
+        },
+        "Readonly": {
+            "Create": "Deny",
+            "Read": "Allow",
+            "Reads": "Allow",
+            "ReadsBy": "Allow",
+            "ReadMax": "Allow",
+            "ReadSelectList": "Allow",
+            "Update": "Deny",
+            "Delete": "Deny",
+            "Count": "Allow",
+            "CountBy": "Allow",
+            "Schema": "Allow",
+            "Validate": "Allow",
+            "New": "Deny"
+        },
+        "User": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "Mine",
+            "Delete": "Mine",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Manager": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "Mine",
+            "Delete": "Mine",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Director": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "MyCustomer",
+            "Delete": "MyCustomer",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Executive": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "MyCustomer",
+            "Delete": "MyCustomer",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Administrator": {
+            "Create": "Allow",
+            "Read": "Allow",
+            "Reads": "Allow",
+            "ReadsBy": "Allow",
+            "ReadMax": "Allow",
+            "ReadSelectList": "Allow",
+            "Update": "Allow",
+            "Delete": "Allow",
+            "Count": "Allow",
+            "CountBy": "Allow",
+            "Schema": "Allow",
+            "Validate": "Allow",
+            "New": "Allow"
+        }
+    }
+}

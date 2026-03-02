@@ -1,0 +1,639 @@
+{
+    "Scope": "CountySubdivision",
+    "DefaultIdentifier": "IDCountySubdivision",
+    "Domain": "Default",
+    "Schema": [
+        {
+            "Column": "IDCountySubdivision",
+            "Type": "AutoIdentity",
+            "Size": "Default"
+        },
+        {
+            "Column": "GUIDCountySubdivision",
+            "Type": "AutoGUID",
+            "Size": "128"
+        },
+        {
+            "Column": "CreateDate",
+            "Type": "CreateDate",
+            "Size": "Default"
+        },
+        {
+            "Column": "CreatingIDUser",
+            "Type": "CreateIDUser",
+            "Size": "int"
+        },
+        {
+            "Column": "UpdateDate",
+            "Type": "UpdateDate",
+            "Size": "Default"
+        },
+        {
+            "Column": "UpdatingIDUser",
+            "Type": "UpdateIDUser",
+            "Size": "int"
+        },
+        {
+            "Column": "Deleted",
+            "Type": "Deleted",
+            "Size": "Default"
+        },
+        {
+            "Column": "DeleteDate",
+            "Type": "DeleteDate",
+            "Size": "Default"
+        },
+        {
+            "Column": "DeletingIDUser",
+            "Type": "DeleteIDUser",
+            "Size": "int"
+        },
+        {
+            "Column": "Name",
+            "Type": "String",
+            "Size": "200"
+        },
+        {
+            "Column": "USPS",
+            "Type": "String",
+            "Size": "2"
+        },
+        {
+            "Column": "GEOID",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "ANSICODE",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "LSAD",
+            "Type": "String",
+            "Size": "4"
+        },
+        {
+            "Column": "FunctionalStatus",
+            "Type": "String",
+            "Size": "2"
+        },
+        {
+            "Column": "LandArea",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "WaterArea",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "LandAreaSqMi",
+            "Type": "Decimal",
+            "Size": "12,4"
+        },
+        {
+            "Column": "WaterAreaSqMi",
+            "Type": "Decimal",
+            "Size": "12,4"
+        },
+        {
+            "Column": "Latitude",
+            "Type": "Decimal",
+            "Size": "12,7"
+        },
+        {
+            "Column": "Longitude",
+            "Type": "Decimal",
+            "Size": "13,7"
+        },
+        {
+            "Column": "IDState",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "IDCounty",
+            "Type": "Integer",
+            "Size": "int"
+        }
+    ],
+    "DefaultObject": {
+        "IDCountySubdivision": 0,
+        "GUIDCountySubdivision": "0x0000000000000000",
+        "CreateDate": null,
+        "CreatingIDUser": 0,
+        "UpdateDate": null,
+        "UpdatingIDUser": 0,
+        "Deleted": false,
+        "DeleteDate": null,
+        "DeletingIDUser": 0,
+        "Name": "",
+        "USPS": "",
+        "GEOID": 0,
+        "ANSICODE": 0,
+        "LSAD": "",
+        "FunctionalStatus": "",
+        "LandArea": 0,
+        "WaterArea": 0,
+        "LandAreaSqMi": 0,
+        "WaterAreaSqMi": 0,
+        "Latitude": 0,
+        "Longitude": 0,
+        "IDState": 0,
+        "IDCounty": 0
+    },
+    "JsonSchema": {
+        "title": "CountySubdivision",
+        "type": "object",
+        "properties": {
+            "IDCountySubdivision": {
+                "type": "integer",
+                "size": "Default"
+            },
+            "GUIDCountySubdivision": {
+                "type": "string",
+                "size": "128"
+            },
+            "CreateDate": {
+                "type": "string",
+                "size": "Default"
+            },
+            "CreatingIDUser": {
+                "type": "integer",
+                "size": "int"
+            },
+            "UpdateDate": {
+                "type": "string",
+                "size": "Default"
+            },
+            "UpdatingIDUser": {
+                "type": "integer",
+                "size": "int"
+            },
+            "Deleted": {
+                "type": "boolean",
+                "size": "Default"
+            },
+            "DeleteDate": {
+                "type": "string",
+                "size": "Default"
+            },
+            "DeletingIDUser": {
+                "type": "integer",
+                "size": "int"
+            },
+            "Name": {
+                "type": "string",
+                "size": "200"
+            },
+            "USPS": {
+                "type": "string",
+                "size": "2"
+            },
+            "GEOID": {
+                "type": "integer",
+                "size": "int"
+            },
+            "ANSICODE": {
+                "type": "integer",
+                "size": "int"
+            },
+            "LSAD": {
+                "type": "string",
+                "size": "4"
+            },
+            "FunctionalStatus": {
+                "type": "string",
+                "size": "2"
+            },
+            "LandArea": {
+                "type": "integer",
+                "size": "int"
+            },
+            "WaterArea": {
+                "type": "integer",
+                "size": "int"
+            },
+            "LandAreaSqMi": {
+                "type": "number",
+                "size": "12,4"
+            },
+            "WaterAreaSqMi": {
+                "type": "number",
+                "size": "12,4"
+            },
+            "Latitude": {
+                "type": "number",
+                "size": "12,7"
+            },
+            "Longitude": {
+                "type": "number",
+                "size": "13,7"
+            },
+            "IDState": {
+                "type": "integer",
+                "size": "int"
+            },
+            "IDCounty": {
+                "type": "integer",
+                "size": "int"
+            }
+        },
+        "required": [
+            "IDCountySubdivision"
+        ],
+        "MeadowSchema": {
+            "Scope": "CountySubdivision",
+            "DefaultIdentifier": "IDCountySubdivision",
+            "Domain": "Default",
+            "Schema": [
+                {
+                    "Column": "IDCountySubdivision",
+                    "Type": "AutoIdentity",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "GUIDCountySubdivision",
+                    "Type": "AutoGUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "Type": "CreateDate",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "Type": "CreateIDUser",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "Type": "UpdateDate",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "Type": "UpdateIDUser",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "Type": "Deleted",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "Type": "DeleteDate",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "Type": "DeleteIDUser",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Name",
+                    "Type": "String",
+                    "Size": "200"
+                },
+                {
+                    "Column": "USPS",
+                    "Type": "String",
+                    "Size": "2"
+                },
+                {
+                    "Column": "GEOID",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "ANSICODE",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "LSAD",
+                    "Type": "String",
+                    "Size": "4"
+                },
+                {
+                    "Column": "FunctionalStatus",
+                    "Type": "String",
+                    "Size": "2"
+                },
+                {
+                    "Column": "LandArea",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "WaterArea",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "LandAreaSqMi",
+                    "Type": "Decimal",
+                    "Size": "12,4"
+                },
+                {
+                    "Column": "WaterAreaSqMi",
+                    "Type": "Decimal",
+                    "Size": "12,4"
+                },
+                {
+                    "Column": "Latitude",
+                    "Type": "Decimal",
+                    "Size": "12,7"
+                },
+                {
+                    "Column": "Longitude",
+                    "Type": "Decimal",
+                    "Size": "13,7"
+                },
+                {
+                    "Column": "IDState",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "IDCounty",
+                    "Type": "Integer",
+                    "Size": "int"
+                }
+            ],
+            "DefaultObject": {
+                "IDCountySubdivision": 0,
+                "GUIDCountySubdivision": "0x0000000000000000",
+                "CreateDate": null,
+                "CreatingIDUser": 0,
+                "UpdateDate": null,
+                "UpdatingIDUser": 0,
+                "Deleted": false,
+                "DeleteDate": null,
+                "DeletingIDUser": 0,
+                "Name": "",
+                "USPS": "",
+                "GEOID": 0,
+                "ANSICODE": 0,
+                "LSAD": "",
+                "FunctionalStatus": "",
+                "LandArea": 0,
+                "WaterArea": 0,
+                "LandAreaSqMi": 0,
+                "WaterAreaSqMi": 0,
+                "Latitude": 0,
+                "Longitude": 0,
+                "IDState": 0,
+                "IDCounty": 0
+            },
+            "Authorization": {
+                "__DefaultAPISecurity": {
+                    "Create": "Deny",
+                    "Read": "Deny",
+                    "Reads": "Deny",
+                    "ReadsBy": "Deny",
+                    "ReadMax": "Deny",
+                    "ReadSelectList": "Deny",
+                    "Update": "Deny",
+                    "Delete": "Deny",
+                    "Count": "Deny",
+                    "CountBy": "Deny",
+                    "Schema": "Deny",
+                    "Validate": "Deny",
+                    "New": "Deny"
+                },
+                "Unauthenticated": {
+                    "Create": "Deny",
+                    "Read": "Deny",
+                    "Reads": "Deny",
+                    "ReadsBy": "Deny",
+                    "ReadMax": "Deny",
+                    "ReadSelectList": "Deny",
+                    "Update": "Deny",
+                    "Delete": "Deny",
+                    "Count": "Deny",
+                    "CountBy": "Deny",
+                    "Schema": "Deny",
+                    "Validate": "Deny",
+                    "New": "Deny"
+                },
+                "Readonly": {
+                    "Create": "Deny",
+                    "Read": "Allow",
+                    "Reads": "Allow",
+                    "ReadsBy": "Allow",
+                    "ReadMax": "Allow",
+                    "ReadSelectList": "Allow",
+                    "Update": "Deny",
+                    "Delete": "Deny",
+                    "Count": "Allow",
+                    "CountBy": "Allow",
+                    "Schema": "Allow",
+                    "Validate": "Allow",
+                    "New": "Deny"
+                },
+                "User": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "Mine",
+                    "Delete": "Mine",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Manager": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "Mine",
+                    "Delete": "Mine",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Director": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "MyCustomer",
+                    "Delete": "MyCustomer",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Executive": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "MyCustomer",
+                    "Delete": "MyCustomer",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Administrator": {
+                    "Create": "Allow",
+                    "Read": "Allow",
+                    "Reads": "Allow",
+                    "ReadsBy": "Allow",
+                    "ReadMax": "Allow",
+                    "ReadSelectList": "Allow",
+                    "Update": "Allow",
+                    "Delete": "Allow",
+                    "Count": "Allow",
+                    "CountBy": "Allow",
+                    "Schema": "Allow",
+                    "Validate": "Allow",
+                    "New": "Allow"
+                }
+            }
+        }
+    },
+    "Authorization": {
+        "__DefaultAPISecurity": {
+            "Create": "Deny",
+            "Read": "Deny",
+            "Reads": "Deny",
+            "ReadsBy": "Deny",
+            "ReadMax": "Deny",
+            "ReadSelectList": "Deny",
+            "Update": "Deny",
+            "Delete": "Deny",
+            "Count": "Deny",
+            "CountBy": "Deny",
+            "Schema": "Deny",
+            "Validate": "Deny",
+            "New": "Deny"
+        },
+        "Unauthenticated": {
+            "Create": "Deny",
+            "Read": "Deny",
+            "Reads": "Deny",
+            "ReadsBy": "Deny",
+            "ReadMax": "Deny",
+            "ReadSelectList": "Deny",
+            "Update": "Deny",
+            "Delete": "Deny",
+            "Count": "Deny",
+            "CountBy": "Deny",
+            "Schema": "Deny",
+            "Validate": "Deny",
+            "New": "Deny"
+        },
+        "Readonly": {
+            "Create": "Deny",
+            "Read": "Allow",
+            "Reads": "Allow",
+            "ReadsBy": "Allow",
+            "ReadMax": "Allow",
+            "ReadSelectList": "Allow",
+            "Update": "Deny",
+            "Delete": "Deny",
+            "Count": "Allow",
+            "CountBy": "Allow",
+            "Schema": "Allow",
+            "Validate": "Allow",
+            "New": "Deny"
+        },
+        "User": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "Mine",
+            "Delete": "Mine",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Manager": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "Mine",
+            "Delete": "Mine",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Director": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "MyCustomer",
+            "Delete": "MyCustomer",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Executive": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "MyCustomer",
+            "Delete": "MyCustomer",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Administrator": {
+            "Create": "Allow",
+            "Read": "Allow",
+            "Reads": "Allow",
+            "ReadsBy": "Allow",
+            "ReadMax": "Allow",
+            "ReadSelectList": "Allow",
+            "Update": "Allow",
+            "Delete": "Allow",
+            "Count": "Allow",
+            "CountBy": "Allow",
+            "Schema": "Allow",
+            "Validate": "Allow",
+            "New": "Allow"
+        }
+    }
+}

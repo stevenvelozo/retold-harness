@@ -1,0 +1,12 @@
+{
+	"Entity": "Album",
+	"GUIDTemplate": "Album-{~D:Record.albumQID~}",
+	"Mappings":
+	{
+		"Title": "{~D:Record.albumLabel~}",
+		"ExternalID": "{~D:Record.albumQID~}",
+		"AlbumType": "{~D:Record.albumType~}",
+		"ReleaseYear": "{~D:Record.year~}",
+		"GUIDArtist": "Artist-{~D:Record.artistQID~}"
+	}
+}

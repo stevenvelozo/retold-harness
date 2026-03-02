@@ -1,0 +1,559 @@
+{
+    "Scope": "Movie",
+    "DefaultIdentifier": "IDMovie",
+    "Domain": "Default",
+    "Schema": [
+        {
+            "Column": "IDMovie",
+            "Type": "AutoIdentity",
+            "Size": "Default"
+        },
+        {
+            "Column": "GUIDMovie",
+            "Type": "AutoGUID",
+            "Size": "128"
+        },
+        {
+            "Column": "CreateDate",
+            "Type": "CreateDate",
+            "Size": "Default"
+        },
+        {
+            "Column": "CreatingIDUser",
+            "Type": "CreateIDUser",
+            "Size": "int"
+        },
+        {
+            "Column": "UpdateDate",
+            "Type": "UpdateDate",
+            "Size": "Default"
+        },
+        {
+            "Column": "UpdatingIDUser",
+            "Type": "UpdateIDUser",
+            "Size": "int"
+        },
+        {
+            "Column": "Deleted",
+            "Type": "Deleted",
+            "Size": "Default"
+        },
+        {
+            "Column": "DeleteDate",
+            "Type": "DeleteDate",
+            "Size": "Default"
+        },
+        {
+            "Column": "DeletingIDUser",
+            "Type": "DeleteIDUser",
+            "Size": "int"
+        },
+        {
+            "Column": "Title",
+            "Type": "String",
+            "Size": "512"
+        },
+        {
+            "Column": "OriginalTitle",
+            "Type": "String",
+            "Size": "512"
+        },
+        {
+            "Column": "ExternalID",
+            "Type": "String",
+            "Size": "32"
+        },
+        {
+            "Column": "IsAdult",
+            "Type": "Boolean",
+            "Size": "Default"
+        },
+        {
+            "Column": "StartYear",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "EndYear",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "RuntimeMinutes",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "GenreList",
+            "Type": "String",
+            "Size": "256"
+        },
+        {
+            "Column": "IDDataSource",
+            "Type": "Integer",
+            "Size": "int"
+        }
+    ],
+    "DefaultObject": {
+        "IDMovie": 0,
+        "GUIDMovie": "0x0000000000000000",
+        "CreateDate": null,
+        "CreatingIDUser": 0,
+        "UpdateDate": null,
+        "UpdatingIDUser": 0,
+        "Deleted": false,
+        "DeleteDate": null,
+        "DeletingIDUser": 0,
+        "Title": "",
+        "OriginalTitle": "",
+        "ExternalID": "",
+        "IsAdult": false,
+        "StartYear": 0,
+        "EndYear": 0,
+        "RuntimeMinutes": 0,
+        "GenreList": "",
+        "IDDataSource": 0
+    },
+    "JsonSchema": {
+        "title": "Movie",
+        "type": "object",
+        "properties": {
+            "IDMovie": {
+                "type": "integer",
+                "size": "Default"
+            },
+            "GUIDMovie": {
+                "type": "string",
+                "size": "128"
+            },
+            "CreateDate": {
+                "type": "string",
+                "size": "Default"
+            },
+            "CreatingIDUser": {
+                "type": "integer",
+                "size": "int"
+            },
+            "UpdateDate": {
+                "type": "string",
+                "size": "Default"
+            },
+            "UpdatingIDUser": {
+                "type": "integer",
+                "size": "int"
+            },
+            "Deleted": {
+                "type": "boolean",
+                "size": "Default"
+            },
+            "DeleteDate": {
+                "type": "string",
+                "size": "Default"
+            },
+            "DeletingIDUser": {
+                "type": "integer",
+                "size": "int"
+            },
+            "Title": {
+                "type": "string",
+                "size": "512"
+            },
+            "OriginalTitle": {
+                "type": "string",
+                "size": "512"
+            },
+            "ExternalID": {
+                "type": "string",
+                "size": "32"
+            },
+            "IsAdult": {
+                "type": "boolean",
+                "size": "Default"
+            },
+            "StartYear": {
+                "type": "integer",
+                "size": "int"
+            },
+            "EndYear": {
+                "type": "integer",
+                "size": "int"
+            },
+            "RuntimeMinutes": {
+                "type": "integer",
+                "size": "int"
+            },
+            "GenreList": {
+                "type": "string",
+                "size": "256"
+            },
+            "IDDataSource": {
+                "type": "integer",
+                "size": "int"
+            }
+        },
+        "required": [
+            "IDMovie"
+        ],
+        "MeadowSchema": {
+            "Scope": "Movie",
+            "DefaultIdentifier": "IDMovie",
+            "Domain": "Default",
+            "Schema": [
+                {
+                    "Column": "IDMovie",
+                    "Type": "AutoIdentity",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "GUIDMovie",
+                    "Type": "AutoGUID",
+                    "Size": "128"
+                },
+                {
+                    "Column": "CreateDate",
+                    "Type": "CreateDate",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "CreatingIDUser",
+                    "Type": "CreateIDUser",
+                    "Size": "int"
+                },
+                {
+                    "Column": "UpdateDate",
+                    "Type": "UpdateDate",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "UpdatingIDUser",
+                    "Type": "UpdateIDUser",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Deleted",
+                    "Type": "Deleted",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "DeleteDate",
+                    "Type": "DeleteDate",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "DeletingIDUser",
+                    "Type": "DeleteIDUser",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Title",
+                    "Type": "String",
+                    "Size": "512"
+                },
+                {
+                    "Column": "OriginalTitle",
+                    "Type": "String",
+                    "Size": "512"
+                },
+                {
+                    "Column": "ExternalID",
+                    "Type": "String",
+                    "Size": "32"
+                },
+                {
+                    "Column": "IsAdult",
+                    "Type": "Boolean",
+                    "Size": "Default"
+                },
+                {
+                    "Column": "StartYear",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "EndYear",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "RuntimeMinutes",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "GenreList",
+                    "Type": "String",
+                    "Size": "256"
+                },
+                {
+                    "Column": "IDDataSource",
+                    "Type": "Integer",
+                    "Size": "int"
+                }
+            ],
+            "DefaultObject": {
+                "IDMovie": 0,
+                "GUIDMovie": "0x0000000000000000",
+                "CreateDate": null,
+                "CreatingIDUser": 0,
+                "UpdateDate": null,
+                "UpdatingIDUser": 0,
+                "Deleted": false,
+                "DeleteDate": null,
+                "DeletingIDUser": 0,
+                "Title": "",
+                "OriginalTitle": "",
+                "ExternalID": "",
+                "IsAdult": false,
+                "StartYear": 0,
+                "EndYear": 0,
+                "RuntimeMinutes": 0,
+                "GenreList": "",
+                "IDDataSource": 0
+            },
+            "Authorization": {
+                "__DefaultAPISecurity": {
+                    "Create": "Deny",
+                    "Read": "Deny",
+                    "Reads": "Deny",
+                    "ReadsBy": "Deny",
+                    "ReadMax": "Deny",
+                    "ReadSelectList": "Deny",
+                    "Update": "Deny",
+                    "Delete": "Deny",
+                    "Count": "Deny",
+                    "CountBy": "Deny",
+                    "Schema": "Deny",
+                    "Validate": "Deny",
+                    "New": "Deny"
+                },
+                "Unauthenticated": {
+                    "Create": "Deny",
+                    "Read": "Deny",
+                    "Reads": "Deny",
+                    "ReadsBy": "Deny",
+                    "ReadMax": "Deny",
+                    "ReadSelectList": "Deny",
+                    "Update": "Deny",
+                    "Delete": "Deny",
+                    "Count": "Deny",
+                    "CountBy": "Deny",
+                    "Schema": "Deny",
+                    "Validate": "Deny",
+                    "New": "Deny"
+                },
+                "Readonly": {
+                    "Create": "Deny",
+                    "Read": "Allow",
+                    "Reads": "Allow",
+                    "ReadsBy": "Allow",
+                    "ReadMax": "Allow",
+                    "ReadSelectList": "Allow",
+                    "Update": "Deny",
+                    "Delete": "Deny",
+                    "Count": "Allow",
+                    "CountBy": "Allow",
+                    "Schema": "Allow",
+                    "Validate": "Allow",
+                    "New": "Deny"
+                },
+                "User": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "Mine",
+                    "Delete": "Mine",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Manager": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "Mine",
+                    "Delete": "Mine",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Director": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "MyCustomer",
+                    "Delete": "MyCustomer",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Executive": {
+                    "Create": "Allow",
+                    "Read": "MyCustomer",
+                    "Reads": "MyCustomer",
+                    "ReadsBy": "MyCustomer",
+                    "ReadMax": "MyCustomer",
+                    "ReadSelectList": "MyCustomer",
+                    "Update": "MyCustomer",
+                    "Delete": "MyCustomer",
+                    "Count": "MyCustomer",
+                    "CountBy": "MyCustomer",
+                    "Schema": "MyCustomer",
+                    "Validate": "MyCustomer",
+                    "New": "MyCustomer"
+                },
+                "Administrator": {
+                    "Create": "Allow",
+                    "Read": "Allow",
+                    "Reads": "Allow",
+                    "ReadsBy": "Allow",
+                    "ReadMax": "Allow",
+                    "ReadSelectList": "Allow",
+                    "Update": "Allow",
+                    "Delete": "Allow",
+                    "Count": "Allow",
+                    "CountBy": "Allow",
+                    "Schema": "Allow",
+                    "Validate": "Allow",
+                    "New": "Allow"
+                }
+            }
+        }
+    },
+    "Authorization": {
+        "__DefaultAPISecurity": {
+            "Create": "Deny",
+            "Read": "Deny",
+            "Reads": "Deny",
+            "ReadsBy": "Deny",
+            "ReadMax": "Deny",
+            "ReadSelectList": "Deny",
+            "Update": "Deny",
+            "Delete": "Deny",
+            "Count": "Deny",
+            "CountBy": "Deny",
+            "Schema": "Deny",
+            "Validate": "Deny",
+            "New": "Deny"
+        },
+        "Unauthenticated": {
+            "Create": "Deny",
+            "Read": "Deny",
+            "Reads": "Deny",
+            "ReadsBy": "Deny",
+            "ReadMax": "Deny",
+            "ReadSelectList": "Deny",
+            "Update": "Deny",
+            "Delete": "Deny",
+            "Count": "Deny",
+            "CountBy": "Deny",
+            "Schema": "Deny",
+            "Validate": "Deny",
+            "New": "Deny"
+        },
+        "Readonly": {
+            "Create": "Deny",
+            "Read": "Allow",
+            "Reads": "Allow",
+            "ReadsBy": "Allow",
+            "ReadMax": "Allow",
+            "ReadSelectList": "Allow",
+            "Update": "Deny",
+            "Delete": "Deny",
+            "Count": "Allow",
+            "CountBy": "Allow",
+            "Schema": "Allow",
+            "Validate": "Allow",
+            "New": "Deny"
+        },
+        "User": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "Mine",
+            "Delete": "Mine",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Manager": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "Mine",
+            "Delete": "Mine",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Director": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "MyCustomer",
+            "Delete": "MyCustomer",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Executive": {
+            "Create": "Allow",
+            "Read": "MyCustomer",
+            "Reads": "MyCustomer",
+            "ReadsBy": "MyCustomer",
+            "ReadMax": "MyCustomer",
+            "ReadSelectList": "MyCustomer",
+            "Update": "MyCustomer",
+            "Delete": "MyCustomer",
+            "Count": "MyCustomer",
+            "CountBy": "MyCustomer",
+            "Schema": "MyCustomer",
+            "Validate": "MyCustomer",
+            "New": "MyCustomer"
+        },
+        "Administrator": {
+            "Create": "Allow",
+            "Read": "Allow",
+            "Reads": "Allow",
+            "ReadsBy": "Allow",
+            "ReadMax": "Allow",
+            "ReadSelectList": "Allow",
+            "Update": "Allow",
+            "Delete": "Allow",
+            "Count": "Allow",
+            "CountBy": "Allow",
+            "Schema": "Allow",
+            "Validate": "Allow",
+            "New": "Allow"
+        }
+    }
+}
