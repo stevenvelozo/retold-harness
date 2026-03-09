@@ -58,6 +58,33 @@ class RetoldHarnessSchemaBookstore extends libRetoldHarnessSchemaProvider
 				pDB.exec(tmpSeedSQL);
 				this.log.info('Seed data loaded.');
 			}
+
+			// Check if the extended data (Customer/tenant, employees, sales) needs seeding.
+			// This handles databases that were seeded before the schema extension.
+			let tmpCustomerCount = pDB.prepare('SELECT COUNT(*) AS cnt FROM Customer').get();
+			if (tmpCustomerCount.cnt < 1)
+			{
+				this.log.info('Seeding extended BookStore data (Customer, employees, sales)...');
+				let tmpExtendedSQL = libFS.readFileSync(libPath.join(this.getSchemaPath(), 'sqlite_create', 'BookStore-SeedData-Extended.sql'), 'utf8');
+				pDB.exec(tmpExtendedSQL);
+				this.log.info('Extended seed data loaded.');
+			}
+
+			// Check if the large generated data set needs loading.
+			// The generated file is optional — only load it if it exists.
+			let tmpGenUserCount = pDB.prepare('SELECT COUNT(*) AS cnt FROM User WHERE IDUser >= 100').get();
+			if (tmpGenUserCount.cnt < 1)
+			{
+				let tmpGenPath = libPath.join(this.getSchemaPath(), 'sqlite_create', 'BookStore-SeedData-Generated.sql');
+				if (libFS.existsSync(tmpGenPath))
+				{
+					this.log.info('Seeding generated BookStore data (users, stores, reviews, sales)...');
+					let tmpGenSQL = libFS.readFileSync(tmpGenPath, 'utf8');
+					pDB.exec(tmpGenSQL);
+					this.log.info('Generated seed data loaded.');
+				}
+			}
+
 			return fCallback();
 		}
 		catch (pError)

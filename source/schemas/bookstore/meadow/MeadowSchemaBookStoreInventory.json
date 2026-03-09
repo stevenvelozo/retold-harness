@@ -82,6 +82,11 @@
             "Column": "StockingAssociate",
             "Type": "Integer",
             "Size": "int"
+        },
+        {
+            "Column": "IDCustomer",
+            "Type": "Integer",
+            "Size": "int"
         }
     ],
     "DefaultObject": {
@@ -100,7 +105,8 @@
         "IDBook": 0,
         "IDBookStore": 0,
         "IDBookPrice": 0,
-        "StockingAssociate": 0
+        "StockingAssociate": 0,
+        "IDCustomer": 0
     },
     "JsonSchema": {
         "title": "BookStoreInventory",
@@ -167,6 +173,10 @@
                 "size": "int"
             },
             "StockingAssociate": {
+                "type": "integer",
+                "size": "int"
+            },
+            "IDCustomer": {
                 "type": "integer",
                 "size": "int"
             }
@@ -258,6 +268,11 @@
                     "Column": "StockingAssociate",
                     "Type": "Integer",
                     "Size": "int"
+                },
+                {
+                    "Column": "IDCustomer",
+                    "Type": "Integer",
+                    "Size": "int"
                 }
             ],
             "DefaultObject": {
@@ -276,7 +291,8 @@
                 "IDBook": 0,
                 "IDBookStore": 0,
                 "IDBookPrice": 0,
-                "StockingAssociate": 0
+                "StockingAssociate": 0,
+                "IDCustomer": 0
             },
             "Authorization": {
                 "__DefaultAPISecurity": {

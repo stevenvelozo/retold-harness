@@ -22,13 +22,19 @@
             "Column": "IDAuthor",
             "Type": "Integer",
             "Size": "int"
+        },
+        {
+            "Column": "IDCustomer",
+            "Type": "Integer",
+            "Size": "int"
         }
     ],
     "DefaultObject": {
         "IDBookAuthorJoin": 0,
         "GUIDBookAuthorJoin": "0x0000000000000000",
         "IDBook": 0,
-        "IDAuthor": 0
+        "IDAuthor": 0,
+        "IDCustomer": 0
     },
     "JsonSchema": {
         "title": "BookAuthorJoin",
@@ -47,6 +53,10 @@
                 "size": "int"
             },
             "IDAuthor": {
+                "type": "integer",
+                "size": "int"
+            },
+            "IDCustomer": {
                 "type": "integer",
                 "size": "int"
             }
@@ -78,13 +88,19 @@
                     "Column": "IDAuthor",
                     "Type": "Integer",
                     "Size": "int"
+                },
+                {
+                    "Column": "IDCustomer",
+                    "Type": "Integer",
+                    "Size": "int"
                 }
             ],
             "DefaultObject": {
                 "IDBookAuthorJoin": 0,
                 "GUIDBookAuthorJoin": "0x0000000000000000",
                 "IDBook": 0,
-                "IDAuthor": 0
+                "IDAuthor": 0,
+                "IDCustomer": 0
             },
             "Authorization": {
                 "__DefaultAPISecurity": {

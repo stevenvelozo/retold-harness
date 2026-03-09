@@ -57,6 +57,11 @@
             "Column": "IDUser",
             "Type": "Integer",
             "Size": "int"
+        },
+        {
+            "Column": "IDCustomer",
+            "Type": "Integer",
+            "Size": "int"
         }
     ],
     "DefaultObject": {
@@ -70,7 +75,8 @@
         "DeleteDate": null,
         "DeletingIDUser": 0,
         "Name": "",
-        "IDUser": 0
+        "IDUser": 0,
+        "IDCustomer": 0
     },
     "JsonSchema": {
         "title": "Author",
@@ -117,6 +123,10 @@
                 "size": "200"
             },
             "IDUser": {
+                "type": "integer",
+                "size": "int"
+            },
+            "IDCustomer": {
                 "type": "integer",
                 "size": "int"
             }
@@ -183,6 +193,11 @@
                     "Column": "IDUser",
                     "Type": "Integer",
                     "Size": "int"
+                },
+                {
+                    "Column": "IDCustomer",
+                    "Type": "Integer",
+                    "Size": "int"
                 }
             ],
             "DefaultObject": {
@@ -196,7 +211,8 @@
                 "DeleteDate": null,
                 "DeletingIDUser": 0,
                 "Name": "",
-                "IDUser": 0
+                "IDUser": 0,
+                "IDCustomer": 0
             },
             "Authorization": {
                 "__DefaultAPISecurity": {

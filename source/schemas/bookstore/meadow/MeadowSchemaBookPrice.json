@@ -77,6 +77,11 @@
             "Column": "IDBook",
             "Type": "Integer",
             "Size": "int"
+        },
+        {
+            "Column": "IDCustomer",
+            "Type": "Integer",
+            "Size": "int"
         }
     ],
     "DefaultObject": {
@@ -94,7 +99,8 @@
         "EndDate": null,
         "Discountable": false,
         "CouponCode": "",
-        "IDBook": 0
+        "IDBook": 0,
+        "IDCustomer": 0
     },
     "JsonSchema": {
         "title": "BookPrice",
@@ -157,6 +163,10 @@
                 "size": "16"
             },
             "IDBook": {
+                "type": "integer",
+                "size": "int"
+            },
+            "IDCustomer": {
                 "type": "integer",
                 "size": "int"
             }
@@ -243,6 +253,11 @@
                     "Column": "IDBook",
                     "Type": "Integer",
                     "Size": "int"
+                },
+                {
+                    "Column": "IDCustomer",
+                    "Type": "Integer",
+                    "Size": "int"
                 }
             ],
             "DefaultObject": {
@@ -260,7 +275,8 @@
                 "EndDate": null,
                 "Discountable": false,
                 "CouponCode": "",
-                "IDBook": 0
+                "IDBook": 0,
+                "IDCustomer": 0
             },
             "Authorization": {
                 "__DefaultAPISecurity": {

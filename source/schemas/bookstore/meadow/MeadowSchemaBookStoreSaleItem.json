@@ -1,0 +1,527 @@
+{
+	"Scope": "BookStoreSaleItem",
+	"DefaultIdentifier": "IDBookStoreSaleItem",
+	"Domain": "Default",
+	"Schema": [
+		{
+			"Column": "IDBookStoreSaleItem",
+			"Type": "AutoIdentity",
+			"Size": "Default"
+		},
+		{
+			"Column": "GUIDBookStoreSaleItem",
+			"Type": "AutoGUID",
+			"Size": "36"
+		},
+		{
+			"Column": "CreateDate",
+			"Type": "CreateDate",
+			"Size": "Default"
+		},
+		{
+			"Column": "CreatingIDUser",
+			"Type": "CreateIDUser",
+			"Size": "int"
+		},
+		{
+			"Column": "UpdateDate",
+			"Type": "UpdateDate",
+			"Size": "Default"
+		},
+		{
+			"Column": "UpdatingIDUser",
+			"Type": "UpdateIDUser",
+			"Size": "int"
+		},
+		{
+			"Column": "Deleted",
+			"Type": "Deleted",
+			"Size": "Default"
+		},
+		{
+			"Column": "DeleteDate",
+			"Type": "DeleteDate",
+			"Size": "Default"
+		},
+		{
+			"Column": "DeletingIDUser",
+			"Type": "DeleteIDUser",
+			"Size": "int"
+		},
+		{
+			"Column": "Quantity",
+			"Type": "Integer",
+			"Size": "int"
+		},
+		{
+			"Column": "UnitPrice",
+			"Type": "Decimal",
+			"Size": "8,2"
+		},
+		{
+			"Column": "LineTotal",
+			"Type": "Decimal",
+			"Size": "8,2"
+		},
+		{
+			"Column": "IDBookStoreSale",
+			"Type": "Integer",
+			"Size": "int"
+		},
+		{
+			"Column": "IDBook",
+			"Type": "Integer",
+			"Size": "int"
+		},
+		{
+			"Column": "IDBookPrice",
+			"Type": "Integer",
+			"Size": "int"
+		},
+		{
+			"Column": "IDCustomer",
+			"Type": "Integer",
+			"Size": "int"
+		}
+	],
+	"DefaultObject": {
+		"IDBookStoreSaleItem": 0,
+		"GUIDBookStoreSaleItem": "0x0000000000000000",
+		"CreateDate": null,
+		"CreatingIDUser": 0,
+		"UpdateDate": null,
+		"UpdatingIDUser": 0,
+		"Deleted": false,
+		"DeleteDate": null,
+		"DeletingIDUser": 0,
+		"Quantity": 0,
+		"UnitPrice": 0,
+		"LineTotal": 0,
+		"IDBookStoreSale": 0,
+		"IDBook": 0,
+		"IDBookPrice": 0,
+		"IDCustomer": 0
+	},
+	"JsonSchema": {
+		"title": "BookStoreSaleItem",
+		"type": "object",
+		"properties": {
+			"IDBookStoreSaleItem": {
+				"type": "integer",
+				"size": "Default"
+			},
+			"GUIDBookStoreSaleItem": {
+				"type": "string",
+				"size": "36"
+			},
+			"CreateDate": {
+				"type": "string",
+				"size": "Default"
+			},
+			"CreatingIDUser": {
+				"type": "integer",
+				"size": "int"
+			},
+			"UpdateDate": {
+				"type": "string",
+				"size": "Default"
+			},
+			"UpdatingIDUser": {
+				"type": "integer",
+				"size": "int"
+			},
+			"Deleted": {
+				"type": "boolean",
+				"size": "Default"
+			},
+			"DeleteDate": {
+				"type": "string",
+				"size": "Default"
+			},
+			"DeletingIDUser": {
+				"type": "integer",
+				"size": "int"
+			},
+			"Quantity": {
+				"type": "integer",
+				"size": "int"
+			},
+			"UnitPrice": {
+				"type": "number",
+				"size": "8,2"
+			},
+			"LineTotal": {
+				"type": "number",
+				"size": "8,2"
+			},
+			"IDBookStoreSale": {
+				"type": "integer",
+				"size": "int"
+			},
+			"IDBook": {
+				"type": "integer",
+				"size": "int"
+			},
+			"IDBookPrice": {
+				"type": "integer",
+				"size": "int"
+			},
+			"IDCustomer": {
+				"type": "integer",
+				"size": "int"
+			}
+		},
+		"required": [
+			"IDBookStoreSaleItem"
+		],
+		"MeadowSchema": {
+			"Scope": "BookStoreSaleItem",
+			"DefaultIdentifier": "IDBookStoreSaleItem",
+			"Domain": "Default",
+			"Schema": [
+				{
+					"Column": "IDBookStoreSaleItem",
+					"Type": "AutoIdentity",
+					"Size": "Default"
+				},
+				{
+					"Column": "GUIDBookStoreSaleItem",
+					"Type": "AutoGUID",
+					"Size": "36"
+				},
+				{
+					"Column": "CreateDate",
+					"Type": "CreateDate",
+					"Size": "Default"
+				},
+				{
+					"Column": "CreatingIDUser",
+					"Type": "CreateIDUser",
+					"Size": "int"
+				},
+				{
+					"Column": "UpdateDate",
+					"Type": "UpdateDate",
+					"Size": "Default"
+				},
+				{
+					"Column": "UpdatingIDUser",
+					"Type": "UpdateIDUser",
+					"Size": "int"
+				},
+				{
+					"Column": "Deleted",
+					"Type": "Deleted",
+					"Size": "Default"
+				},
+				{
+					"Column": "DeleteDate",
+					"Type": "DeleteDate",
+					"Size": "Default"
+				},
+				{
+					"Column": "DeletingIDUser",
+					"Type": "DeleteIDUser",
+					"Size": "int"
+				},
+				{
+					"Column": "Quantity",
+					"Type": "Integer",
+					"Size": "int"
+				},
+				{
+					"Column": "UnitPrice",
+					"Type": "Decimal",
+					"Size": "8,2"
+				},
+				{
+					"Column": "LineTotal",
+					"Type": "Decimal",
+					"Size": "8,2"
+				},
+				{
+					"Column": "IDBookStoreSale",
+					"Type": "Integer",
+					"Size": "int"
+				},
+				{
+					"Column": "IDBook",
+					"Type": "Integer",
+					"Size": "int"
+				},
+				{
+					"Column": "IDBookPrice",
+					"Type": "Integer",
+					"Size": "int"
+				},
+				{
+					"Column": "IDCustomer",
+					"Type": "Integer",
+					"Size": "int"
+				}
+			],
+			"DefaultObject": {
+				"IDBookStoreSaleItem": 0,
+				"GUIDBookStoreSaleItem": "0x0000000000000000",
+				"CreateDate": null,
+				"CreatingIDUser": 0,
+				"UpdateDate": null,
+				"UpdatingIDUser": 0,
+				"Deleted": false,
+				"DeleteDate": null,
+				"DeletingIDUser": 0,
+				"Quantity": 0,
+				"UnitPrice": 0,
+				"LineTotal": 0,
+				"IDBookStoreSale": 0,
+				"IDBook": 0,
+				"IDBookPrice": 0,
+				"IDCustomer": 0
+			},
+			"Authorization": {
+				"__DefaultAPISecurity": {
+					"Create": "Deny",
+					"Read": "Deny",
+					"Reads": "Deny",
+					"ReadsBy": "Deny",
+					"ReadMax": "Deny",
+					"ReadSelectList": "Deny",
+					"Update": "Deny",
+					"Delete": "Deny",
+					"Count": "Deny",
+					"CountBy": "Deny",
+					"Schema": "Deny",
+					"Validate": "Deny",
+					"New": "Deny"
+				},
+				"Unauthenticated": {
+					"Create": "Deny",
+					"Read": "Deny",
+					"Reads": "Deny",
+					"ReadsBy": "Deny",
+					"ReadMax": "Deny",
+					"ReadSelectList": "Deny",
+					"Update": "Deny",
+					"Delete": "Deny",
+					"Count": "Deny",
+					"CountBy": "Deny",
+					"Schema": "Deny",
+					"Validate": "Deny",
+					"New": "Deny"
+				},
+				"Readonly": {
+					"Create": "Deny",
+					"Read": "Allow",
+					"Reads": "Allow",
+					"ReadsBy": "Allow",
+					"ReadMax": "Allow",
+					"ReadSelectList": "Allow",
+					"Update": "Deny",
+					"Delete": "Deny",
+					"Count": "Allow",
+					"CountBy": "Allow",
+					"Schema": "Allow",
+					"Validate": "Allow",
+					"New": "Deny"
+				},
+				"User": {
+					"Create": "Allow",
+					"Read": "MyCustomer",
+					"Reads": "MyCustomer",
+					"ReadsBy": "MyCustomer",
+					"ReadMax": "MyCustomer",
+					"ReadSelectList": "MyCustomer",
+					"Update": "Mine",
+					"Delete": "Mine",
+					"Count": "MyCustomer",
+					"CountBy": "MyCustomer",
+					"Schema": "MyCustomer",
+					"Validate": "MyCustomer",
+					"New": "MyCustomer"
+				},
+				"Manager": {
+					"Create": "Allow",
+					"Read": "MyCustomer",
+					"Reads": "MyCustomer",
+					"ReadsBy": "MyCustomer",
+					"ReadMax": "MyCustomer",
+					"ReadSelectList": "MyCustomer",
+					"Update": "Mine",
+					"Delete": "Mine",
+					"Count": "MyCustomer",
+					"CountBy": "MyCustomer",
+					"Schema": "MyCustomer",
+					"Validate": "MyCustomer",
+					"New": "MyCustomer"
+				},
+				"Director": {
+					"Create": "Allow",
+					"Read": "MyCustomer",
+					"Reads": "MyCustomer",
+					"ReadsBy": "MyCustomer",
+					"ReadMax": "MyCustomer",
+					"ReadSelectList": "MyCustomer",
+					"Update": "MyCustomer",
+					"Delete": "MyCustomer",
+					"Count": "MyCustomer",
+					"CountBy": "MyCustomer",
+					"Schema": "MyCustomer",
+					"Validate": "MyCustomer",
+					"New": "MyCustomer"
+				},
+				"Executive": {
+					"Create": "Allow",
+					"Read": "MyCustomer",
+					"Reads": "MyCustomer",
+					"ReadsBy": "MyCustomer",
+					"ReadMax": "MyCustomer",
+					"ReadSelectList": "MyCustomer",
+					"Update": "MyCustomer",
+					"Delete": "MyCustomer",
+					"Count": "MyCustomer",
+					"CountBy": "MyCustomer",
+					"Schema": "MyCustomer",
+					"Validate": "MyCustomer",
+					"New": "MyCustomer"
+				},
+				"Administrator": {
+					"Create": "Allow",
+					"Read": "Allow",
+					"Reads": "Allow",
+					"ReadsBy": "Allow",
+					"ReadMax": "Allow",
+					"ReadSelectList": "Allow",
+					"Update": "Allow",
+					"Delete": "Allow",
+					"Count": "Allow",
+					"CountBy": "Allow",
+					"Schema": "Allow",
+					"Validate": "Allow",
+					"New": "Allow"
+				}
+			}
+		}
+	},
+	"Authorization": {
+		"__DefaultAPISecurity": {
+			"Create": "Deny",
+			"Read": "Deny",
+			"Reads": "Deny",
+			"ReadsBy": "Deny",
+			"ReadMax": "Deny",
+			"ReadSelectList": "Deny",
+			"Update": "Deny",
+			"Delete": "Deny",
+			"Count": "Deny",
+			"CountBy": "Deny",
+			"Schema": "Deny",
+			"Validate": "Deny",
+			"New": "Deny"
+		},
+		"Unauthenticated": {
+			"Create": "Deny",
+			"Read": "Deny",
+			"Reads": "Deny",
+			"ReadsBy": "Deny",
+			"ReadMax": "Deny",
+			"ReadSelectList": "Deny",
+			"Update": "Deny",
+			"Delete": "Deny",
+			"Count": "Deny",
+			"CountBy": "Deny",
+			"Schema": "Deny",
+			"Validate": "Deny",
+			"New": "Deny"
+		},
+		"Readonly": {
+			"Create": "Deny",
+			"Read": "Allow",
+			"Reads": "Allow",
+			"ReadsBy": "Allow",
+			"ReadMax": "Allow",
+			"ReadSelectList": "Allow",
+			"Update": "Deny",
+			"Delete": "Deny",
+			"Count": "Allow",
+			"CountBy": "Allow",
+			"Schema": "Allow",
+			"Validate": "Allow",
+			"New": "Deny"
+		},
+		"User": {
+			"Create": "Allow",
+			"Read": "MyCustomer",
+			"Reads": "MyCustomer",
+			"ReadsBy": "MyCustomer",
+			"ReadMax": "MyCustomer",
+			"ReadSelectList": "MyCustomer",
+			"Update": "Mine",
+			"Delete": "Mine",
+			"Count": "MyCustomer",
+			"CountBy": "MyCustomer",
+			"Schema": "MyCustomer",
+			"Validate": "MyCustomer",
+			"New": "MyCustomer"
+		},
+		"Manager": {
+			"Create": "Allow",
+			"Read": "MyCustomer",
+			"Reads": "MyCustomer",
+			"ReadsBy": "MyCustomer",
+			"ReadMax": "MyCustomer",
+			"ReadSelectList": "MyCustomer",
+			"Update": "Mine",
+			"Delete": "Mine",
+			"Count": "MyCustomer",
+			"CountBy": "MyCustomer",
+			"Schema": "MyCustomer",
+			"Validate": "MyCustomer",
+			"New": "MyCustomer"
+		},
+		"Director": {
+			"Create": "Allow",
+			"Read": "MyCustomer",
+			"Reads": "MyCustomer",
+			"ReadsBy": "MyCustomer",
+			"ReadMax": "MyCustomer",
+			"ReadSelectList": "MyCustomer",
+			"Update": "MyCustomer",
+			"Delete": "MyCustomer",
+			"Count": "MyCustomer",
+			"CountBy": "MyCustomer",
+			"Schema": "MyCustomer",
+			"Validate": "MyCustomer",
+			"New": "MyCustomer"
+		},
+		"Executive": {
+			"Create": "Allow",
+			"Read": "MyCustomer",
+			"Reads": "MyCustomer",
+			"ReadsBy": "MyCustomer",
+			"ReadMax": "MyCustomer",
+			"ReadSelectList": "MyCustomer",
+			"Update": "MyCustomer",
+			"Delete": "MyCustomer",
+			"Count": "MyCustomer",
+			"CountBy": "MyCustomer",
+			"Schema": "MyCustomer",
+			"Validate": "MyCustomer",
+			"New": "MyCustomer"
+		},
+		"Administrator": {
+			"Create": "Allow",
+			"Read": "Allow",
+			"Reads": "Allow",
+			"ReadsBy": "Allow",
+			"ReadMax": "Allow",
+			"ReadSelectList": "Allow",
+			"Update": "Allow",
+			"Delete": "Allow",
+			"Count": "Allow",
+			"CountBy": "Allow",
+			"Schema": "Allow",
+			"Validate": "Allow",
+			"New": "Allow"
+		}
+	}
+}

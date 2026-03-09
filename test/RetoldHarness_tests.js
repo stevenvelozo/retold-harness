@@ -65,8 +65,30 @@ suite
 
 						let tmpDB = _Fable.MeadowSQLiteProvider.db;
 
-						// Create all 8 tables for the BookStore model
+						// Create all 12 tables for the BookStore model
 						tmpDB.exec(`
+							CREATE TABLE IF NOT EXISTS Customer (
+								IDCustomer INTEGER PRIMARY KEY AUTOINCREMENT,
+								GUIDCustomer TEXT DEFAULT '',
+								CreateDate TEXT DEFAULT '',
+								CreatingIDUser INTEGER DEFAULT 0,
+								UpdateDate TEXT DEFAULT '',
+								UpdatingIDUser INTEGER DEFAULT 0,
+								Deleted INTEGER DEFAULT 0,
+								DeleteDate TEXT DEFAULT '',
+								DeletingIDUser INTEGER DEFAULT 0,
+								Name TEXT DEFAULT '',
+								Description TEXT DEFAULT '',
+								ContactName TEXT DEFAULT '',
+								ContactEmail TEXT DEFAULT '',
+								ContactPhone TEXT DEFAULT '',
+								Address TEXT DEFAULT '',
+								City TEXT DEFAULT '',
+								State TEXT DEFAULT '',
+								Postal TEXT DEFAULT '',
+								Country TEXT DEFAULT '',
+								Active INTEGER DEFAULT 1
+							);
 							CREATE TABLE IF NOT EXISTS User (
 								IDUser INTEGER PRIMARY KEY AUTOINCREMENT,
 								GUIDUser INTEGER DEFAULT 0,
@@ -75,7 +97,15 @@ suite
 								NameFirst TEXT DEFAULT '',
 								NameLast TEXT DEFAULT '',
 								FullName TEXT DEFAULT '',
-								Config TEXT DEFAULT ''
+								Config TEXT DEFAULT '',
+								IDCustomer INTEGER DEFAULT 0,
+								Email TEXT DEFAULT '',
+								Phone TEXT DEFAULT '',
+								Address TEXT DEFAULT '',
+								City TEXT DEFAULT '',
+								State TEXT DEFAULT '',
+								Postal TEXT DEFAULT '',
+								Country TEXT DEFAULT ''
 							);
 							CREATE TABLE IF NOT EXISTS Book (
 								IDBook INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -93,13 +123,15 @@ suite
 								ISBN TEXT DEFAULT '',
 								Language TEXT DEFAULT '',
 								ImageURL TEXT DEFAULT '',
-								PublicationYear INTEGER DEFAULT 0
+								PublicationYear INTEGER DEFAULT 0,
+								IDCustomer INTEGER DEFAULT 0
 							);
 							CREATE TABLE IF NOT EXISTS BookAuthorJoin (
 								IDBookAuthorJoin INTEGER PRIMARY KEY AUTOINCREMENT,
 								GUIDBookAuthorJoin TEXT DEFAULT '',
 								IDBook INTEGER DEFAULT 0,
-								IDAuthor INTEGER DEFAULT 0
+								IDAuthor INTEGER DEFAULT 0,
+								IDCustomer INTEGER DEFAULT 0
 							);
 							CREATE TABLE IF NOT EXISTS Author (
 								IDAuthor INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -112,7 +144,8 @@ suite
 								DeleteDate TEXT DEFAULT '',
 								DeletingIDUser INTEGER DEFAULT 0,
 								Name TEXT DEFAULT '',
-								IDUser INTEGER DEFAULT 0
+								IDUser INTEGER DEFAULT 0,
+								IDCustomer INTEGER DEFAULT 0
 							);
 							CREATE TABLE IF NOT EXISTS BookPrice (
 								IDBookPrice INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -129,7 +162,8 @@ suite
 								EndDate TEXT DEFAULT '',
 								Discountable INTEGER DEFAULT 0,
 								CouponCode TEXT DEFAULT '',
-								IDBook INTEGER DEFAULT 0
+								IDBook INTEGER DEFAULT 0,
+								IDCustomer INTEGER DEFAULT 0
 							);
 							CREATE TABLE IF NOT EXISTS BookStore (
 								IDBookStore INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -146,7 +180,11 @@ suite
 								City TEXT DEFAULT '',
 								State TEXT DEFAULT '',
 								Postal TEXT DEFAULT '',
-								Country TEXT DEFAULT ''
+								Country TEXT DEFAULT '',
+								IDCustomer INTEGER DEFAULT 0,
+								StoreType TEXT DEFAULT '',
+								Phone TEXT DEFAULT '',
+								Email TEXT DEFAULT ''
 							);
 							CREATE TABLE IF NOT EXISTS BookStoreInventory (
 								IDBookStoreInventory INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -164,7 +202,62 @@ suite
 								IDBook INTEGER DEFAULT 0,
 								IDBookStore INTEGER DEFAULT 0,
 								IDBookPrice INTEGER DEFAULT 0,
-								StockingAssociate INTEGER DEFAULT 0
+								StockingAssociate INTEGER DEFAULT 0,
+								IDCustomer INTEGER DEFAULT 0
+							);
+							CREATE TABLE IF NOT EXISTS BookStoreEmployee (
+								IDBookStoreEmployee INTEGER PRIMARY KEY AUTOINCREMENT,
+								GUIDBookStoreEmployee TEXT DEFAULT '',
+								CreateDate TEXT DEFAULT '',
+								CreatingIDUser INTEGER DEFAULT 0,
+								UpdateDate TEXT DEFAULT '',
+								UpdatingIDUser INTEGER DEFAULT 0,
+								Deleted INTEGER DEFAULT 0,
+								DeleteDate TEXT DEFAULT '',
+								DeletingIDUser INTEGER DEFAULT 0,
+								Title TEXT DEFAULT '',
+								HireDate TEXT DEFAULT '',
+								TerminationDate TEXT DEFAULT '',
+								IsActive INTEGER DEFAULT 1,
+								IDUser INTEGER DEFAULT 0,
+								IDBookStore INTEGER DEFAULT 0,
+								IDCustomer INTEGER DEFAULT 0
+							);
+							CREATE TABLE IF NOT EXISTS BookStoreSale (
+								IDBookStoreSale INTEGER PRIMARY KEY AUTOINCREMENT,
+								GUIDBookStoreSale TEXT DEFAULT '',
+								CreateDate TEXT DEFAULT '',
+								CreatingIDUser INTEGER DEFAULT 0,
+								UpdateDate TEXT DEFAULT '',
+								UpdatingIDUser INTEGER DEFAULT 0,
+								Deleted INTEGER DEFAULT 0,
+								DeleteDate TEXT DEFAULT '',
+								DeletingIDUser INTEGER DEFAULT 0,
+								SaleDate TEXT DEFAULT '',
+								TotalAmount REAL DEFAULT 0,
+								PaymentMethod TEXT DEFAULT '',
+								TransactionID TEXT DEFAULT '',
+								IDBookStore INTEGER DEFAULT 0,
+								IDUser INTEGER DEFAULT 0,
+								IDCustomer INTEGER DEFAULT 0
+							);
+							CREATE TABLE IF NOT EXISTS BookStoreSaleItem (
+								IDBookStoreSaleItem INTEGER PRIMARY KEY AUTOINCREMENT,
+								GUIDBookStoreSaleItem TEXT DEFAULT '',
+								CreateDate TEXT DEFAULT '',
+								CreatingIDUser INTEGER DEFAULT 0,
+								UpdateDate TEXT DEFAULT '',
+								UpdatingIDUser INTEGER DEFAULT 0,
+								Deleted INTEGER DEFAULT 0,
+								DeleteDate TEXT DEFAULT '',
+								DeletingIDUser INTEGER DEFAULT 0,
+								Quantity INTEGER DEFAULT 0,
+								UnitPrice REAL DEFAULT 0,
+								LineTotal REAL DEFAULT 0,
+								IDBookStoreSale INTEGER DEFAULT 0,
+								IDBook INTEGER DEFAULT 0,
+								IDBookPrice INTEGER DEFAULT 0,
+								IDCustomer INTEGER DEFAULT 0
 							);
 							CREATE TABLE IF NOT EXISTS Review (
 								IDReview INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -179,7 +272,8 @@ suite
 								Text TEXT DEFAULT '',
 								Rating INTEGER DEFAULT 0,
 								IDBook INTEGER DEFAULT 0,
-								IDUser INTEGER DEFAULT 0
+								IDUser INTEGER DEFAULT 0,
+								IDCustomer INTEGER DEFAULT 0
 							);
 						`);
 
@@ -392,11 +486,11 @@ suite
 				);
 				test
 				(
-					'Should have all 8 entities in the entity list',
+					'Should have all 12 entities in the entity list',
 					function()
 					{
 						Expect(_RetoldDataService.entityList).to.be.an('array');
-						Expect(_RetoldDataService.entityList.length).to.equal(8);
+						Expect(_RetoldDataService.entityList.length).to.equal(12);
 						Expect(_RetoldDataService.entityList).to.include('User');
 						Expect(_RetoldDataService.entityList).to.include('Book');
 						Expect(_RetoldDataService.entityList).to.include('BookAuthorJoin');
@@ -405,11 +499,15 @@ suite
 						Expect(_RetoldDataService.entityList).to.include('BookStore');
 						Expect(_RetoldDataService.entityList).to.include('BookStoreInventory');
 						Expect(_RetoldDataService.entityList).to.include('Review');
+						Expect(_RetoldDataService.entityList).to.include('Customer');
+						Expect(_RetoldDataService.entityList).to.include('BookStoreEmployee');
+						Expect(_RetoldDataService.entityList).to.include('BookStoreSale');
+						Expect(_RetoldDataService.entityList).to.include('BookStoreSaleItem');
 					}
 				);
 				test
 				(
-					'Should have created DAL objects for all 8 entities',
+					'Should have created DAL objects for all 12 entities',
 					function()
 					{
 						Expect(_Fable.DAL).to.be.an('object');
@@ -421,11 +519,15 @@ suite
 						Expect(_Fable.DAL.BookStore).to.be.an('object');
 						Expect(_Fable.DAL.BookStoreInventory).to.be.an('object');
 						Expect(_Fable.DAL.Review).to.be.an('object');
+						Expect(_Fable.DAL.Customer).to.be.an('object');
+						Expect(_Fable.DAL.BookStoreEmployee).to.be.an('object');
+						Expect(_Fable.DAL.BookStoreSale).to.be.an('object');
+						Expect(_Fable.DAL.BookStoreSaleItem).to.be.an('object');
 					}
 				);
 				test
 				(
-					'Should have created MeadowEndpoints for all 8 entities',
+					'Should have created MeadowEndpoints for all 12 entities',
 					function()
 					{
 						Expect(_Fable.MeadowEndpoints).to.be.an('object');
@@ -437,6 +539,10 @@ suite
 						Expect(_Fable.MeadowEndpoints.BookStore).to.be.an('object');
 						Expect(_Fable.MeadowEndpoints.BookStoreInventory).to.be.an('object');
 						Expect(_Fable.MeadowEndpoints.Review).to.be.an('object');
+						Expect(_Fable.MeadowEndpoints.Customer).to.be.an('object');
+						Expect(_Fable.MeadowEndpoints.BookStoreEmployee).to.be.an('object');
+						Expect(_Fable.MeadowEndpoints.BookStoreSale).to.be.an('object');
+						Expect(_Fable.MeadowEndpoints.BookStoreSaleItem).to.be.an('object');
 					}
 				);
 				test

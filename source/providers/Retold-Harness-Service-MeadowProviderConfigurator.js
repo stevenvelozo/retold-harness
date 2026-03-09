@@ -87,6 +87,41 @@ class RetoldHarnessMeadowProviderConfigurator extends libFableServiceProviderBas
 	}
 
 	/**
+	 * Register loaded MeadowEndpoints models with the ModelManager so
+	 * schema enumeration endpoints (/1.0/Retold/Models, etc.) work.
+	 *
+	 * @param {function} fCallback - Callback when models are registered
+	 */
+	registerModelsWithModelManager(fCallback)
+	{
+		let tmpRetoldDataService = this.fable.RetoldDataService;
+		let tmpModelManager = this.fable.RetoldDataServiceModelManager;
+
+		if (!tmpRetoldDataService || !tmpModelManager || !tmpRetoldDataService.models)
+		{
+			this.log.warn('registerModelsWithModelManager: RetoldDataService or ModelManager not available, skipping.');
+			return fCallback();
+		}
+
+		let tmpModelNames = Object.keys(tmpRetoldDataService.models);
+		let tmpAnticipate = this.fable.newAnticipate();
+
+		for (let i = 0; i < tmpModelNames.length; i++)
+		{
+			let tmpModelName = tmpModelNames[i];
+			let tmpModel = tmpRetoldDataService.models[tmpModelName];
+
+			tmpAnticipate.anticipate(
+				(fStep) =>
+				{
+					tmpModelManager.addModel(tmpModelName, tmpModel, fStep);
+				});
+		}
+
+		tmpAnticipate.wait(fCallback);
+	}
+
+	/**
 	 * Apply endpoint behaviors from the schema provider.
 	 *
 	 * @param {function} fCallback - Callback when behaviors are applied
@@ -144,6 +179,7 @@ class RetoldHarnessMeadowProviderConfigurator extends libFableServiceProviderBas
 		tmpAnticipate.anticipate(this.connectDatabase.bind(this));
 		tmpAnticipate.anticipate(this.initializeSchema.bind(this));
 		tmpAnticipate.anticipate(this.initializeDataService.bind(this));
+		tmpAnticipate.anticipate(this.registerModelsWithModelManager.bind(this));
 		tmpAnticipate.anticipate(this.applyBehaviors.bind(this));
 		tmpAnticipate.anticipate(this.serveWebUI.bind(this));
 

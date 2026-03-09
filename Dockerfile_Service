@@ -1,8 +1,8 @@
-FROM node:20-alpine
+FROM node:20-slim
 LABEL maintainer="steven velozo <steven@velozo.com>"
 
 # Build tools needed to compile better-sqlite3 native addon
-RUN apk add --no-cache python3 make g++
+RUN apt-get update && apt-get install -y --no-install-recommends python3 make g++ && rm -rf /var/lib/apt/lists/*
 
 VOLUME /retold-harness
 WORKDIR /retold-harness

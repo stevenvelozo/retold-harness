@@ -42,6 +42,46 @@
             "Column": "Config",
             "Type": "String",
             "Size": "64"
+        },
+        {
+            "Column": "IDCustomer",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "Email",
+            "Type": "String",
+            "Size": "255"
+        },
+        {
+            "Column": "Phone",
+            "Type": "String",
+            "Size": "64"
+        },
+        {
+            "Column": "Address",
+            "Type": "String",
+            "Size": "255"
+        },
+        {
+            "Column": "City",
+            "Type": "String",
+            "Size": "128"
+        },
+        {
+            "Column": "State",
+            "Type": "String",
+            "Size": "64"
+        },
+        {
+            "Column": "Postal",
+            "Type": "String",
+            "Size": "16"
+        },
+        {
+            "Column": "Country",
+            "Type": "String",
+            "Size": "128"
         }
     ],
     "DefaultObject": {
@@ -52,7 +92,15 @@
         "NameFirst": "",
         "NameLast": "",
         "FullName": "",
-        "Config": ""
+        "Config": "",
+        "IDCustomer": 0,
+        "Email": "",
+        "Phone": "",
+        "Address": "",
+        "City": "",
+        "State": "",
+        "Postal": "",
+        "Country": ""
     },
     "JsonSchema": {
         "title": "User",
@@ -89,6 +137,38 @@
             "Config": {
                 "type": "string",
                 "size": "64"
+            },
+            "IDCustomer": {
+                "type": "integer",
+                "size": "int"
+            },
+            "Email": {
+                "type": "string",
+                "size": "255"
+            },
+            "Phone": {
+                "type": "string",
+                "size": "64"
+            },
+            "Address": {
+                "type": "string",
+                "size": "255"
+            },
+            "City": {
+                "type": "string",
+                "size": "128"
+            },
+            "State": {
+                "type": "string",
+                "size": "64"
+            },
+            "Postal": {
+                "type": "string",
+                "size": "16"
+            },
+            "Country": {
+                "type": "string",
+                "size": "128"
             }
         },
         "required": [
@@ -138,6 +218,46 @@
                     "Column": "Config",
                     "Type": "String",
                     "Size": "64"
+                },
+                {
+                    "Column": "IDCustomer",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "Email",
+                    "Type": "String",
+                    "Size": "255"
+                },
+                {
+                    "Column": "Phone",
+                    "Type": "String",
+                    "Size": "64"
+                },
+                {
+                    "Column": "Address",
+                    "Type": "String",
+                    "Size": "255"
+                },
+                {
+                    "Column": "City",
+                    "Type": "String",
+                    "Size": "128"
+                },
+                {
+                    "Column": "State",
+                    "Type": "String",
+                    "Size": "64"
+                },
+                {
+                    "Column": "Postal",
+                    "Type": "String",
+                    "Size": "16"
+                },
+                {
+                    "Column": "Country",
+                    "Type": "String",
+                    "Size": "128"
                 }
             ],
             "DefaultObject": {
@@ -148,7 +268,15 @@
                 "NameFirst": "",
                 "NameLast": "",
                 "FullName": "",
-                "Config": ""
+                "Config": "",
+                "IDCustomer": 0,
+                "Email": "",
+                "Phone": "",
+                "Address": "",
+                "City": "",
+                "State": "",
+                "Postal": "",
+                "Country": ""
             },
             "Authorization": {
                 "__DefaultAPISecurity": {

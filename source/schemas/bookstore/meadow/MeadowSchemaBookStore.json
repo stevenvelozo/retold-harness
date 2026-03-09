@@ -77,6 +77,26 @@
             "Column": "Country",
             "Type": "String",
             "Size": "64"
+        },
+        {
+            "Column": "IDCustomer",
+            "Type": "Integer",
+            "Size": "int"
+        },
+        {
+            "Column": "StoreType",
+            "Type": "String",
+            "Size": "64"
+        },
+        {
+            "Column": "Phone",
+            "Type": "String",
+            "Size": "64"
+        },
+        {
+            "Column": "Email",
+            "Type": "String",
+            "Size": "255"
         }
     ],
     "DefaultObject": {
@@ -94,7 +114,11 @@
         "City": "",
         "State": "",
         "Postal": "",
-        "Country": ""
+        "Country": "",
+        "IDCustomer": 0,
+        "StoreType": "",
+        "Phone": "",
+        "Email": ""
     },
     "JsonSchema": {
         "title": "BookStore",
@@ -159,6 +183,22 @@
             "Country": {
                 "type": "string",
                 "size": "64"
+            },
+            "IDCustomer": {
+                "type": "integer",
+                "size": "int"
+            },
+            "StoreType": {
+                "type": "string",
+                "size": "64"
+            },
+            "Phone": {
+                "type": "string",
+                "size": "64"
+            },
+            "Email": {
+                "type": "string",
+                "size": "255"
             }
         },
         "required": [
@@ -243,6 +283,26 @@
                     "Column": "Country",
                     "Type": "String",
                     "Size": "64"
+                },
+                {
+                    "Column": "IDCustomer",
+                    "Type": "Integer",
+                    "Size": "int"
+                },
+                {
+                    "Column": "StoreType",
+                    "Type": "String",
+                    "Size": "64"
+                },
+                {
+                    "Column": "Phone",
+                    "Type": "String",
+                    "Size": "64"
+                },
+                {
+                    "Column": "Email",
+                    "Type": "String",
+                    "Size": "255"
                 }
             ],
             "DefaultObject": {
@@ -260,7 +320,11 @@
                 "City": "",
                 "State": "",
                 "Postal": "",
-                "Country": ""
+                "Country": "",
+                "IDCustomer": 0,
+                "StoreType": "",
+                "Phone": "",
+                "Email": ""
             },
             "Authorization": {
                 "__DefaultAPISecurity": {
