@@ -146,7 +146,8 @@ class RetoldHarnessMeadowProviderConfigurator extends libFableServiceProviderBas
 	 */
 	serveWebUI(fCallback)
 	{
-		let tmpWebUIPath = libPath.join(__dirname, '..', 'web', 'index.html');
+		let tmpWebFolder = libPath.join(__dirname, '..', 'web');
+		let tmpWebUIPath = libPath.join(tmpWebFolder, 'index.html');
 
 		if (!libFS.existsSync(tmpWebUIPath))
 		{
@@ -156,11 +157,57 @@ class RetoldHarnessMeadowProviderConfigurator extends libFableServiceProviderBas
 
 		let tmpWebUIHTML = libFS.readFileSync(tmpWebUIPath, 'utf8');
 
+		// Serve index.html at the root URL
 		this.fable.OratorServiceServer.server.get('/',
 			(pRequest, pResponse, fNext) =>
 			{
 				pResponse.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
 				pResponse.end(tmpWebUIHTML);
+				return fNext();
+			});
+
+		// Serve static files (JS, CSS, etc.) from the web folder.
+		// Files are served at their plain filename, e.g. /pict.js → source/web/pict.js.
+		// This route is registered after all API routes, so API endpoints take priority.
+		let tmpMimeTypes =
+		{
+			'.js': 'application/javascript',
+			'.css': 'text/css',
+			'.html': 'text/html',
+			'.json': 'application/json',
+			'.map': 'application/json',
+			'.png': 'image/png',
+			'.jpg': 'image/jpeg',
+			'.svg': 'image/svg+xml',
+			'.ico': 'image/x-icon'
+		};
+
+		this.fable.OratorServiceServer.server.get('/:filename',
+			(pRequest, pResponse, fNext) =>
+			{
+				let tmpRequestedFile = pRequest.params.filename;
+
+				// Only serve files with recognized extensions
+				let tmpExt = libPath.extname(tmpRequestedFile).toLowerCase();
+				if (!tmpMimeTypes[tmpExt])
+				{
+					return fNext();
+				}
+
+				// Prevent directory traversal
+				let tmpSafeName = libPath.basename(tmpRequestedFile);
+				let tmpFilePath = libPath.join(tmpWebFolder, tmpSafeName);
+
+				if (!libFS.existsSync(tmpFilePath) || !libFS.statSync(tmpFilePath).isFile())
+				{
+					return fNext();
+				}
+
+				let tmpContentType = tmpMimeTypes[tmpExt];
+				let tmpFileContent = libFS.readFileSync(tmpFilePath);
+
+				pResponse.writeHead(200, { 'Content-Type': tmpContentType });
+				pResponse.end(tmpFileContent);
 				return fNext();
 			});
 

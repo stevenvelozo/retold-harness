@@ -1,430 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Retold Harness</title>
-<style>
-	*{box-sizing:border-box;margin:0;padding:0}
-	body{font-family:-apple-system,system-ui,sans-serif;background:#0d1117;color:#c9d1d9;line-height:1.6;padding:2rem}
-	a{color:#58a6ff;text-decoration:none}
-	a:hover{text-decoration:underline}
-	h1{font-size:1.8rem;color:#f0f6fc;margin-bottom:0.25rem}
-	h2{font-size:1.2rem;color:#8b949e;margin-bottom:1.5rem;font-weight:normal}
-	h3{font-size:1rem;color:#f0f6fc;margin:1.25rem 0 0.5rem;padding-bottom:0.25rem;border-bottom:1px solid #21262d}
-	.header{margin-bottom:2rem}
-	.header span{color:#8b949e;font-size:0.85rem}
-	.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:1.25rem;margin-bottom:2rem}
-	.card{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:1.25rem}
-	.card-title{font-size:1.1rem;color:#f0f6fc;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem}
-	.card-title .icon{font-size:1.3rem}
-	.card-title .count-badge{margin-left:auto}
-	.link-row{display:flex;align-items:baseline;gap:0.5rem;margin:0.35rem 0;padding:0.3rem 0.5rem;border-radius:4px;transition:background 0.15s}
-	.link-row:hover{background:#1c2128}
-	.link-row a{font-family:'SFMono-Regular',Consolas,monospace;font-size:0.85rem;white-space:nowrap}
-	.link-row .desc{color:#8b949e;font-size:0.8rem;margin-left:auto;text-align:right;flex-shrink:0}
-	.section-label{font-size:0.75rem;color:#484f58;text-transform:uppercase;letter-spacing:0.05em;margin:0.75rem 0 0.25rem 0.5rem}
-	.try-it{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:1.25rem;margin-bottom:2rem}
-	.try-it h3{margin-top:0}
-	.try-row{display:flex;gap:0.5rem;margin-top:0.75rem;align-items:center;flex-wrap:wrap}
-	.try-row input{background:#0d1117;border:1px solid #30363d;color:#c9d1d9;padding:0.4rem 0.75rem;border-radius:4px;font-family:monospace;font-size:0.85rem;flex:1;min-width:200px}
-	.try-row input:focus{outline:none;border-color:#58a6ff}
-	.try-row button{background:#21262d;border:1px solid #30363d;color:#c9d1d9;padding:0.4rem 1rem;border-radius:4px;cursor:pointer;font-size:0.85rem;white-space:nowrap}
-	.try-row button:hover{background:#30363d}
-	.result-box{margin-top:0.75rem;background:#0d1117;border:1px solid #21262d;border-radius:4px;padding:0.75rem;font-family:monospace;font-size:0.8rem;max-height:300px;overflow:auto;white-space:pre-wrap;display:none;color:#7ee787}
-	.count-badge{background:#0d1117;border:1px solid #30363d;border-radius:4px;padding:0.2rem 0.6rem;font-size:0.8rem;font-family:'SFMono-Regular',Consolas,monospace}
-	.count-badge strong{color:#f0f6fc}
-	.status{display:inline-block;width:8px;height:8px;border-radius:50%;background:#3fb950;margin-right:0.5rem}
-	.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #21262d;color:#484f58;font-size:0.8rem}
-	.loading{color:#484f58;font-style:italic;padding:2rem;text-align:center}
-	/* Authentication card */
-	.auth-card{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:1.25rem;margin-bottom:2rem}
-	.auth-card h3{margin-top:0}
-	.auth-status{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;font-size:0.9rem}
-	.auth-status .dot{display:inline-block;width:10px;height:10px;border-radius:50%;flex-shrink:0}
-	.auth-status .dot.on{background:#3fb950}
-	.auth-status .dot.off{background:#f85149}
-	.auth-status .session-info{color:#8b949e;font-size:0.8rem;font-family:monospace}
-	.user-grid{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem}
-	.user-btn{background:#21262d;border:1px solid #30363d;color:#c9d1d9;padding:0.35rem 0.9rem;border-radius:4px;cursor:pointer;font-size:0.85rem;transition:all 0.15s}
-	.user-btn:hover{background:#30363d;border-color:#58a6ff}
-	.user-btn.active{background:#1f6feb;border-color:#1f6feb;color:#fff}
-	.logout-btn{background:#21262d;border:1px solid #da3633;color:#f85149;padding:0.35rem 0.9rem;border-radius:4px;cursor:pointer;font-size:0.85rem;transition:all 0.15s;margin-left:auto}
-	.logout-btn:hover{background:#da3633;color:#fff}
-	.auth-hint{color:#484f58;font-size:0.75rem;margin-top:0.5rem;font-style:italic}
-</style>
-</head>
-<body>
-
-<div class="header">
-	<h1><span class="status"></span>Retold Harness</h1>
-	<h2 id="subtitle">API Explorer</h2>
-	<span id="summary">Loading schema&hellip;</span>
-</div>
-
-<div class="auth-card" id="auth-card">
-	<h3>&#x1f512; Session</h3>
-	<div class="auth-status">
-		<span class="dot off" id="auth-dot"></span>
-		<span id="auth-label">Not logged in</span>
-		<span class="session-info" id="auth-session"></span>
-		<button class="logout-btn" id="logout-btn" onclick="doLogout()" style="display:none">Log out</button>
-	</div>
-	<div class="section-label">Click a user to log in (any password works)</div>
-	<div class="user-grid" id="user-grid">
-		<span class="loading" style="padding:0.5rem">Loading users&hellip;</span>
-	</div>
-	<div class="auth-hint">Passwords on denied list: <code style="color:#f0f6fc;background:#21262d;padding:0.1rem 0.35rem;border-radius:3px">abc</code>, <code style="color:#f0f6fc;background:#21262d;padding:0.1rem 0.35rem;border-radius:3px">badpassword</code>, <code style="color:#f0f6fc;background:#21262d;padding:0.1rem 0.35rem;border-radius:3px">111</code></div>
-</div>
-
-<div class="try-it">
-	<h3>Try Any Endpoint</h3>
-	<div class="try-row">
-		<span style="color:#484f58">GET</span>
-		<input type="text" id="endpoint" value="/1.0/Retold/Models" placeholder="/1.0/Books/0/10">
-		<button onclick="tryEndpoint()">Fetch</button>
-		<button onclick="openEndpoint()">Open in Tab</button>
-	</div>
-	<pre class="result-box" id="result"></pre>
-</div>
-
-<div id="entities" class="grid">
-	<div class="loading">Loading entities from schema&hellip;</div>
-</div>
-
-<div class="card" style="max-width:860px">
-	<div class="card-title"><span class="icon">&#x1f4d6;</span> Filter Syntax Reference</div>
-	<p style="color:#8b949e;font-size:0.85rem;margin-bottom:0.75rem">
-		Filters use the <code style="color:#f0f6fc;background:#21262d;padding:0.15rem 0.4rem;border-radius:3px">FilteredTo/FBV~Column~Operator~Value</code> pattern in the URL.
-	</p>
-	<div style="display:grid;grid-template-columns:auto 1fr;gap:0.25rem 1rem;font-size:0.85rem;margin-top:0.5rem">
-		<code style="color:#ff7b72">EQ</code><span style="color:#8b949e">Equals &mdash; exact match</span>
-		<code style="color:#ff7b72">NE</code><span style="color:#8b949e">Not equals</span>
-		<code style="color:#ff7b72">GT</code><span style="color:#8b949e">Greater than</span>
-		<code style="color:#ff7b72">GTE</code><span style="color:#8b949e">Greater than or equal</span>
-		<code style="color:#ff7b72">LT</code><span style="color:#8b949e">Less than</span>
-		<code style="color:#ff7b72">LTE</code><span style="color:#8b949e">Less than or equal</span>
-		<code style="color:#ff7b72">LK</code><span style="color:#8b949e">LIKE &mdash; use <code>%25</code> for wildcard (URL-encoded %)</span>
-	</div>
-	<p style="color:#8b949e;font-size:0.85rem;margin-top:0.75rem">
-		Pagination: append <code style="color:#f0f6fc;background:#21262d;padding:0.15rem 0.4rem;border-radius:3px">/{Begin}/{Cap}</code> to any plural endpoint. Begin is 0-based offset, Cap is max rows.
-	</p>
-</div>
-
-<div class="card" style="max-width:860px">
-	<div class="card-title"><span class="icon">&#x1f6e0;&#xfe0f;</span> Schema Enumeration</div>
-	<p style="color:#8b949e;font-size:0.85rem;margin-bottom:0.5rem">
-		The API exposes its own schema. Use these to discover entities programmatically.
-	</p>
-	<div class="link-row">
-		<a href="/1.0/Retold/Models">/1.0/Retold/Models</a>
-		<span class="desc">List all loaded models</span>
-	</div>
-	<div id="model-links"></div>
-</div>
-
-<div class="footer">
-	Retold Harness &mdash; REST API Explorer
-</div>
-
-<script>
-function tryEndpoint()
-{
-	var tmpInput = document.getElementById('endpoint');
-	var tmpResult = document.getElementById('result');
-	tmpResult.style.display = 'block';
-	tmpResult.textContent = 'Loading...';
-	fetch(tmpInput.value)
-		.then(function(r) { return r.text(); })
-		.then(function(t)
-		{
-			try { tmpResult.textContent = JSON.stringify(JSON.parse(t), null, 2); }
-			catch(e) { tmpResult.textContent = t; }
-		})
-		.catch(function(e) { tmpResult.textContent = 'Error: ' + e.message; });
-}
-
-function openEndpoint()
-{
-	window.open(document.getElementById('endpoint').value, '_blank');
-}
-
-document.getElementById('endpoint').addEventListener('keydown', function(e)
-{
-	if (e.key === 'Enter') { tryEndpoint(); }
-});
-
-// ============================================================
-// Dynamic entity card generation from schema API
-// ============================================================
-
-// Add an 's' to form the plural endpoint name.
-// Meadow convention: plural = singular + 's'
-function pluralize(pEntityName)
-{
-	return pEntityName + 's';
-}
-
-function buildLinkRow(pHref, pDesc)
-{
-	return '<div class="link-row">'
-		+ '<a href="' + pHref + '">' + pHref + '</a>'
-		+ '<span class="desc">' + pDesc + '</span>'
-		+ '</div>';
-}
-
-function buildEntityCard(pEntityName)
-{
-	var tmpPlural = pluralize(pEntityName);
-	var tmpIDColumn = 'ID' + pEntityName;
-	var tmpCountID = 'count-' + pEntityName;
-
-	var tmpHTML = '<div class="card">';
-
-	// Title with count badge
-	tmpHTML += '<div class="card-title">';
-	tmpHTML += '<span class="icon">&#x1f4cb;</span> ' + pEntityName;
-	tmpHTML += '<span class="count-badge" id="' + tmpCountID + '">&hellip;</span>';
-	tmpHTML += '</div>';
-
-	// Browse section
-	tmpHTML += '<div class="section-label">Browse</div>';
-	tmpHTML += buildLinkRow('/1.0/' + tmpPlural + '/0/10', 'First 10 records');
-	tmpHTML += buildLinkRow('/1.0/' + tmpPlural + '/10/10', 'Records 11\u201320');
-	tmpHTML += buildLinkRow('/1.0/' + pEntityName + '/1', 'Single record by ID');
-
-	// Filter section
-	tmpHTML += '<div class="section-label">Filter</div>';
-	tmpHTML += buildLinkRow('/1.0/' + tmpPlural + '/FilteredTo/FBV~' + tmpIDColumn + '~GT~0/0/10',
-		tmpIDColumn + ' > 0, first 10');
-
-	// Count & Schema section
-	tmpHTML += '<div class="section-label">Count &amp; Schema</div>';
-	tmpHTML += buildLinkRow('/1.0/' + tmpPlural + '/Count', 'Total count');
-	tmpHTML += buildLinkRow('/1.0/' + pEntityName + '/Schema', 'JSON schema');
-	tmpHTML += buildLinkRow('/1.0/' + pEntityName + '/Schema/New', 'Default new record');
-
-	tmpHTML += '</div>';
-	return tmpHTML;
-}
-
-function loadEntityCount(pEntityName)
-{
-	var tmpPlural = pluralize(pEntityName);
-	var tmpCountEl = document.getElementById('count-' + pEntityName);
-	if (!tmpCountEl) { return; }
-
-	fetch('/1.0/' + tmpPlural + '/Count')
-		.then(function(r) { return r.json(); })
-		.then(function(d)
-		{
-			if (d && typeof d.Count === 'number')
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Bookstore Harness - Pict Login + Router</title>
+		<!-- PICT Dynamic View CSS Container -->
+		<style id="PICT-CSS"></style>
+		<!-- Red Rock Mesa Base Theme -->
+		<style>
+			*, *::before, *::after { box-sizing: border-box; }
+			body
 			{
-				tmpCountEl.innerHTML = '<strong>' + d.Count.toLocaleString() + '</strong> records';
+				margin: 0;
+				padding: 0;
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+				background: #FAEDCD;
+				color: #264653;
 			}
-			else
+			a { color: inherit; }
+
+			/* --- Login wrapper (centered on page) --- */
+			#HarnessApp-Login-Container
 			{
-				tmpCountEl.textContent = '?';
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				min-height: 100vh;
+				padding: 2rem;
 			}
-		})
-		.catch(function()
-		{
-			tmpCountEl.textContent = '?';
-		});
-}
-
-function initializeUI()
-{
-	fetch('/1.0/Retold/Models')
-		.then(function(r) { return r.json(); })
-		.then(function(pModels)
-		{
-			if (!pModels || pModels.length < 1)
+			.harnessapp-login-header
 			{
-				document.getElementById('entities').innerHTML = '<div class="loading">No models loaded.</div>';
-				return;
+				text-align: center;
+				margin-bottom: 1.5rem;
 			}
-
-			// Use the first (and typically only) model
-			var tmpModel = pModels[0];
-			var tmpModelName = tmpModel.Name;
-
-			// Update header
-			document.getElementById('subtitle').textContent = tmpModelName + ' API Explorer';
-			document.getElementById('summary').textContent = tmpModel.EntityCount + ' entities (' + tmpModelName + ' model)';
-
-			// Add model-level links
-			var tmpModelLinksEl = document.getElementById('model-links');
-			if (tmpModelLinksEl)
+			.harnessapp-login-header h1
 			{
-				tmpModelLinksEl.innerHTML =
-					buildLinkRow('/1.0/Retold/Model/' + tmpModelName + '/Entities',
-						'List entities in ' + tmpModelName)
-					+ buildLinkRow('/1.0/Retold/Model/' + tmpModelName,
-						'Full model definition');
+				font-size: 1.6rem;
+				color: #264653;
+				margin: 0 0 0.25rem 0;
 			}
-
-			// Fetch entity list
-			return fetch('/1.0/Retold/Model/' + tmpModelName + '/Entities')
-				.then(function(r) { return r.json(); })
-				.then(function(pData)
-				{
-					if (!pData || !pData.Entities || pData.Entities.length < 1)
-					{
-						document.getElementById('entities').innerHTML = '<div class="loading">No entities found.</div>';
-						return;
-					}
-
-					var tmpEntities = pData.Entities;
-					var tmpGridHTML = '';
-
-					for (var i = 0; i < tmpEntities.length; i++)
-					{
-						tmpGridHTML += buildEntityCard(tmpEntities[i]);
-					}
-
-					document.getElementById('entities').innerHTML = tmpGridHTML;
-
-					// Load counts for each entity
-					for (var j = 0; j < tmpEntities.length; j++)
-					{
-						loadEntityCount(tmpEntities[j]);
-					}
-				});
-		})
-		.catch(function(pError)
-		{
-			document.getElementById('entities').innerHTML =
-				'<div class="loading">Error loading schema: ' + pError.message + '</div>';
-		});
-}
-
-initializeUI();
-
-// ============================================================
-// Authentication UI
-// ============================================================
-
-function updateAuthUI(pSession)
-{
-	var tmpDot = document.getElementById('auth-dot');
-	var tmpLabel = document.getElementById('auth-label');
-	var tmpSessionInfo = document.getElementById('auth-session');
-	var tmpLogoutBtn = document.getElementById('logout-btn');
-
-	if (pSession && pSession.LoggedIn)
-	{
-		tmpDot.className = 'dot on';
-		var tmpName = pSession.UserRecord.FullName || pSession.UserRecord.LoginID || 'User';
-		tmpLabel.textContent = 'Logged in as ' + tmpName;
-		tmpLabel.style.color = '#3fb950';
-		tmpSessionInfo.textContent = 'IDUser ' + (pSession.UserRecord.IDUser || 0);
-		tmpLogoutBtn.style.display = '';
-
-		// Highlight active user button
-		var tmpButtons = document.querySelectorAll('.user-btn');
-		for (var i = 0; i < tmpButtons.length; i++)
-		{
-			if (tmpButtons[i].getAttribute('data-login') === pSession.UserRecord.LoginID)
+			.harnessapp-login-header p
 			{
-				tmpButtons[i].classList.add('active');
+				color: #888;
+				font-size: 0.85rem;
+				margin: 0;
 			}
-			else
+			.harnessapp-login-hint
 			{
-				tmpButtons[i].classList.remove('active');
+				margin-top: 1rem;
+				text-align: center;
+				font-size: 0.8rem;
+				color: #999;
 			}
-		}
-	}
-	else
-	{
-		tmpDot.className = 'dot off';
-		tmpLabel.textContent = 'Not logged in';
-		tmpLabel.style.color = '';
-		tmpSessionInfo.textContent = '';
-		tmpLogoutBtn.style.display = 'none';
-
-		var tmpAllButtons = document.querySelectorAll('.user-btn');
-		for (var j = 0; j < tmpAllButtons.length; j++)
-		{
-			tmpAllButtons[j].classList.remove('active');
-		}
-	}
-}
-
-function checkSession()
-{
-	fetch('/1.0/CheckSession')
-		.then(function(r) { return r.json(); })
-		.then(function(d) { updateAuthUI(d); })
-		.catch(function() { updateAuthUI(null); });
-}
-
-function doLogin(pLoginID)
-{
-	fetch('/1.0/Authenticate/' + encodeURIComponent(pLoginID) + '/demo')
-		.then(function(r) { return r.json(); })
-		.then(function(d)
-		{
-			if (d && d.LoggedIn)
+			.harnessapp-login-hint code
 			{
-				updateAuthUI(d);
+				background: #264653;
+				color: #FAEDCD;
+				padding: 0.1rem 0.35rem;
+				border-radius: 3px;
+				font-size: 0.75rem;
 			}
-			else
-			{
-				updateAuthUI(null);
-			}
-		})
-		.catch(function() { updateAuthUI(null); });
-}
+		</style>
+		<script src="./pict.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			Pict.safeOnDocumentReady(() => { Pict.safeLoadPictApplication(HarnessApp, 1); });
+		</script>
+	</head>
+	<body>
 
-function doLogout()
-{
-	fetch('/1.0/Deauthenticate')
-		.then(function() { updateAuthUI(null); })
-		.catch(function() { updateAuthUI(null); });
-}
+		<!-- ===== Login Screen (visible when unauthenticated) ===== -->
+		<div id="HarnessApp-Login-Container">
+			<div class="harnessapp-login-header">
+				<h1>Bookstore Harness</h1>
+				<p>pict-section-login + pict-router</p>
+			</div>
+			<!-- pict-section-login renders its login card into this container -->
+			<div id="Pict-Login-Container"></div>
+			<div class="harnessapp-login-hint">
+				Use any valid user (e.g. <code>admin</code>, <code>jdoe</code>, <code>bsmith</code>) with any password.
+			</div>
+		</div>
 
-function loadDemoUsers()
-{
-	fetch('/1.0/Demo/Users')
-		.then(function(r) { return r.json(); })
-		.then(function(d)
-		{
-			var tmpGrid = document.getElementById('user-grid');
-			if (!d || !d.Users || d.Users.length < 1)
-			{
-				tmpGrid.innerHTML = '<span style="color:#484f58">No users found</span>';
-				return;
-			}
+		<!-- ===== Protected App (hidden until authenticated) ===== -->
+		<div id="HarnessApp-Container" style="display:none"></div>
 
-			var tmpHTML = '';
-			for (var i = 0; i < d.Users.length; i++)
-			{
-				var tmpUser = d.Users[i];
-				var tmpLabel = tmpUser.LoginID;
-				if (tmpUser.FullName)
-				{
-					tmpLabel = tmpUser.FullName + ' (' + tmpUser.LoginID + ')';
-				}
-				tmpHTML += '<button class="user-btn" data-login="' + tmpUser.LoginID + '" '
-					+ 'onclick="doLogin(\'' + tmpUser.LoginID + '\')" '
-					+ 'title="IDUser ' + tmpUser.IDUser + '">'
-					+ tmpLabel + '</button>';
-			}
-
-			tmpGrid.innerHTML = tmpHTML;
-
-			// Check if we already have a session
-			checkSession();
-		})
-		.catch(function()
-		{
-			document.getElementById('user-grid').innerHTML = '<span style="color:#484f58">Could not load users</span>';
-		});
-}
-
-loadDemoUsers();
-</script>
-
-</body>
+		<script src="./harness_app.js" type="text/javascript"></script>
+	</body>
 </html>
