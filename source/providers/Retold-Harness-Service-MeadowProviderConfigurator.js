@@ -189,6 +189,7 @@ class RetoldHarnessMeadowProviderConfigurator extends libFableServiceProviderBas
 				let tmpPort = this.fable.settings.APIServerPort || 8086;
 				this.log.info(`Retold Harness running on port ${tmpPort}`);
 				this.log.info(`Web UI available at http://localhost:${tmpPort}/`);
+				this.log.info(`Authentication:  http://localhost:${tmpPort}/1.0/Authenticate/{user}/{pass}`);
 				return fStepComplete();
 			});
 

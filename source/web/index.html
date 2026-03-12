@@ -37,6 +37,21 @@
 	.status{display:inline-block;width:8px;height:8px;border-radius:50%;background:#3fb950;margin-right:0.5rem}
 	.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #21262d;color:#484f58;font-size:0.8rem}
 	.loading{color:#484f58;font-style:italic;padding:2rem;text-align:center}
+	/* Authentication card */
+	.auth-card{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:1.25rem;margin-bottom:2rem}
+	.auth-card h3{margin-top:0}
+	.auth-status{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;font-size:0.9rem}
+	.auth-status .dot{display:inline-block;width:10px;height:10px;border-radius:50%;flex-shrink:0}
+	.auth-status .dot.on{background:#3fb950}
+	.auth-status .dot.off{background:#f85149}
+	.auth-status .session-info{color:#8b949e;font-size:0.8rem;font-family:monospace}
+	.user-grid{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem}
+	.user-btn{background:#21262d;border:1px solid #30363d;color:#c9d1d9;padding:0.35rem 0.9rem;border-radius:4px;cursor:pointer;font-size:0.85rem;transition:all 0.15s}
+	.user-btn:hover{background:#30363d;border-color:#58a6ff}
+	.user-btn.active{background:#1f6feb;border-color:#1f6feb;color:#fff}
+	.logout-btn{background:#21262d;border:1px solid #da3633;color:#f85149;padding:0.35rem 0.9rem;border-radius:4px;cursor:pointer;font-size:0.85rem;transition:all 0.15s;margin-left:auto}
+	.logout-btn:hover{background:#da3633;color:#fff}
+	.auth-hint{color:#484f58;font-size:0.75rem;margin-top:0.5rem;font-style:italic}
 </style>
 </head>
 <body>
@@ -45,6 +60,21 @@
 	<h1><span class="status"></span>Retold Harness</h1>
 	<h2 id="subtitle">API Explorer</h2>
 	<span id="summary">Loading schema&hellip;</span>
+</div>
+
+<div class="auth-card" id="auth-card">
+	<h3>&#x1f512; Session</h3>
+	<div class="auth-status">
+		<span class="dot off" id="auth-dot"></span>
+		<span id="auth-label">Not logged in</span>
+		<span class="session-info" id="auth-session"></span>
+		<button class="logout-btn" id="logout-btn" onclick="doLogout()" style="display:none">Log out</button>
+	</div>
+	<div class="section-label">Click a user to log in (any password works)</div>
+	<div class="user-grid" id="user-grid">
+		<span class="loading" style="padding:0.5rem">Loading users&hellip;</span>
+	</div>
+	<div class="auth-hint">Passwords on denied list: <code style="color:#f0f6fc;background:#21262d;padding:0.1rem 0.35rem;border-radius:3px">abc</code>, <code style="color:#f0f6fc;background:#21262d;padding:0.1rem 0.35rem;border-radius:3px">badpassword</code>, <code style="color:#f0f6fc;background:#21262d;padding:0.1rem 0.35rem;border-radius:3px">111</code></div>
 </div>
 
 <div class="try-it">
@@ -270,6 +300,130 @@ function initializeUI()
 }
 
 initializeUI();
+
+// ============================================================
+// Authentication UI
+// ============================================================
+
+function updateAuthUI(pSession)
+{
+	var tmpDot = document.getElementById('auth-dot');
+	var tmpLabel = document.getElementById('auth-label');
+	var tmpSessionInfo = document.getElementById('auth-session');
+	var tmpLogoutBtn = document.getElementById('logout-btn');
+
+	if (pSession && pSession.LoggedIn)
+	{
+		tmpDot.className = 'dot on';
+		var tmpName = pSession.UserRecord.FullName || pSession.UserRecord.LoginID || 'User';
+		tmpLabel.textContent = 'Logged in as ' + tmpName;
+		tmpLabel.style.color = '#3fb950';
+		tmpSessionInfo.textContent = 'IDUser ' + (pSession.UserRecord.IDUser || 0);
+		tmpLogoutBtn.style.display = '';
+
+		// Highlight active user button
+		var tmpButtons = document.querySelectorAll('.user-btn');
+		for (var i = 0; i < tmpButtons.length; i++)
+		{
+			if (tmpButtons[i].getAttribute('data-login') === pSession.UserRecord.LoginID)
+			{
+				tmpButtons[i].classList.add('active');
+			}
+			else
+			{
+				tmpButtons[i].classList.remove('active');
+			}
+		}
+	}
+	else
+	{
+		tmpDot.className = 'dot off';
+		tmpLabel.textContent = 'Not logged in';
+		tmpLabel.style.color = '';
+		tmpSessionInfo.textContent = '';
+		tmpLogoutBtn.style.display = 'none';
+
+		var tmpAllButtons = document.querySelectorAll('.user-btn');
+		for (var j = 0; j < tmpAllButtons.length; j++)
+		{
+			tmpAllButtons[j].classList.remove('active');
+		}
+	}
+}
+
+function checkSession()
+{
+	fetch('/1.0/CheckSession')
+		.then(function(r) { return r.json(); })
+		.then(function(d) { updateAuthUI(d); })
+		.catch(function() { updateAuthUI(null); });
+}
+
+function doLogin(pLoginID)
+{
+	fetch('/1.0/Authenticate/' + encodeURIComponent(pLoginID) + '/demo')
+		.then(function(r) { return r.json(); })
+		.then(function(d)
+		{
+			if (d && d.LoggedIn)
+			{
+				updateAuthUI(d);
+			}
+			else
+			{
+				updateAuthUI(null);
+			}
+		})
+		.catch(function() { updateAuthUI(null); });
+}
+
+function doLogout()
+{
+	fetch('/1.0/Deauthenticate')
+		.then(function() { updateAuthUI(null); })
+		.catch(function() { updateAuthUI(null); });
+}
+
+function loadDemoUsers()
+{
+	fetch('/1.0/Demo/Users')
+		.then(function(r) { return r.json(); })
+		.then(function(d)
+		{
+			var tmpGrid = document.getElementById('user-grid');
+			if (!d || !d.Users || d.Users.length < 1)
+			{
+				tmpGrid.innerHTML = '<span style="color:#484f58">No users found</span>';
+				return;
+			}
+
+			var tmpHTML = '';
+			for (var i = 0; i < d.Users.length; i++)
+			{
+				var tmpUser = d.Users[i];
+				var tmpLabel = tmpUser.LoginID;
+				if (tmpUser.FullName)
+				{
+					tmpLabel = tmpUser.FullName + ' (' + tmpUser.LoginID + ')';
+				}
+				tmpHTML += '<button class="user-btn" data-login="' + tmpUser.LoginID + '" '
+					+ 'onclick="doLogin(\'' + tmpUser.LoginID + '\')" '
+					+ 'title="IDUser ' + tmpUser.IDUser + '">'
+					+ tmpLabel + '</button>';
+			}
+
+			tmpGrid.innerHTML = tmpHTML;
+
+			// Check if we already have a session
+			checkSession();
+		})
+		.catch(function()
+		{
+			document.getElementById('user-grid').innerHTML = '<span style="color:#484f58">Could not load users</span>';
+		});
+}
+
+loadDemoUsers();
 </script>
 
 </body>

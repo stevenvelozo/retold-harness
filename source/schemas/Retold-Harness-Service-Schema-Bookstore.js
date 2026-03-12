@@ -98,6 +98,96 @@ class RetoldHarnessSchemaBookstore extends libRetoldHarnessSchemaProvider
 	{
 		let tmpFable = this.fable;
 
+		// --- Enable body parsing for POST routes ---
+		if (tmpFable.OratorServiceServer && typeof tmpFable.OratorServiceServer.bodyParser === 'function')
+		{
+			tmpFable.OratorServiceServer.server.use(tmpFable.OratorServiceServer.bodyParser());
+		}
+
+		// --- Authentication Setup ---
+		let libOratorAuthentication = require('orator-authentication');
+
+		tmpFable.serviceManager.addServiceType('OratorAuthentication', libOratorAuthentication);
+		tmpFable.serviceManager.instantiateServiceProvider('OratorAuthentication',
+			{
+				DeniedPasswords: ['abc', 'badpassword', '111']
+			});
+
+		// Plug in a fake authenticator that accepts any existing User by LoginID.
+		// Password is ignored — the only failures come from the denied list or
+		// a LoginID that doesn't exist in the database.
+		tmpFable.OratorAuthentication.setAuthenticator(
+			(pUsername, pPassword, fAuthCallback) =>
+			{
+				if (!tmpFable.DAL || !tmpFable.DAL.User)
+				{
+					tmpFable.log.warn('BookStore authenticator: DAL.User not available, allowing login with stub record.');
+					return fAuthCallback(null, { LoginID: pUsername, IDUser: 0 });
+				}
+
+				let tmpQuery = tmpFable.DAL.User.query.addFilter('LoginID', pUsername);
+				tmpFable.DAL.User.doRead(tmpQuery,
+					(pReadError, pReadQuery, pUserRecord) =>
+					{
+						if (pReadError)
+						{
+							tmpFable.log.error(`BookStore authenticator error: ${pReadError}`);
+							return fAuthCallback(pReadError, null);
+						}
+
+						if (!pUserRecord || !pUserRecord.IDUser || pUserRecord.IDUser < 1)
+						{
+							tmpFable.log.info(`BookStore authenticator: User [${pUsername}] not found.`);
+							return fAuthCallback(null, null);
+						}
+
+						tmpFable.log.info(`BookStore authenticator: User [${pUsername}] found (IDUser ${pUserRecord.IDUser}).`);
+						return fAuthCallback(null, pUserRecord);
+					});
+			});
+
+		tmpFable.OratorAuthentication.connectRoutes();
+		this.log.info('BookStore authentication routes registered.');
+
+		// --- Demo-Only Endpoint: list valid LoginIDs without requiring auth ---
+		// This bypasses Meadow's authorization so the web UI can show a
+		// convenient user picker.  Not something you would do in production!
+		tmpFable.Orator.serviceServer.get('/1.0/Demo/Users',
+			(pRequest, pResponse, fNext) =>
+			{
+				if (!tmpFable.DAL || !tmpFable.DAL.User)
+				{
+					pResponse.send({ Users: [] });
+					return fNext();
+				}
+
+				let tmpQuery = tmpFable.DAL.User.query;
+				tmpFable.DAL.User.doReads(tmpQuery,
+					(pReadError, pReadQuery, pUserRecords) =>
+					{
+						if (pReadError || !pUserRecords)
+						{
+							pResponse.send({ Users: [] });
+							return fNext();
+						}
+
+						let tmpUsers = [];
+						for (let i = 0; i < pUserRecords.length; i++)
+						{
+							tmpUsers.push(
+								{
+									IDUser: pUserRecords[i].IDUser,
+									LoginID: pUserRecords[i].LoginID,
+									FullName: pUserRecords[i].FullName || ''
+								});
+						}
+
+						pResponse.send({ Users: tmpUsers });
+						return fNext();
+					});
+			});
+		this.log.info('BookStore demo user list endpoint registered at /1.0/Demo/Users');
+
 		if (!tmpFable.MeadowEndpoints || !tmpFable.MeadowEndpoints.Book)
 		{
 			this.log.warn('BookStore applyBehaviors: MeadowEndpoints.Book not available, skipping author enrichment behavior.');
