@@ -64,6 +64,12 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
         constructor(pFable, pOptions, pServiceHash) {
           super(pFable, pOptions, pServiceHash);
 
+          // Prevent pict-router from auto-resolving as each route is added.
+          // Without this, routes fire before the DOM is ready (the protected
+          // app container is hidden on the login screen), and Navigo marks
+          // them as "consumed" so they never fire again.
+          this.pict.settings.RouterSkipRouteResolveOnAdd = true;
+
           // Router provider — routes resolve only after layout renders
           this.pict.addProvider('PictRouter', require('./providers/PictRouter-HarnessApp.json'), libPictRouter);
 
@@ -204,7 +210,8 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
     2: [function (require, module, exports) {
       module.exports = {
         "Name": "Harness App",
-        "Hash": "HarnessApp"
+        "Hash": "HarnessApp",
+        "RouterSkipRouteResolveOnAdd": true
       };
     }, {}],
     3: [function (require, module, exports) {
@@ -1434,15 +1441,25 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
           // Render the top bar
           this.pict.views['HarnessApp-TopBar'].render();
 
-          // Render the default content view (Dashboard)
-          this.pict.views['HarnessApp-Dashboard'].render();
-
           // Inject all CSS
           this.pict.CSSMap.injectCSS();
 
-          // Resolve the router so it picks up the current hash URL
-          if (this.pict.providers.PictRouter) {
-            this.pict.providers.PictRouter.resolve();
+          // Check if a deep-link hash route is in the URL (e.g. #/Books
+          // from a pasted bookmark).  If so, navigate() to that route
+          // instead of rendering Dashboard — navigate() forces Navigo
+          // to fire the handler regardless of prior resolve() calls.
+          let tmpHash = typeof window !== 'undefined' ? window.location.hash : '';
+          let tmpHasDeepRoute = tmpHash && tmpHash.length > 2 && tmpHash !== '#/';
+          if (tmpHasDeepRoute && this.pict.providers.PictRouter) {
+            // Strip the leading '#' to get the route path (e.g. '/Books')
+            let tmpRoute = tmpHash.replace(/^#/, '');
+            this.pict.providers.PictRouter.navigate(tmpRoute);
+          } else {
+            // No deep-link route — show Dashboard as the default content
+            this.pict.views['HarnessApp-Dashboard'].render();
+            if (this.pict.providers.PictRouter) {
+              this.pict.providers.PictRouter.resolve();
+            }
           }
           return super.onAfterRender(pRenderable, pRenderDestinationAddress, pRecord, pContent);
         }

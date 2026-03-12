@@ -14,7 +14,7 @@
         "tests": "npx quack test -g",
         "coverage": "npx quack coverage",
         "build-model": "npm run build-schema-bookstore",
-        "build-schema-bookstore": "cd source/schemas/bookstore && npx stricture -i BookStore.ddl -c Compile -f ./ -o MeadowModel && cp MeadowModel-Extended.json Schema.json",
+        "build-schema-bookstore": "cd source/schemas/bookstore && npx stricture compile BookStore.ddl -o ./ -p MeadowModel && cp MeadowModel-Extended.json Schema.json",
         "build-schema-us-federal-data": "cd source/schemas/us-federal-data && npx stricture compile USFederalData.ddl -o ./ -p MeadowModel && npx stricture meadow MeadowModel-Extended.json -o ./meadow -p MeadowSchema && cp MeadowModel-Extended.json Schema.json",
         "ingest-federal-data": "node source/schemas/us-federal-data/ingestion/ingest-federal-data.js",
         "build-schema-entertainment": "cd source/schemas/entertainment && npx stricture compile Entertainment.ddl -o ./ -p MeadowModel && npx stricture meadow MeadowModel-Extended.json -o ./meadow -p MeadowSchema && cp MeadowModel-Extended.json Schema.json",
@@ -43,13 +43,13 @@
         "meadow-connection-postgresql": "^1.0.2",
         "meadow-connection-solr": "^1.0.2",
         "meadow-connection-sqlite": "^1.0.18",
-        "meadow-integration": "^1.0.16",
+        "meadow-integration": "^1.0.19",
         "orator-authentication": "^1.0.0",
         "pict": "^1.0.357",
         "pict-application": "^1.0.33",
         "pict-terminalui": "^0.0.3",
         "pict-view": "^1.0.67",
-        "retold-data-service": "^2.0.19"
+        "retold-data-service": "^2.0.22"
     },
     "devDependencies": {
         "quackage": "^1.0.64",
