@@ -31,6 +31,7 @@ $ImageURL 254
 %GUIDBookAuthorJoin 255
 #IDBook -> IDBook
 #IDAuthor -> IDAuthor
+#IDCustomer -> IDCustomer
 
 !Author
 @IDAuthor
@@ -111,3 +112,79 @@ $Country 64
 #Rating
 #IDBook -> IDBook
 #IDUser -> IDUser
+
+!Customer
+@IDCustomer
+%GUIDCustomer
+&CreateDate
+#CreatingIDUser
+&UpdateDate
+#UpdatingIDUser
+^Deleted
+&DeleteDate
+#DeletingIDUser
+$Name 200
+$Description 1024
+$ContactName 200
+$ContactEmail 200
+$ContactPhone 32
+$Address
+$City 64
+$State 24
+$Postal 16
+$Country 64
+^Active
+
+!BookStoreEmployee
+@IDBookStoreEmployee
+%GUIDBookStoreEmployee
+&CreateDate
+#CreatingIDUser
+&UpdateDate
+#UpdatingIDUser
+^Deleted
+&DeleteDate
+#DeletingIDUser
+$Title 64
+&HireDate
+&TerminationDate
+^IsActive
+#IDUser -> IDUser
+#IDBookStore -> IDBookStore
+#IDCustomer -> IDCustomer
+
+!BookStoreSale
+@IDBookStoreSale
+%GUIDBookStoreSale
+&CreateDate
+#CreatingIDUser
+&UpdateDate
+#UpdatingIDUser
+^Deleted
+&DeleteDate
+#DeletingIDUser
+&SaleDate
+.TotalAmount 10,2
+$PaymentMethod 32
+$TransactionID 64
+#IDBookStore -> IDBookStore
+#IDUser -> IDUser
+#IDCustomer -> IDCustomer
+
+!BookStoreSaleItem
+@IDBookStoreSaleItem
+%GUIDBookStoreSaleItem
+&CreateDate
+#CreatingIDUser
+&UpdateDate
+#UpdatingIDUser
+^Deleted
+&DeleteDate
+#DeletingIDUser
+#Quantity
+.UnitPrice 8,2
+.LineTotal 10,2
+#IDBookStoreSale -> IDBookStoreSale
+#IDBook -> IDBook
+#IDBookPrice -> IDBookPrice
+#IDCustomer -> IDCustomer
