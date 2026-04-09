@@ -1,5 +1,5 @@
 {
-	"Generated": "2026-03-02T03:11:17.737Z",
+	"Generated": "2026-04-09T23:23:44.016Z",
 	"GitHubOrg": "stevenvelozo",
 	"DefaultBranch": "master",
 	"Groups": [
@@ -32,23 +32,6 @@
 					"Name": "vscode-sqltools",
 					"Repo": "vscode-sqltools",
 					"Group": ".config",
-					"Branch": "master",
-					"HasDocs": false,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": []
-				}
-			]
-		},
-		{
-			"Name": "Data",
-			"Key": "data",
-			"Description": "",
-			"Modules": [
-				{
-					"Name": "entertainment",
-					"Repo": "entertainment",
-					"Group": "data",
 					"Branch": "master",
 					"HasDocs": false,
 					"HasCover": false,
