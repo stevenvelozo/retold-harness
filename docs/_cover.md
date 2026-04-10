@@ -1,4 +1,4 @@
-# Retold Harness <small>1.1.1</small>
+# Retold Harness
 
 > Composable REST API harness with pluggable schemas and database providers
 
