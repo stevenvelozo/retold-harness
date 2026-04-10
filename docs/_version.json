@@ -1,0 +1,7 @@
+{
+	"Name": "retold-harness",
+	"Version": "1.1.7",
+	"Description": "Restful API harness.  Serves on 8086.",
+	"GeneratedAt": "2026-04-10T17:22:29.964Z",
+	"GitCommit": "32200ca"
+}

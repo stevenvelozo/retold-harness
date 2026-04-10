@@ -52,6 +52,7 @@
         "retold-data-service": "^2.0.22"
     },
     "devDependencies": {
+        "pict-docuserve": "^0.1.5",
         "quackage": "^1.1.0",
         "stricture": "^4.0.2",
         "supertest": "^7.2.2"
