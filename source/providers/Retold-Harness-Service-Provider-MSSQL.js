@@ -97,13 +97,15 @@ class RetoldHarnessProviderMSSQL extends libRetoldHarnessMeadowProviderConfigura
 		tmpAnticipate.anticipate(
 			(fStepComplete) =>
 			{
-				let tmpSeedCheckQuery = tmpSchemaProvider.getSeedCheckQuery();
+				let tmpSeedCheckTable = tmpSchemaProvider.getSeedCheckTable();
 
-				if (!tmpSeedCheckQuery)
+				if (!tmpSeedCheckTable)
 				{
-					this.log.info('No seed check query provided, skipping seed.');
+					this.log.info('No seed check table provided, skipping seed.');
 					return fStepComplete();
 				}
+
+				let tmpSeedCheckQuery = `SELECT COUNT(*) AS cnt FROM [${tmpSeedCheckTable}]`;
 
 				tmpPool.request().query(tmpSeedCheckQuery)
 					.then(

@@ -26,9 +26,9 @@ class RetoldHarnessSchemaUSFederalData extends libRetoldHarnessSchemaProvider
 		return libPath.join(__dirname, 'us-federal-data');
 	}
 
-	getSeedCheckQuery()
+	getSeedCheckTable()
 	{
-		return 'SELECT COUNT(*) AS cnt FROM CensusRegion';
+		return 'CensusRegion';
 	}
 
 	generateTables(pDB, fCallback)

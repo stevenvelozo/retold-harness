@@ -50,6 +50,84 @@ class RetoldHarnessMeadowProviderConfigurator extends libFableServiceProviderBas
 	}
 
 	/**
+	 * Split a multi-statement SQL string into individual statements.
+	 * Respects single-quoted string literals so that a ';' inside a
+	 * string (e.g. 'Frankenstein; or, The Modern Prometheus') is not
+	 * treated as a statement terminator. Recognizes both backslash
+	 * escapes (\') and doubled single-quote escapes ('').
+	 *
+	 * @param {string} pSQL - The raw SQL text
+	 * @returns {Array<string>} - Trimmed, non-empty, non-comment statements
+	 */
+	splitSQLStatements(pSQL)
+	{
+		let tmpStatements = [];
+		let tmpCurrent = '';
+		let tmpInString = false;
+		let tmpEscape = false;
+
+		for (let i = 0; i < pSQL.length; i++)
+		{
+			let tmpChar = pSQL[i];
+
+			if (tmpInString)
+			{
+				tmpCurrent += tmpChar;
+
+				if (tmpEscape)
+				{
+					tmpEscape = false;
+					continue;
+				}
+
+				if (tmpChar === '\\')
+				{
+					tmpEscape = true;
+					continue;
+				}
+
+				if (tmpChar === "'")
+				{
+					// Handle doubled single-quote '' as an escape for a literal quote
+					if (pSQL[i + 1] === "'")
+					{
+						tmpCurrent += pSQL[i + 1];
+						i++;
+						continue;
+					}
+					tmpInString = false;
+				}
+				continue;
+			}
+
+			if (tmpChar === "'")
+			{
+				tmpInString = true;
+				tmpCurrent += tmpChar;
+				continue;
+			}
+
+			if (tmpChar === ';')
+			{
+				tmpStatements.push(tmpCurrent);
+				tmpCurrent = '';
+				continue;
+			}
+
+			tmpCurrent += tmpChar;
+		}
+
+		if (tmpCurrent.trim().length > 0)
+		{
+			tmpStatements.push(tmpCurrent);
+		}
+
+		return tmpStatements
+			.map((pStatement) => pStatement.trim())
+			.filter((pStatement) => pStatement.length > 0 && !pStatement.startsWith('--'));
+	}
+
+	/**
 	 * Initialize the RetoldDataService with the schema provider's options.
 	 * This is a base implementation that works for all providers.
 	 *

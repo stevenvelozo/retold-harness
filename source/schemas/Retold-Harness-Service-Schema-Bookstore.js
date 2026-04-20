@@ -25,9 +25,9 @@ class RetoldHarnessSchemaBookstore extends libRetoldHarnessSchemaProvider
 		return libPath.join(__dirname, 'bookstore');
 	}
 
-	getSeedCheckQuery()
+	getSeedCheckTable()
 	{
-		return 'SELECT COUNT(*) AS cnt FROM Book';
+		return 'Book';
 	}
 
 	generateTables(pDB, fCallback)

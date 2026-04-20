@@ -27,9 +27,9 @@ class RetoldHarnessSchemaEntertainment extends libRetoldHarnessSchemaProvider
 		return libPath.join(__dirname, 'entertainment');
 	}
 
-	getSeedCheckQuery()
+	getSeedCheckTable()
 	{
-		return 'SELECT COUNT(*) AS cnt FROM DataSource';
+		return 'DataSource';
 	}
 
 	generateTables(pDB, fCallback)

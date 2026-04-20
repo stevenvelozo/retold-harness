@@ -97,13 +97,15 @@ class RetoldHarnessProviderMySQL extends libRetoldHarnessMeadowProviderConfigura
 		tmpAnticipate.anticipate(
 			(fStepComplete) =>
 			{
-				let tmpSeedCheckQuery = tmpSchemaProvider.getSeedCheckQuery();
+				let tmpSeedCheckTable = tmpSchemaProvider.getSeedCheckTable();
 
-				if (!tmpSeedCheckQuery)
+				if (!tmpSeedCheckTable)
 				{
-					this.log.info('No seed check query provided, skipping seed.');
+					this.log.info('No seed check table provided, skipping seed.');
 					return fStepComplete();
 				}
+
+				let tmpSeedCheckQuery = `SELECT COUNT(*) AS cnt FROM \`${tmpSeedCheckTable}\``;
 
 				tmpPool.query(tmpSeedCheckQuery,
 					(pError, pRows) =>
@@ -134,9 +136,10 @@ class RetoldHarnessProviderMySQL extends libRetoldHarnessMeadowProviderConfigura
 						this.log.info('Seeding initial data into MySQL...');
 						let tmpSeedSQL = libFS.readFileSync(tmpSeedSQLPath, 'utf8');
 
-						// MySQL supports multiple statements in a single query if multipleStatements is enabled
-						// Split by semicolons and execute each statement
-						let tmpStatements = tmpSeedSQL.split(';').map((pStatement) => pStatement.trim()).filter((pStatement) => pStatement.length > 0);
+						// Split into individual statements; splitSQLStatements
+						// respects string literals so embedded semicolons
+						// (e.g. in book titles) do not terminate a statement.
+						let tmpStatements = this.splitSQLStatements(tmpSeedSQL);
 
 						let tmpStatementIndex = 0;
 						let tmpExecuteNext = () =>

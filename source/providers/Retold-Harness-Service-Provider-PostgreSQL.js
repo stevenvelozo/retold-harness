@@ -97,13 +97,18 @@ class RetoldHarnessProviderPostgreSQL extends libRetoldHarnessMeadowProviderConf
 		tmpAnticipate.anticipate(
 			(fStepComplete) =>
 			{
-				let tmpSeedCheckQuery = tmpSchemaProvider.getSeedCheckQuery();
+				let tmpSeedCheckTable = tmpSchemaProvider.getSeedCheckTable();
 
-				if (!tmpSeedCheckQuery)
+				if (!tmpSeedCheckTable)
 				{
-					this.log.info('No seed check query provided, skipping seed.');
+					this.log.info('No seed check table provided, skipping seed.');
 					return fStepComplete();
 				}
+
+				// PostgreSQL folds unquoted identifiers to lowercase; the
+				// Meadow PG connector creates mixed-case tables, so we must
+				// quote the identifier here or the lookup will miss.
+				let tmpSeedCheckQuery = `SELECT COUNT(*) AS cnt FROM "${tmpSeedCheckTable}"`;
 
 				tmpPool.query(tmpSeedCheckQuery,
 					(pError, pResult) =>
@@ -134,8 +139,10 @@ class RetoldHarnessProviderPostgreSQL extends libRetoldHarnessMeadowProviderConf
 						this.log.info('Seeding initial data into PostgreSQL...');
 						let tmpSeedSQL = libFS.readFileSync(tmpSeedSQLPath, 'utf8');
 
-						// Split by semicolons and execute each statement
-						let tmpStatements = tmpSeedSQL.split(';').map((pStatement) => pStatement.trim()).filter((pStatement) => pStatement.length > 0 && !pStatement.startsWith('--'));
+						// Split into individual statements; splitSQLStatements
+						// respects string literals so embedded semicolons do
+						// not terminate a statement prematurely.
+						let tmpStatements = this.splitSQLStatements(tmpSeedSQL);
 
 						let tmpStatementIndex = 0;
 						let tmpExecuteNext = () =>

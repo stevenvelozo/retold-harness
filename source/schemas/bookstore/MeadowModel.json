@@ -576,8 +576,7 @@
                 },
                 {
                     "Column": "Description",
-                    "DataType": "String",
-                    "Size": "1024"
+                    "DataType": "Text"
                 },
                 {
                     "Column": "ContactName",

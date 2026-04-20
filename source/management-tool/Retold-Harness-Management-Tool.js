@@ -775,12 +775,47 @@ function parseArgvHarnessPath()
 }
 
 /**
+* Walk up from pStartPath looking for a retold monorepo layout that
+* contains a retold-harness source checkout at
+* `<root>/modules/meadow/retold-harness`. Returns the absolute path of
+* the harness if found, or null.
+*
+* @param {string} pStartPath
+* @returns {string|null}
+*/
+function findRetoldSourceHarness(pStartPath)
+{
+	let tmpCurrent = libPath.resolve(pStartPath);
+
+	while (true)
+	{
+		let tmpCandidate = libPath.join(tmpCurrent, 'modules', 'meadow', 'retold-harness');
+		if (isValidHarnessPath(tmpCandidate))
+		{
+			return tmpCandidate;
+		}
+
+		let tmpParent = libPath.dirname(tmpCurrent);
+		if (tmpParent === tmpCurrent)
+		{
+			return null;
+		}
+		tmpCurrent = tmpParent;
+	}
+}
+
+/**
 * Resolve the retold-harness directory using a priority chain:
 *
 *   1. --harness-path CLI argument
 *   2. Current working directory (if it IS the harness)
 *   3. ./retold-harness child of CWD (running from parent directory)
-*   4. Parent of this source directory (management tool lives inside the harness)
+*   4. Local retold-monorepo source checkout walking up from CWD
+*      (modules/meadow/retold-harness). Preferred over the installed
+*      node_modules copy so the tool always runs the live source.
+*   5. Parent of this source directory (management tool lives inside the
+*      harness — matches both the source checkout when launched from
+*      there and the node_modules copy when installed elsewhere)
 *
 * @returns {string|null}
 */
@@ -807,10 +842,26 @@ function resolveHarnessPath()
 		return tmpCwdChild;
 	}
 
-	// 4. Parent of this source directory (management tool lives inside retold-harness/source/management-tool/)
+	// 4. Local retold monorepo source (prefer over node_modules so we
+	//    always run the editable checkout rather than a stale install)
+	let tmpSourceHarness = findRetoldSourceHarness(tmpCwd);
+	if (tmpSourceHarness)
+	{
+		return tmpSourceHarness;
+	}
+
+	// 5. Parent of this source directory (management tool lives inside retold-harness/source/management-tool/)
 	let tmpParent = libPath.resolve(__dirname, '..');
 	if (isValidHarnessPath(tmpParent))
 	{
+		// If we're running from an installed node_modules copy, try to
+		// walk up further to locate a sibling retold monorepo and prefer
+		// that over the installed snapshot.
+		let tmpSourceFromInstall = findRetoldSourceHarness(tmpParent);
+		if (tmpSourceFromInstall && tmpSourceFromInstall !== tmpParent)
+		{
+			return tmpSourceFromInstall;
+		}
 		return tmpParent;
 	}
 

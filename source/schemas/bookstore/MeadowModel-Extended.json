@@ -3385,8 +3385,7 @@
                 },
                 {
                     "Column": "Description",
-                    "DataType": "String",
-                    "Size": "1024"
+                    "DataType": "Text"
                 },
                 {
                     "Column": "ContactName",
@@ -3492,7 +3491,7 @@
                     {
                         "Column": "Description",
                         "Type": "String",
-                        "Size": "1024"
+                        "Size": "Default"
                     },
                     {
                         "Column": "ContactName",
@@ -3608,7 +3607,7 @@
                         },
                         "Description": {
                             "type": "string",
-                            "size": "1024"
+                            "size": "Default"
                         },
                         "ContactName": {
                             "type": "string",
@@ -3701,8 +3700,7 @@
                             },
                             {
                                 "Column": "Description",
-                                "DataType": "String",
-                                "Size": "1024"
+                                "DataType": "Text"
                             },
                             {
                                 "Column": "ContactName",
@@ -3808,7 +3806,7 @@
                                 {
                                     "Column": "Description",
                                     "Type": "String",
-                                    "Size": "1024"
+                                    "Size": "Default"
                                 },
                                 {
                                     "Column": "ContactName",
@@ -3924,7 +3922,7 @@
                                     },
                                     "Description": {
                                         "type": "string",
-                                        "size": "1024"
+                                        "size": "Default"
                                     },
                                     "ContactName": {
                                         "type": "string",

@@ -84,13 +84,16 @@ class RetoldHarnessSchemaProvider extends libFableServiceProviderBase
 	}
 
 	/**
-	 * Get a SQL query that checks whether seed data has already been loaded.
-	 * Should return a query that produces a { cnt } result where cnt > 0
-	 * means data exists. Return false if seeding should always run.
+	 * Get the unquoted name of a table whose row count indicates whether
+	 * seed data has already been loaded. Each SQL provider quotes the
+	 * identifier per its own convention (backticks, double-quotes, brackets)
+	 * so case-sensitive engines like PostgreSQL find the table.
 	 *
-	 * @returns {string|boolean} SQL query string or false
+	 * Return false if seeding should always run.
+	 *
+	 * @returns {string|boolean} Table name or false
 	 */
-	getSeedCheckQuery()
+	getSeedCheckTable()
 	{
 		return false;
 	}

@@ -124,7 +124,7 @@ $Country 64
 &DeleteDate
 #DeletingIDUser
 $Name 200
-$Description 1024
+*Description
 $ContactName 200
 $ContactEmail 200
 $ContactPhone 32
