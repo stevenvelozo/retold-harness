@@ -4,24 +4,24 @@ SQLite is the simplest database option for the retold-harness. It is file-based 
 
 ## Prerequisites
 
-- Node.js (v14 or later)
+- Node.js v22.5.0 or later (the harness uses the built-in `node:sqlite` module)
 - npm
-- A C compiler and build tools (for compiling the native npm module)
 
 ## Verify SQLite Is Available
 
-Many Linux distributions include SQLite by default. Check by running:
+The harness does not need a system-wide SQLite — it uses Node's built-in `node:sqlite` module, which bundles the SQLite engine as part of the runtime. No native compile, no build toolchain.
+
+The `sqlite3` command-line tool is still handy for inspecting the database file by hand:
 
 ```bash
 sqlite3 --version
 ```
 
-If it is not installed, use your distribution's package manager:
+If missing, use your distribution's package manager:
 
 **Debian / Ubuntu:**
 
 ```bash
-sudo apt update
 sudo apt install sqlite3
 ```
 
@@ -37,24 +37,6 @@ sudo dnf install sqlite
 sudo pacman -S sqlite
 ```
 
-Note: The `sqlite3` command-line tool is useful for inspecting the database, but it is not required to run the harness. The harness uses the `better-sqlite3` npm package, which bundles its own SQLite engine and compiles it during `npm install`.
-
-## Install Build Tools
-
-The `better-sqlite3` package requires a C compiler to build its native addon. Make sure build essentials are installed:
-
-**Debian / Ubuntu:**
-
-```bash
-sudo apt install build-essential python3
-```
-
-**Fedora / RHEL / CentOS:**
-
-```bash
-sudo dnf groupinstall "Development Tools"
-```
-
 ## Install Dependencies
 
 From the retold-harness directory:
@@ -63,7 +45,7 @@ From the retold-harness directory:
 npm install
 ```
 
-This will compile the native `better-sqlite3` module.
+No native compilation. No `build-essential` or `python3` required.
 
 ## Run the Harness with SQLite
 
@@ -93,6 +75,6 @@ sqlite3 data/bookstore.sqlite
 
 ## Troubleshooting
 
-- If `npm install` fails with compilation errors, ensure `build-essential` (or equivalent) and `python3` are installed.
+- If `require('node:sqlite')` errors with "Unknown module", your Node version is older than 22.5.0 — upgrade Node.
 - If the `data/` directory does not exist, the harness will create it on first run.
 - To reset the database, delete `data/bookstore.sqlite` and restart the harness.

@@ -4,24 +4,20 @@ SQLite is the simplest database option for the retold-harness. It is file-based 
 
 ## Prerequisites
 
-- Node.js (v14 or later)
+- Node.js v22.5.0 or later (the harness uses the built-in `node:sqlite` module)
 - npm
 
 ## Verify SQLite Is Available
 
-macOS ships with SQLite pre-installed. Open a terminal and run:
+The harness does not need a system-wide SQLite — it uses Node's built-in `node:sqlite` module, which bundles the SQLite engine as part of the runtime. No native compile, no install step.
+
+The `sqlite3` command-line tool is still handy for inspecting the database file by hand. macOS ships with it pre-installed:
 
 ```bash
 sqlite3 --version
 ```
 
-You should see version output such as `3.39.5 2022-10-14`. If for some reason it is missing, install it with Homebrew:
-
-```bash
-brew install sqlite
-```
-
-Note: The `sqlite3` command-line tool is useful for inspecting the database, but it is not required to run the harness. The harness uses the `better-sqlite3` npm package, which bundles its own SQLite engine and compiles it during `npm install`.
+If missing, `brew install sqlite` installs it.
 
 ## Install Dependencies
 
@@ -31,11 +27,7 @@ From the retold-harness directory:
 npm install
 ```
 
-This will compile the native `better-sqlite3` module. If the build fails, make sure you have Xcode Command Line Tools installed:
-
-```bash
-xcode-select --install
-```
+No native compilation. No Xcode Command Line Tools required.
 
 ## Run the Harness with SQLite
 
@@ -65,6 +57,6 @@ sqlite3 data/bookstore.sqlite
 
 ## Troubleshooting
 
-- If `npm install` fails with compilation errors, ensure Xcode Command Line Tools are installed and up to date.
+- If `require('node:sqlite')` errors with "Unknown module", your Node version is older than 22.5.0 — upgrade Node.
 - If the `data/` directory does not exist, the harness will create it on first run.
 - To reset the database, delete `data/bookstore.sqlite` and restart the harness.

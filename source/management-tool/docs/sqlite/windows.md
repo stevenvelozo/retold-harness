@@ -4,13 +4,14 @@ SQLite is the simplest database option for the retold-harness. It is file-based 
 
 ## Prerequisites
 
-- Node.js (v14 or later)
+- Node.js v22.5.0 or later (the harness uses the built-in `node:sqlite` module)
 - npm
-- Windows build tools (for compiling the native npm module)
 
 ## Verify SQLite Is Available
 
-SQLite does not come pre-installed on Windows. To install the command-line tool:
+The harness does not need a system-wide SQLite — it uses Node's built-in `node:sqlite` module, which bundles the SQLite engine as part of the runtime. No native compile, no Windows Build Tools, no Visual Studio.
+
+The `sqlite3` command-line tool is still handy for inspecting the database file by hand. To install it on Windows:
 
 1. Download the **sqlite-tools** zip from https://www.sqlite.org/download.html (look for the "Precompiled Binaries for Windows" section).
 2. Extract the zip to a folder such as `C:\sqlite`.
@@ -21,18 +22,6 @@ SQLite does not come pre-installed on Windows. To install the command-line tool:
 sqlite3 --version
 ```
 
-Note: The `sqlite3` command-line tool is useful for inspecting the database, but it is not required to run the harness. The harness uses the `better-sqlite3` npm package, which bundles its own SQLite engine and compiles it during `npm install`.
-
-## Install Windows Build Tools
-
-The `better-sqlite3` package requires a C compiler to build its native addon. The easiest way to get the necessary tools is to run the following from an elevated (Administrator) PowerShell or Command Prompt:
-
-```cmd
-npm install -g windows-build-tools
-```
-
-Alternatively, install Visual Studio Build Tools with the "Desktop development with C++" workload from https://visualstudio.microsoft.com/visual-cpp-build-tools/.
-
 ## Install Dependencies
 
 From the retold-harness directory:
@@ -41,7 +30,7 @@ From the retold-harness directory:
 npm install
 ```
 
-This will compile the native `better-sqlite3` module.
+No native compilation. No Windows Build Tools required.
 
 ## Run the Harness with SQLite
 
@@ -81,6 +70,6 @@ sqlite3 data\bookstore.sqlite
 
 ## Troubleshooting
 
-- If `npm install` fails with compilation errors, ensure Windows Build Tools or Visual Studio Build Tools are installed.
+- If `require('node:sqlite')` errors with "Unknown module", your Node version is older than 22.5.0 — upgrade Node.
 - If the `data\` directory does not exist, the harness will create it on first run.
 - To reset the database, delete `data\bookstore.sqlite` and restart the harness.

@@ -1,6 +1,6 @@
 {
     "name": "retold-harness",
-    "version": "1.1.11",
+    "version": "1.1.12",
     "description": "Restful API harness.  Serves on 8086.",
     "main": "source/Retold-Harness.js",
     "bin": {
@@ -42,19 +42,19 @@
         "meadow-connection-mysql": "^1.0.19",
         "meadow-connection-postgresql": "^1.0.5",
         "meadow-connection-solr": "^1.0.3",
-        "meadow-connection-sqlite": "^1.0.19",
+        "meadow-connection-sqlite": "^1.0.20",
         "meadow-integration": "^1.0.40",
         "orator-authentication": "^1.0.2",
-        "pict": "^1.0.366",
+        "pict": "^1.0.367",
         "pict-application": "^1.0.34",
         "pict-terminalui": "^0.0.3",
         "pict-view": "^1.0.68",
         "retold-data-service": "^2.1.2"
     },
     "devDependencies": {
-        "pict-docuserve": "^0.1.5",
+        "pict-docuserve": "^1.0.0",
         "quackage": "^1.2.3",
-        "stricture": "^4.0.2",
+        "stricture": "^4.0.3",
         "supertest": "^7.2.2"
     },
     "mocha": {
