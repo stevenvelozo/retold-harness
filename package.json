@@ -45,14 +45,14 @@
         "meadow-connection-sqlite": "^1.0.20",
         "meadow-integration": "^1.0.40",
         "orator-authentication": "^1.0.2",
-        "pict": "^1.0.367",
+        "pict": "^1.0.368",
         "pict-application": "^1.0.34",
         "pict-terminalui": "^0.0.3",
         "pict-view": "^1.0.68",
         "retold-data-service": "^2.1.2"
     },
     "devDependencies": {
-        "pict-docuserve": "^1.0.0",
+        "pict-docuserve": "^1.0.1",
         "quackage": "^1.2.3",
         "stricture": "^4.0.3",
         "supertest": "^7.2.2"
