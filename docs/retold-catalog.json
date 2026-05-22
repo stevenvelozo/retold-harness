@@ -1,165 +1,184 @@
 {
-	"Generated": "2026-04-10T17:22:29.657Z",
+	"Generated": "2026-05-22T05:40:41.773Z",
+	"Mode": "module",
 	"GitHubOrg": "stevenvelozo",
 	"DefaultBranch": "master",
-	"Groups": [
-		{
-			"Name": ".config",
-			"Key": ".config",
-			"Description": "",
-			"Modules": [
-				{
-					"Name": "code-server",
-					"Repo": "code-server",
-					"Group": ".config",
-					"Branch": "master",
-					"HasDocs": false,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": []
-				},
-				{
-					"Name": "configstore",
-					"Repo": "configstore",
-					"Group": ".config",
-					"Branch": "master",
-					"HasDocs": false,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": []
-				},
-				{
-					"Name": "vscode-sqltools",
-					"Repo": "vscode-sqltools",
-					"Group": ".config",
-					"Branch": "master",
-					"HasDocs": false,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": []
-				}
-			]
-		},
-		{
-			"Name": "Dist",
-			"Key": "dist",
-			"Description": "",
-			"Modules": [
-				{
-					"Name": "indoctrinate_content_staging",
-					"Repo": "indoctrinate_content_staging",
-					"Group": "dist",
-					"Branch": "master",
-					"HasDocs": false,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": []
-				}
-			]
-		},
-		{
-			"Name": "Docs",
-			"Key": "docs",
-			"Description": "",
-			"Modules": [
-				{
-					"Name": "api",
-					"Repo": "api",
-					"Group": "docs",
-					"Branch": "master",
-					"HasDocs": true,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": [
-						"api/meadow-provider-configurator.md",
-						"api/process-manager.md",
-						"api/reference.md",
-						"api/retold-harness.md",
-						"api/schema-provider.md"
-					]
-				},
-				{
-					"Name": "css",
-					"Repo": "css",
-					"Group": "docs",
-					"Branch": "master",
-					"HasDocs": true,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": [
-						"css/docuserve.css"
-					]
-				}
-			]
-		},
-		{
-			"Name": "Source",
-			"Key": "source",
-			"Description": "",
-			"Modules": [
-				{
-					"Name": "management-tool",
-					"Repo": "management-tool",
-					"Group": "source",
-					"Branch": "master",
-					"HasDocs": true,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": [
-						"dgraph/linux.md",
-						"dgraph/mac.md",
-						"dgraph/windows.md",
-						"mongodb/linux.md",
-						"mongodb/mac.md",
-						"mongodb/windows.md",
-						"mssql/linux.md",
-						"mssql/mac.md",
-						"mssql/windows.md",
-						"mysql/linux.md",
-						"mysql/mac.md",
-						"mysql/windows.md",
-						"postgresql/linux.md",
-						"postgresql/mac.md",
-						"postgresql/windows.md",
-						"solr/linux.md",
-						"solr/mac.md",
-						"solr/windows.md",
-						"sqlite/linux.md",
-						"sqlite/mac.md",
-						"sqlite/windows.md"
-					]
-				},
-				{
-					"Name": "providers",
-					"Repo": "providers",
-					"Group": "source",
-					"Branch": "master",
-					"HasDocs": false,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": []
-				},
-				{
-					"Name": "schemas",
-					"Repo": "schemas",
-					"Group": "source",
-					"Branch": "master",
-					"HasDocs": false,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": []
-				},
-				{
-					"Name": "web",
-					"Repo": "web",
-					"Group": "source",
-					"Branch": "master",
-					"HasDocs": false,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": []
-				}
-			]
-		}
-	]
+	"Module": {
+		"Name": "retold-harness",
+		"Repo": "retold-harness",
+		"Group": "",
+		"Branch": "master",
+		"HasDocs": true,
+		"HasCover": true,
+		"Sidebar": [
+			{
+				"Title": "Getting Started",
+				"Children": [
+					{
+						"Title": "Overview",
+						"Path": "README.md"
+					},
+					{
+						"Title": "Quick Start",
+						"Path": "quickstart.md"
+					},
+					{
+						"Title": "Docker Setup",
+						"Path": "docker.md"
+					}
+				]
+			},
+			{
+				"Title": "Architecture",
+				"Children": [
+					{
+						"Title": "System Design",
+						"Path": "architecture.md"
+					},
+					{
+						"Title": "Schema Providers",
+						"Path": "schema-providers.md"
+					},
+					{
+						"Title": "Provider Configurators",
+						"Path": "provider-configurators.md"
+					}
+				]
+			},
+			{
+				"Title": "Data Model",
+				"Children": [
+					{
+						"Title": "Schema Overview",
+						"Path": "schema.md"
+					},
+					{
+						"Title": "Entity Reference",
+						"Path": "entities.md"
+					}
+				]
+			},
+			{
+				"Title": "API",
+				"Children": [
+					{
+						"Title": "REST Endpoints",
+						"Path": "endpoints.md"
+					},
+					{
+						"Title": "Filtering & Pagination",
+						"Path": "filtering.md"
+					}
+				]
+			},
+			{
+				"Title": "Customization",
+				"Children": [
+					{
+						"Title": "Behavior Injection",
+						"Path": "behavior-injection.md"
+					},
+					{
+						"Title": "Configuration",
+						"Path": "configuration.md"
+					}
+				]
+			},
+			{
+				"Title": "Management Tool",
+				"Children": [
+					{
+						"Title": "Terminal UI",
+						"Path": "management-tool.md"
+					}
+				]
+			},
+			{
+				"Title": "Development",
+				"Children": [
+					{
+						"Title": "Testing",
+						"Path": "testing.md"
+					}
+				]
+			},
+			{
+				"Title": "API Reference",
+				"Children": [
+					{
+						"Title": "Overview",
+						"Path": "api/reference.md"
+					},
+					{
+						"Title": "RetoldHarness",
+						"Path": "api/retold-harness.md"
+					},
+					{
+						"Title": "MeadowProviderConfigurator",
+						"Path": "api/meadow-provider-configurator.md"
+					},
+					{
+						"Title": "SchemaProvider",
+						"Path": "api/schema-provider.md"
+					},
+					{
+						"Title": "ProcessManager",
+						"Path": "api/process-manager.md"
+					}
+				]
+			}
+		],
+		"DocFiles": [
+			".nojekyll",
+			"README.md",
+			"_brand.json",
+			"_cover.md",
+			"_sidebar.md",
+			"_topbar.md",
+			"_version.json",
+			"api/meadow-provider-configurator.md",
+			"api/process-manager.md",
+			"api/reference.md",
+			"api/retold-harness.md",
+			"api/schema-provider.md",
+			"architecture.md",
+			"behavior-injection.md",
+			"configuration.md",
+			"docker.md",
+			"endpoints.md",
+			"entities.md",
+			"filtering.md",
+			"index.html",
+			"management-tool.md",
+			"provider-configurators.md",
+			"quickstart.md",
+			"retold-catalog.json",
+			"retold-keyword-index.json",
+			"schema-providers.md",
+			"schema.md",
+			"testing.md",
+			"dgraph/linux.md",
+			"dgraph/mac.md",
+			"dgraph/windows.md",
+			"mongodb/linux.md",
+			"mongodb/mac.md",
+			"mongodb/windows.md",
+			"mssql/linux.md",
+			"mssql/mac.md",
+			"mssql/windows.md",
+			"mysql/linux.md",
+			"mysql/mac.md",
+			"mysql/windows.md",
+			"postgresql/linux.md",
+			"postgresql/mac.md",
+			"postgresql/windows.md",
+			"solr/linux.md",
+			"solr/mac.md",
+			"solr/windows.md",
+			"sqlite/linux.md",
+			"sqlite/mac.md",
+			"sqlite/windows.md"
+		]
+	},
+	"Groups": []
 }
