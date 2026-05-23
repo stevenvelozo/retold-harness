@@ -1,5 +1,7 @@
 # Retold Harness
 
+> **[&#9654; Read the Retold-Harness Documentation](https://stevenvelozo.github.io/retold-harness/)** &mdash; interactive docs with the full API reference.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > A composable REST API harness for the Retold framework

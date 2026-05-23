@@ -57,7 +57,7 @@ getSchemaPath()
 
 ### `getRetoldDataServiceOptions(pStorageProvider, pStorageProviderModule)`
 
-Build the RetoldDataServiceOptions configuration object. This method is called by [`MeadowProviderConfigurator.initializeDataService()`](api/meadow-provider-configurator.md#initializedataservicefcallback) to configure the data service with the correct schema path and storage provider.
+Build the RetoldDataServiceOptions configuration object. This method is called by [`MeadowProviderConfigurator.initializeDataService()`](meadow-provider-configurator.md#initializedataservicefcallback) to configure the data service with the correct schema path and storage provider.
 
 **Parameters:**
 
@@ -190,7 +190,7 @@ getSeedCheckQuery()
 
 Apply endpoint behaviors after the data service is initialized. The default implementation is a no-op that immediately calls the callback. Override this method to inject custom behaviors into Meadow endpoints.
 
-This is called by [`MeadowProviderConfigurator.applyBehaviors()`](api/meadow-provider-configurator.md#applybehaviorsfcallback) during the harness lifecycle.
+This is called by [`MeadowProviderConfigurator.applyBehaviors()`](meadow-provider-configurator.md#applybehaviorsfcallback) during the harness lifecycle.
 
 **Parameters:**
 

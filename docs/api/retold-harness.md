@@ -20,7 +20,7 @@ Maps schema names to configuration files. Each configuration file exports a sett
 
 ### `_SchemaMap`
 
-Maps schema names to schema provider classes. Each class extends [`RetoldHarnessSchemaProvider`](api/schema-provider.md).
+Maps schema names to schema provider classes. Each class extends [`RetoldHarnessSchemaProvider`](schema-provider.md).
 
 | Key | Schema Provider Class |
 |-----|----------------------|
@@ -30,7 +30,7 @@ Maps schema names to schema provider classes. Each class extends [`RetoldHarness
 
 ### `_ProviderMap`
 
-Maps provider names to provider configurator classes. Each class extends [`RetoldHarnessMeadowProviderConfigurator`](api/meadow-provider-configurator.md).
+Maps provider names to provider configurator classes. Each class extends [`RetoldHarnessMeadowProviderConfigurator`](meadow-provider-configurator.md).
 
 | Key | Provider Configurator Class |
 |-----|-----------------------------|
@@ -98,7 +98,7 @@ Once `initializeHarness` is called, the provider configurator executes these ste
 5. **serveWebUI** -- Serve the web UI at the root URL
 6. **Log ready** -- Print the port and URL to the console
 
-See [`MeadowProviderConfigurator.initializeHarness()`](api/meadow-provider-configurator.md#initializeharnessflcallback) for details.
+See [`MeadowProviderConfigurator.initializeHarness()`](meadow-provider-configurator.md#initializeharnessflcallback) for details.
 
 ## Validation
 

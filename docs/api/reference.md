@@ -4,7 +4,7 @@ This section provides detailed documentation for the public classes and methods 
 
 ## Classes
 
-### [RetoldHarness](api/retold-harness.md)
+### [RetoldHarness](retold-harness.md)
 
 **Source:** `source/Retold-Harness.js`
 
@@ -12,7 +12,7 @@ Application entry point. Reads environment variables, selects a schema and datab
 
 ---
 
-### [MeadowProviderConfigurator](api/meadow-provider-configurator.md)
+### [MeadowProviderConfigurator](meadow-provider-configurator.md)
 
 **Source:** `source/providers/Retold-Harness-Service-MeadowProviderConfigurator.js`
 
@@ -20,7 +20,7 @@ Base provider orchestrator that defines the harness lifecycle: connect to a data
 
 ---
 
-### [SchemaProvider](api/schema-provider.md)
+### [SchemaProvider](schema-provider.md)
 
 **Source:** `source/schemas/Retold-Harness-Service-SchemaProvider.js`
 
@@ -28,7 +28,7 @@ Base schema provider that defines the contract for schema-specific operations: l
 
 ---
 
-### [ProcessManager](api/process-manager.md)
+### [ProcessManager](process-manager.md)
 
 **Source:** `source/management-tool/Service-ProcessManager.js`
 

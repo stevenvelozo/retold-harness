@@ -164,7 +164,7 @@ Retrieves `StorageProvider` and `StorageProviderModule` from `this.options` (set
 
 ### `applyBehaviors(fCallback)`
 
-Apply endpoint behaviors from the schema provider. Delegates to [`HarnessSchemaProvider.applyBehaviors()`](api/schema-provider.md#applybehaviorsfcallback).
+Apply endpoint behaviors from the schema provider. Delegates to [`HarnessSchemaProvider.applyBehaviors()`](schema-provider.md#applybehaviorsfcallback).
 
 **Parameters:**
 
