@@ -26,14 +26,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/stevenvelozo/retold-harness.git"
+        "url": "git+https://github.com/fable-retold/retold-harness.git"
     },
     "author": "steven velozo <steven@velozo.com>",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/stevenvelozo/retold-harness/issues"
+        "url": "https://github.com/fable-retold/retold-harness/issues"
     },
-    "homepage": "https://github.com/stevenvelozo/retold-harness#readme",
+    "homepage": "https://github.com/fable-retold/retold-harness#readme",
     "dependencies": {
         "blessed": "^0.1.81",
         "meadow-connection-dgraph": "^1.0.3",

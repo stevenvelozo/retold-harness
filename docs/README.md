@@ -6,11 +6,11 @@ A composable REST API harness for the [Retold](https://github.com/stevenvelozo/r
 
 Retold Harness brings together several Retold modules into a running application:
 
-- **[Retold Data Service](https://github.com/stevenvelozo/retold-data-service)** orchestrates the stack
-- **[Meadow](https://github.com/stevenvelozo/meadow)** provides the data access layer
-- **[Meadow Endpoints](https://github.com/stevenvelozo/meadow-endpoints)** generates REST routes
-- **[Orator](https://github.com/stevenvelozo/orator)** serves the HTTP API
-- **[Stricture](https://github.com/stevenvelozo/stricture)** defines the schema
+- **[Retold Data Service](https://github.com/fable-retold/retold-data-service)** orchestrates the stack
+- **[Meadow](https://github.com/fable-retold/meadow)** provides the data access layer
+- **[Meadow Endpoints](https://github.com/fable-retold/meadow-endpoints)** generates REST routes
+- **[Orator](https://github.com/fable-retold/orator)** serves the HTTP API
+- **[Stricture](https://github.com/fable-retold/stricture)** defines the schema
 
 ## Features
 
@@ -27,11 +27,11 @@ Retold Harness brings together several Retold modules into a running application
 
 ## Related Packages
 
-- [retold-harness-consistency-proxy](https://github.com/stevenvelozo/retold-harness-consistency-proxy) -- Cross-provider response comparison
-- [retold-data-service](https://github.com/stevenvelozo/retold-data-service) -- All-in-one data service
-- [meadow](https://github.com/stevenvelozo/meadow) -- Data access layer
-- [meadow-endpoints](https://github.com/stevenvelozo/meadow-endpoints) -- REST endpoint generation
-- [foxhound](https://github.com/stevenvelozo/foxhound) -- Query DSL
-- [stricture](https://github.com/stevenvelozo/stricture) -- Schema definition language
-- [orator](https://github.com/stevenvelozo/orator) -- API server abstraction
-- [fable](https://github.com/stevenvelozo/fable) -- Service provider framework
+- [retold-harness-consistency-proxy](https://github.com/fable-retold/retold-harness-consistency-proxy) -- Cross-provider response comparison
+- [retold-data-service](https://github.com/fable-retold/retold-data-service) -- All-in-one data service
+- [meadow](https://github.com/fable-retold/meadow) -- Data access layer
+- [meadow-endpoints](https://github.com/fable-retold/meadow-endpoints) -- REST endpoint generation
+- [foxhound](https://github.com/fable-retold/foxhound) -- Query DSL
+- [stricture](https://github.com/fable-retold/stricture) -- Schema definition language
+- [orator](https://github.com/fable-retold/orator) -- API server abstraction
+- [fable](https://github.com/fable-retold/fable) -- Service provider framework

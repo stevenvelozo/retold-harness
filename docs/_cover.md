@@ -8,4 +8,4 @@
 - 10,000+ pre-loaded sample records
 
 [Getting Started](#retold-harness)
-[GitHub](https://github.com/stevenvelozo/retold-harness)
+[GitHub](https://github.com/fable-retold/retold-harness)

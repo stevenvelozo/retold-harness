@@ -79,7 +79,7 @@ const IMDB_FILES =
 
 // Wikidata SPARQL queries
 const SPARQL_ENDPOINT = 'https://query.wikidata.org/sparql';
-const SPARQL_USER_AGENT = 'RetoldHarness/1.0 (https://github.com/stevenvelozo/retold-harness; entertainment-ingestion) Node.js';
+const SPARQL_USER_AGENT = 'RetoldHarness/1.0 (https://github.com/fable-retold/retold-harness; entertainment-ingestion) Node.js';
 
 const SPARQL_MUSICIANS = `SELECT DISTINCT ?artist ?artistLabel ?birthYear ?deathYear ?countryLabel WHERE {
   VALUES ?occupation { wd:Q177220 wd:Q639669 wd:Q36834 }

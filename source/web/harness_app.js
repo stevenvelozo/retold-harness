@@ -243,15 +243,15 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
         },
         "repository": {
           "type": "git",
-          "url": "https://github.com/stevenvelozo/fable-serviceproviderbase.git"
+          "url": "https://github.com/fable-retold/fable-serviceproviderbase.git"
         },
         "keywords": ["entity", "behavior"],
         "author": "Steven Velozo <steven@velozo.com> (http://velozo.com/)",
         "license": "MIT",
         "bugs": {
-          "url": "https://github.com/stevenvelozo/fable-serviceproviderbase/issues"
+          "url": "https://github.com/fable-retold/fable-serviceproviderbase/issues"
         },
-        "homepage": "https://github.com/stevenvelozo/fable-serviceproviderbase",
+        "homepage": "https://github.com/fable-retold/fable-serviceproviderbase",
         "devDependencies": {
           "@types/mocha": "^10.0.10",
           "fable": "^3.1.62",
@@ -858,14 +858,14 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
         "types": "types/source/Pict-Provider.d.ts",
         "repository": {
           "type": "git",
-          "url": "git+https://github.com/stevenvelozo/pict-provider.git"
+          "url": "git+https://github.com/fable-retold/pict-provider.git"
         },
         "author": "steven velozo <steven@velozo.com>",
         "license": "MIT",
         "bugs": {
-          "url": "https://github.com/stevenvelozo/pict-provider/issues"
+          "url": "https://github.com/fable-retold/pict-provider/issues"
         },
-        "homepage": "https://github.com/stevenvelozo/pict-provider#readme",
+        "homepage": "https://github.com/fable-retold/pict-provider#readme",
         "devDependencies": {
           "@eslint/js": "^9.39.1",
           "eslint": "^9.39.1",
@@ -1659,14 +1659,14 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
         "types": "types/source/Pict-Application.d.ts",
         "repository": {
           "type": "git",
-          "url": "git+https://github.com/stevenvelozo/pict-application.git"
+          "url": "git+https://github.com/fable-retold/pict-application.git"
         },
         "author": "steven velozo <steven@velozo.com>",
         "license": "MIT",
         "bugs": {
-          "url": "https://github.com/stevenvelozo/pict-application/issues"
+          "url": "https://github.com/fable-retold/pict-application/issues"
         },
-        "homepage": "https://github.com/stevenvelozo/pict-application#readme",
+        "homepage": "https://github.com/fable-retold/pict-application#readme",
         "devDependencies": {
           "@eslint/js": "^9.28.0",
           "browser-env": "^3.3.0",
@@ -2949,14 +2949,14 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
         "types": "types/source/Pict-View.d.ts",
         "repository": {
           "type": "git",
-          "url": "git+https://github.com/stevenvelozo/pict-view.git"
+          "url": "git+https://github.com/fable-retold/pict-view.git"
         },
         "author": "steven velozo <steven@velozo.com>",
         "license": "MIT",
         "bugs": {
-          "url": "https://github.com/stevenvelozo/pict-view/issues"
+          "url": "https://github.com/fable-retold/pict-view/issues"
         },
-        "homepage": "https://github.com/stevenvelozo/pict-view#readme",
+        "homepage": "https://github.com/fable-retold/pict-view#readme",
         "devDependencies": {
           "@eslint/js": "^9.39.1",
           "browser-env": "^3.3.0",

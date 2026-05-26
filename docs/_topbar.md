@@ -1,2 +1,2 @@
-- [GitHub](https://github.com/stevenvelozo/retold-harness)
+- [GitHub](https://github.com/fable-retold/retold-harness)
 - [npm](https://www.npmjs.com/package/retold-harness)

@@ -5,7 +5,7 @@
 The fastest way to get a running bookstore API with pre-loaded data:
 
 ```bash
-git clone https://github.com/stevenvelozo/retold-harness
+git clone https://github.com/fable-retold/retold-harness
 cd retold-harness
 npm run docker-dev-build
 npm run docker-dev-run
@@ -20,7 +20,7 @@ If you have a MySQL or MariaDB server running locally:
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/stevenvelozo/retold-harness
+git clone https://github.com/fable-retold/retold-harness
 cd retold-harness
 npm install
 ```

@@ -1,6 +1,6 @@
 # Retold Harness
 
-> **[&#9654; Read the Retold-Harness Documentation](https://stevenvelozo.github.io/retold-harness/)** &mdash; interactive docs with the full API reference.
+> **[&#9654; Read the Retold-Harness Documentation](https://fable-retold.github.io/retold-harness/)** &mdash; interactive docs with the full API reference.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -209,14 +209,14 @@ npx docsify-cli serve docs
 
 ## Related Packages
 
-- [retold-harness-consistency-proxy](https://github.com/stevenvelozo/retold-harness-consistency-proxy) -- compare responses across providers
-- [retold-data-service](https://github.com/stevenvelozo/retold-data-service) -- all-in-one data service
-- [meadow](https://github.com/stevenvelozo/meadow) -- data access layer and ORM
-- [meadow-endpoints](https://github.com/stevenvelozo/meadow-endpoints) -- automatic REST endpoint generation
-- [foxhound](https://github.com/stevenvelozo/foxhound) -- query DSL for SQL generation
-- [stricture](https://github.com/stevenvelozo/stricture) -- schema definition language
-- [orator](https://github.com/stevenvelozo/orator) -- API server abstraction
-- [fable](https://github.com/stevenvelozo/fable) -- service provider framework
+- [retold-harness-consistency-proxy](https://github.com/fable-retold/retold-harness-consistency-proxy) -- compare responses across providers
+- [retold-data-service](https://github.com/fable-retold/retold-data-service) -- all-in-one data service
+- [meadow](https://github.com/fable-retold/meadow) -- data access layer and ORM
+- [meadow-endpoints](https://github.com/fable-retold/meadow-endpoints) -- automatic REST endpoint generation
+- [foxhound](https://github.com/fable-retold/foxhound) -- query DSL for SQL generation
+- [stricture](https://github.com/fable-retold/stricture) -- schema definition language
+- [orator](https://github.com/fable-retold/orator) -- API server abstraction
+- [fable](https://github.com/fable-retold/fable) -- service provider framework
 
 ## License
 
