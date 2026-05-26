@@ -2,6 +2,6 @@
 	"Name": "retold-harness",
 	"Version": "1.1.12",
 	"Description": "Restful API harness.  Serves on 8086.",
-	"GeneratedAt": "2026-05-26T18:20:10.143Z",
-	"GitCommit": "66f27f5"
+	"GeneratedAt": "2026-05-26T21:12:36.748Z",
+	"GitCommit": "39791c2"
 }
