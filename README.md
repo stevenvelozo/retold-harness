@@ -2,7 +2,7 @@
 
 > **[Read the Retold-Harness Documentation](https://fable-retold.github.io/retold-harness/)** - interactive docs with the full API reference.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[MIT License](LICENSE)
 
 > A composable REST API harness for the Retold framework
 
