@@ -1,0 +1,20 @@
+sequenceDiagram
+	participant H as Retold-Harness.js
+	participant F as Fable
+	participant SP as SchemaProvider
+	participant PC as ProviderConfigurator
+	participant DS as RetoldDataService
+
+	H->>F: new Fable(settings)
+	H->>F: Register SchemaProvider
+	H->>F: Register ProviderConfigurator
+	H->>PC: initializeHarness()
+	PC->>PC: connectDatabase()
+	PC->>SP: generateTables(db)
+	PC->>SP: seedData(db)
+	PC->>DS: initializeDataService()
+	DS->>DS: Register Meadow DALs
+	DS->>DS: Register MeadowEndpoints
+	PC->>SP: applyBehaviors()
+	PC->>PC: serveWebUI()
+	PC-->>H: Ready on port 8086

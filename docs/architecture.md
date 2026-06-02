@@ -13,28 +13,8 @@ At startup, `Retold-Harness.js` reads two environment variables (`HARNESS_SCHEMA
 
 ## Initialization Flow
 
-```mermaid
-sequenceDiagram
-	participant H as Retold-Harness.js
-	participant F as Fable
-	participant SP as SchemaProvider
-	participant PC as ProviderConfigurator
-	participant DS as RetoldDataService
-
-	H->>F: new Fable(settings)
-	H->>F: Register SchemaProvider
-	H->>F: Register ProviderConfigurator
-	H->>PC: initializeHarness()
-	PC->>PC: connectDatabase()
-	PC->>SP: generateTables(db)
-	PC->>SP: seedData(db)
-	PC->>DS: initializeDataService()
-	DS->>DS: Register Meadow DALs
-	DS->>DS: Register MeadowEndpoints
-	PC->>SP: applyBehaviors()
-	PC->>PC: serveWebUI()
-	PC-->>H: Ready on port 8086
-```
+<!-- bespoke diagram: edit diagrams/initialization-flow.mmd or .hints.json, then: npx pict-renderer-graph build modules/meadow/retold-harness/docs -->
+![Initialization Flow](diagrams/initialization-flow.svg)
 
 ### Step-by-step walkthrough
 
@@ -46,26 +26,8 @@ sequenceDiagram
 
 ## Component Architecture
 
-```mermaid
-graph TD
-	A[Retold-Harness.js] --> B[Schema Provider]
-	A --> C[Provider Configurator]
-	B --> D[Bookstore Schema]
-	B --> E[US Federal Data Schema]
-	B --> F[Entertainment Schema]
-	C --> G[SQLite Provider]
-	C --> H[MySQL Provider]
-	C --> I[MSSQL Provider]
-	C --> J[PostgreSQL Provider]
-	C --> K[MongoDB Provider]
-	C --> L[DGraph Provider]
-	C --> M[Solr Provider]
-	C --> N[Retold Data Service]
-	N --> O[Orator HTTP Server]
-	N --> P[Meadow DAL]
-	N --> Q[Meadow Endpoints]
-	Q --> R[Behavior Injection]
-```
+<!-- bespoke diagram: edit diagrams/component-architecture.mmd or .hints.json, then: npx pict-renderer-graph build modules/meadow/retold-harness/docs -->
+![Component Architecture](diagrams/component-architecture.svg)
 
 The top-level entry point (`Retold-Harness.js`) holds two lookup maps:
 
