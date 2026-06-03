@@ -1,0 +1,17 @@
+Retold Harness
+  ├── Schema Provider (Bookstore / USFederalData / Entertainment)
+  │     ├── Table Generation (DDL from Stricture)
+  │     ├── Seed Data Loading
+  │     └── Behavior Injection (e.g. Author enrichment)
+  ├── Provider Configurator (SQLite / MySQL / MSSQL / PostgreSQL / MongoDB / DGraph / Solr)
+  │     ├── Database Connection (via meadow-connection-*)
+  │     ├── Schema Initialization
+  │     └── Data Service Bootstrap
+  ├── Retold Data Service
+  │     ├── Orator + Restify (HTTP Server)
+  │     ├── Meadow (DAL for each entity)
+  │     └── Meadow Endpoints (REST Routes)
+  └── Management Tool (Terminal UI)
+        ├── Docker Container Management
+        ├── Harness Process Launcher
+        └── Consistency Proxy Control

@@ -63,25 +63,8 @@ retold-harness-management-tool
 
 ## Architecture
 
-```
-Retold Harness
-  ├── Schema Provider (Bookstore / USFederalData / Entertainment)
-  │     ├── Table Generation (DDL from Stricture)
-  │     ├── Seed Data Loading
-  │     └── Behavior Injection (e.g. Author enrichment)
-  ├── Provider Configurator (SQLite / MySQL / MSSQL / PostgreSQL / MongoDB / DGraph / Solr)
-  │     ├── Database Connection (via meadow-connection-*)
-  │     ├── Schema Initialization
-  │     └── Data Service Bootstrap
-  ├── Retold Data Service
-  │     ├── Orator + Restify (HTTP Server)
-  │     ├── Meadow (DAL for each entity)
-  │     └── Meadow Endpoints (REST Routes)
-  └── Management Tool (Terminal UI)
-        ├── Docker Container Management
-        ├── Harness Process Launcher
-        └── Consistency Proxy Control
-```
+<!-- bespoke diagram: edit diagrams/architecture.mmd or .hints.json, then: npx pict-renderer-graph build modules/meadow/retold-harness -->
+![Architecture](diagrams/architecture.svg)
 
 ## REST API Examples
 

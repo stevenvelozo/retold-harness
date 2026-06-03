@@ -14,27 +14,8 @@ This produces `source/model/MeadowModel-Extended.json`, the compiled schema that
 
 ## Entity Relationships
 
-```
-User
-  ├── Author.IDUser ──── Author can be linked to a User
-  ├── Review.IDUser ──── Reviews are written by Users
-  └── BookStoreInventory.StockingAssociate ──── Inventory stocked by Users
-
-Book
-  ├── BookAuthorJoin.IDBook ──── Many-to-many with Author
-  ├── BookPrice.IDBook ──── Pricing periods for a Book
-  ├── BookStoreInventory.IDBook ──── Inventory of Book at a Store
-  └── Review.IDBook ──── Reviews of a Book
-
-Author
-  └── BookAuthorJoin.IDAuthor ──── Many-to-many with Book
-
-BookStore
-  └── BookStoreInventory.IDBookStore ──── Inventory at a Store
-
-BookPrice
-  └── BookStoreInventory.IDBookPrice ──── Inventory price reference
-```
+<!-- bespoke diagram: edit diagrams/entity-relationships.mmd or .hints.json, then: npx pict-renderer-graph build modules/meadow/retold-harness/docs -->
+![Entity Relationships](diagrams/entity-relationships.svg)
 
 ## Stricture DDL Symbols
 
