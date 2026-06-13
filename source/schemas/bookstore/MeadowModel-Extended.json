@@ -44,6 +44,7 @@
                     "Size": "64"
                 }
             ],
+            "Indices": [],
             "Description": "",
             "MeadowSchema": {
                 "Scope": "User",
@@ -185,6 +186,7 @@
                                 "Size": "64"
                             }
                         ],
+                        "Indices": [],
                         "Description": "",
                         "MeadowSchema": {
                             "Scope": "User",
@@ -370,6 +372,7 @@
                     "Size": "int"
                 }
             ],
+            "Indices": [],
             "Description": "",
             "MeadowSchema": {
                 "Scope": "Book",
@@ -627,6 +630,7 @@
                                 "Size": "int"
                             }
                         ],
+                        "Indices": [],
                         "Description": "",
                         "MeadowSchema": {
                             "Scope": "Book",
@@ -844,6 +848,7 @@
                     "Join": "IDCustomer"
                 }
             ],
+            "Indices": [],
             "Description": "",
             "MeadowSchema": {
                 "Scope": "BookAuthorJoin",
@@ -943,6 +948,7 @@
                                 "Join": "IDCustomer"
                             }
                         ],
+                        "Indices": [],
                         "Description": "",
                         "MeadowSchema": {
                             "Scope": "BookAuthorJoin",
@@ -1074,6 +1080,7 @@
                     "Join": "IDUser"
                 }
             ],
+            "Indices": [],
             "Description": "",
             "MeadowSchema": {
                 "Scope": "Author",
@@ -1257,6 +1264,7 @@
                                 "Join": "IDUser"
                             }
                         ],
+                        "Indices": [],
                         "Description": "",
                         "MeadowSchema": {
                             "Scope": "Author",
@@ -1465,6 +1473,7 @@
                     "Join": "IDBook"
                 }
             ],
+            "Indices": [],
             "Description": "",
             "MeadowSchema": {
                 "Scope": "BookPrice",
@@ -1705,6 +1714,7 @@
                                 "Join": "IDBook"
                             }
                         ],
+                        "Indices": [],
                         "Description": "",
                         "MeadowSchema": {
                             "Scope": "BookPrice",
@@ -1955,6 +1965,7 @@
                     "Size": "64"
                 }
             ],
+            "Indices": [],
             "Description": "",
             "MeadowSchema": {
                 "Scope": "BookStore",
@@ -2197,6 +2208,7 @@
                                 "Size": "64"
                             }
                         ],
+                        "Indices": [],
                         "Description": "",
                         "MeadowSchema": {
                             "Scope": "BookStore",
@@ -2455,6 +2467,7 @@
                     "Join": "IDUser"
                 }
             ],
+            "Indices": [],
             "Description": "",
             "MeadowSchema": {
                 "Scope": "BookStoreInventory",
@@ -2715,6 +2728,7 @@
                                 "Join": "IDUser"
                             }
                         ],
+                        "Indices": [],
                         "Description": "",
                         "MeadowSchema": {
                             "Scope": "BookStoreInventory",
@@ -2966,6 +2980,7 @@
                     "Join": "IDUser"
                 }
             ],
+            "Indices": [],
             "Description": "",
             "MeadowSchema": {
                 "Scope": "Review",
@@ -3179,6 +3194,7 @@
                                 "Join": "IDUser"
                             }
                         ],
+                        "Indices": [],
                         "Description": "",
                         "MeadowSchema": {
                             "Scope": "Review",
@@ -3432,6 +3448,7 @@
                     "DataType": "Boolean"
                 }
             ],
+            "Indices": [],
             "Description": "",
             "MeadowSchema": {
                 "Scope": "Customer",
@@ -3747,6 +3764,7 @@
                                 "DataType": "Boolean"
                             }
                         ],
+                        "Indices": [],
                         "Description": "",
                         "MeadowSchema": {
                             "Scope": "Customer",
@@ -4052,6 +4070,7 @@
                     "Join": "IDCustomer"
                 }
             ],
+            "Indices": [],
             "Description": "",
             "MeadowSchema": {
                 "Scope": "BookStoreEmployee",
@@ -4309,6 +4328,7 @@
                                 "Join": "IDCustomer"
                             }
                         ],
+                        "Indices": [],
                         "Description": "",
                         "MeadowSchema": {
                             "Scope": "BookStoreEmployee",
@@ -4576,6 +4596,7 @@
                     "Join": "IDCustomer"
                 }
             ],
+            "Indices": [],
             "Description": "",
             "MeadowSchema": {
                 "Scope": "BookStoreSale",
@@ -4835,6 +4856,7 @@
                                 "Join": "IDCustomer"
                             }
                         ],
+                        "Indices": [],
                         "Description": "",
                         "MeadowSchema": {
                             "Scope": "BookStoreSale",
@@ -5104,6 +5126,7 @@
                     "Join": "IDCustomer"
                 }
             ],
+            "Indices": [],
             "Description": "",
             "MeadowSchema": {
                 "Scope": "BookStoreSaleItem",
@@ -5365,6 +5388,7 @@
                                 "Join": "IDCustomer"
                             }
                         ],
+                        "Indices": [],
                         "Description": "",
                         "MeadowSchema": {
                             "Scope": "BookStoreSaleItem",
@@ -5549,6 +5573,182 @@
                 },
                 "Authorization": {}
             }
+        },
+        "BookStoreCatalogJoin": {
+            "TableName": "BookStoreCatalogJoin",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDBookStoreCatalogJoin",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDBookStoreCatalogJoin",
+                    "DataType": "GUID",
+                    "Size": "255"
+                },
+                {
+                    "Column": "IDBook",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDBook"
+                },
+                {
+                    "Column": "IDBookStore",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDBookStore"
+                }
+            ],
+            "Indices": [],
+            "Description": "",
+            "MeadowSchema": {
+                "Scope": "BookStoreCatalogJoin",
+                "DefaultIdentifier": "IDBookStoreCatalogJoin",
+                "Domain": "Default",
+                "Schema": [
+                    {
+                        "Column": "IDBookStoreCatalogJoin",
+                        "Type": "AutoIdentity",
+                        "Size": "Default"
+                    },
+                    {
+                        "Column": "GUIDBookStoreCatalogJoin",
+                        "Type": "AutoGUID",
+                        "Size": "255"
+                    },
+                    {
+                        "Column": "IDBook",
+                        "Type": "Integer",
+                        "Size": "int"
+                    },
+                    {
+                        "Column": "IDBookStore",
+                        "Type": "Integer",
+                        "Size": "int"
+                    }
+                ],
+                "DefaultObject": {
+                    "IDBookStoreCatalogJoin": 0,
+                    "GUIDBookStoreCatalogJoin": "0x0000000000000000",
+                    "IDBook": 0,
+                    "IDBookStore": 0
+                },
+                "JsonSchema": {
+                    "title": "BookStoreCatalogJoin",
+                    "type": "object",
+                    "properties": {
+                        "IDBookStoreCatalogJoin": {
+                            "type": "integer",
+                            "size": "Default"
+                        },
+                        "GUIDBookStoreCatalogJoin": {
+                            "type": "string",
+                            "size": "255"
+                        },
+                        "IDBook": {
+                            "type": "integer",
+                            "size": "int"
+                        },
+                        "IDBookStore": {
+                            "type": "integer",
+                            "size": "int"
+                        }
+                    },
+                    "required": [
+                        "IDBookStoreCatalogJoin"
+                    ],
+                    "MeadowSchema": {
+                        "TableName": "BookStoreCatalogJoin",
+                        "Domain": "Default",
+                        "Columns": [
+                            {
+                                "Column": "IDBookStoreCatalogJoin",
+                                "DataType": "ID"
+                            },
+                            {
+                                "Column": "GUIDBookStoreCatalogJoin",
+                                "DataType": "GUID",
+                                "Size": "255"
+                            },
+                            {
+                                "Column": "IDBook",
+                                "DataType": "Numeric",
+                                "Size": "int",
+                                "Join": "IDBook"
+                            },
+                            {
+                                "Column": "IDBookStore",
+                                "DataType": "Numeric",
+                                "Size": "int",
+                                "Join": "IDBookStore"
+                            }
+                        ],
+                        "Indices": [],
+                        "Description": "",
+                        "MeadowSchema": {
+                            "Scope": "BookStoreCatalogJoin",
+                            "DefaultIdentifier": "IDBookStoreCatalogJoin",
+                            "Domain": "Default",
+                            "Schema": [
+                                {
+                                    "Column": "IDBookStoreCatalogJoin",
+                                    "Type": "AutoIdentity",
+                                    "Size": "Default"
+                                },
+                                {
+                                    "Column": "GUIDBookStoreCatalogJoin",
+                                    "Type": "AutoGUID",
+                                    "Size": "255"
+                                },
+                                {
+                                    "Column": "IDBook",
+                                    "Type": "Integer",
+                                    "Size": "int"
+                                },
+                                {
+                                    "Column": "IDBookStore",
+                                    "Type": "Integer",
+                                    "Size": "int"
+                                }
+                            ],
+                            "DefaultObject": {
+                                "IDBookStoreCatalogJoin": 0,
+                                "GUIDBookStoreCatalogJoin": "0x0000000000000000",
+                                "IDBook": 0,
+                                "IDBookStore": 0
+                            },
+                            "JsonSchema": {
+                                "title": "BookStoreCatalogJoin",
+                                "type": "object",
+                                "properties": {
+                                    "IDBookStoreCatalogJoin": {
+                                        "type": "integer",
+                                        "size": "Default"
+                                    },
+                                    "GUIDBookStoreCatalogJoin": {
+                                        "type": "string",
+                                        "size": "255"
+                                    },
+                                    "IDBook": {
+                                        "type": "integer",
+                                        "size": "int"
+                                    },
+                                    "IDBookStore": {
+                                        "type": "integer",
+                                        "size": "int"
+                                    }
+                                },
+                                "required": [
+                                    "IDBookStoreCatalogJoin"
+                                ]
+                            },
+                            "Authorization": {}
+                        }
+                    }
+                },
+                "Authorization": {}
+            }
         }
     },
     "TablesSequence": [
@@ -5563,7 +5763,8 @@
         "Customer",
         "BookStoreEmployee",
         "BookStoreSale",
-        "BookStoreSaleItem"
+        "BookStoreSaleItem",
+        "BookStoreCatalogJoin"
     ],
     "Authorization": {
         "User": {
@@ -6909,6 +7110,128 @@
             }
         },
         "BookStoreSaleItem": {
+            "__DefaultAPISecurity": {
+                "Create": "Deny",
+                "Read": "Deny",
+                "Reads": "Deny",
+                "ReadsBy": "Deny",
+                "ReadMax": "Deny",
+                "ReadSelectList": "Deny",
+                "Update": "Deny",
+                "Delete": "Deny",
+                "Count": "Deny",
+                "CountBy": "Deny",
+                "Schema": "Deny",
+                "Validate": "Deny",
+                "New": "Deny"
+            },
+            "Unauthenticated": {
+                "Create": "Deny",
+                "Read": "Deny",
+                "Reads": "Deny",
+                "ReadsBy": "Deny",
+                "ReadMax": "Deny",
+                "ReadSelectList": "Deny",
+                "Update": "Deny",
+                "Delete": "Deny",
+                "Count": "Deny",
+                "CountBy": "Deny",
+                "Schema": "Deny",
+                "Validate": "Deny",
+                "New": "Deny"
+            },
+            "Readonly": {
+                "Create": "Deny",
+                "Read": "Allow",
+                "Reads": "Allow",
+                "ReadsBy": "Allow",
+                "ReadMax": "Allow",
+                "ReadSelectList": "Allow",
+                "Update": "Deny",
+                "Delete": "Deny",
+                "Count": "Allow",
+                "CountBy": "Allow",
+                "Schema": "Allow",
+                "Validate": "Allow",
+                "New": "Deny"
+            },
+            "User": {
+                "Create": "Allow",
+                "Read": "MyCustomer",
+                "Reads": "MyCustomer",
+                "ReadsBy": "MyCustomer",
+                "ReadMax": "MyCustomer",
+                "ReadSelectList": "MyCustomer",
+                "Update": "Mine",
+                "Delete": "Mine",
+                "Count": "MyCustomer",
+                "CountBy": "MyCustomer",
+                "Schema": "MyCustomer",
+                "Validate": "MyCustomer",
+                "New": "MyCustomer"
+            },
+            "Manager": {
+                "Create": "Allow",
+                "Read": "MyCustomer",
+                "Reads": "MyCustomer",
+                "ReadsBy": "MyCustomer",
+                "ReadMax": "MyCustomer",
+                "ReadSelectList": "MyCustomer",
+                "Update": "Mine",
+                "Delete": "Mine",
+                "Count": "MyCustomer",
+                "CountBy": "MyCustomer",
+                "Schema": "MyCustomer",
+                "Validate": "MyCustomer",
+                "New": "MyCustomer"
+            },
+            "Director": {
+                "Create": "Allow",
+                "Read": "MyCustomer",
+                "Reads": "MyCustomer",
+                "ReadsBy": "MyCustomer",
+                "ReadMax": "MyCustomer",
+                "ReadSelectList": "MyCustomer",
+                "Update": "MyCustomer",
+                "Delete": "MyCustomer",
+                "Count": "MyCustomer",
+                "CountBy": "MyCustomer",
+                "Schema": "MyCustomer",
+                "Validate": "MyCustomer",
+                "New": "MyCustomer"
+            },
+            "Executive": {
+                "Create": "Allow",
+                "Read": "MyCustomer",
+                "Reads": "MyCustomer",
+                "ReadsBy": "MyCustomer",
+                "ReadMax": "MyCustomer",
+                "ReadSelectList": "MyCustomer",
+                "Update": "MyCustomer",
+                "Delete": "MyCustomer",
+                "Count": "MyCustomer",
+                "CountBy": "MyCustomer",
+                "Schema": "MyCustomer",
+                "Validate": "MyCustomer",
+                "New": "MyCustomer"
+            },
+            "Administrator": {
+                "Create": "Allow",
+                "Read": "Allow",
+                "Reads": "Allow",
+                "ReadsBy": "Allow",
+                "ReadMax": "Allow",
+                "ReadSelectList": "Allow",
+                "Update": "Allow",
+                "Delete": "Allow",
+                "Count": "Allow",
+                "CountBy": "Allow",
+                "Schema": "Allow",
+                "Validate": "Allow",
+                "New": "Allow"
+            }
+        },
+        "BookStoreCatalogJoin": {
             "__DefaultAPISecurity": {
                 "Create": "Deny",
                 "Read": "Deny",

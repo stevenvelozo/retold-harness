@@ -85,6 +85,18 @@ class RetoldHarnessSchemaBookstore extends libRetoldHarnessSchemaProvider
 				}
 			}
 
+			// Check if the catalog-join data (BookStoreCatalogJoin: which Books a BookStore carries)
+			// needs seeding. Gated on its own count so it loads idempotently on databases seeded
+			// before this table existed (the base seed above is gated on Book and won't re-run).
+			let tmpCatalogCount = pDB.prepare('SELECT COUNT(*) AS cnt FROM BookStoreCatalogJoin').get();
+			if (tmpCatalogCount.cnt < 1)
+			{
+				this.log.info('Seeding BookStore catalog-join data...');
+				let tmpCatalogSQL = libFS.readFileSync(libPath.join(this.getSchemaPath(), 'sqlite_create', 'BookStore-SeedData-CatalogJoin.sql'), 'utf8');
+				pDB.exec(tmpCatalogSQL);
+				this.log.info('Catalog-join seed data loaded.');
+			}
+
 			return fCallback();
 		}
 		catch (pError)
