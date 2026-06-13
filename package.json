@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "name": "retold-harness",
     "version": "1.1.13",
     "description": "Restful API harness.  Serves on 8086.",
@@ -48,7 +47,7 @@
         "orator-authentication": "^1.0.2",
         "pict": "^1.0.372",
         "pict-application": "^1.0.34",
-        "pict-terminalui": "^0.0.3",
+        "pict-terminalui": "^1.0.0",
         "pict-view": "^1.0.68",
         "retold-data-service": "^2.1.2"
     },
@@ -76,82 +75,4 @@
             "lib/vendor"
         ]
     }
-=======
-  "name": "retold-harness",
-  "version": "1.1.12",
-  "description": "Restful API harness.  Serves on 8086.",
-  "main": "source/Retold-Harness.js",
-  "bin": {
-    "retold-harness": "./bin/retold-harness.js",
-    "retold-harness-management-tool": "./source/management-tool/bin/retold-harness-management-tool.js"
-  },
-  "scripts": {
-    "start": "node source/Retold-Harness.js",
-    "manage": "node source/management-tool/Retold-Harness-Management-Tool.js",
-    "test": "npx quack test",
-    "tests": "npx quack test -g",
-    "coverage": "npx quack coverage",
-    "build-model": "npm run build-schema-bookstore",
-    "build-schema-bookstore": "cd source/schemas/bookstore && npx stricture compile BookStore.ddl -o ./ -p MeadowModel && cp MeadowModel-Extended.json Schema.json",
-    "build-schema-us-federal-data": "cd source/schemas/us-federal-data && npx stricture compile USFederalData.ddl -o ./ -p MeadowModel && npx stricture meadow MeadowModel-Extended.json -o ./meadow -p MeadowSchema && cp MeadowModel-Extended.json Schema.json",
-    "ingest-federal-data": "node source/schemas/us-federal-data/ingestion/ingest-federal-data.js",
-    "build-schema-entertainment": "cd source/schemas/entertainment && npx stricture compile Entertainment.ddl -o ./ -p MeadowModel && npx stricture meadow MeadowModel-Extended.json -o ./meadow -p MeadowSchema && cp MeadowModel-Extended.json Schema.json",
-    "ingest-entertainment": "node --max-old-space-size=8192 source/schemas/entertainment/ingestion/ingest-entertainment-data.js",
-    "generate-bookstore-data": "node source/schemas/bookstore/generate-bookstore-data.js",
-    "docker-dev-build": "docker build ./ -f Dockerfile_Service -t retold-harness-image:local",
-    "docker-dev-run": "docker run -it --init -d --name retold-harness-dev -p 8086:8086 -v \"$(pwd):/retold-harness:z\" retold-harness-image:local",
-    "docker-dev-shell": "docker exec -it retold-harness-dev /bin/bash"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fable-retold/retold-harness.git"
-  },
-  "author": "steven velozo <steven@velozo.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/fable-retold/retold-harness/issues"
-  },
-  "homepage": "https://github.com/fable-retold/retold-harness#readme",
-  "dependencies": {
-    "blessed": "^0.1.81",
-    "meadow-connection-dgraph": "^1.0.3",
-    "meadow-connection-mongodb": "^1.0.3",
-    "meadow-connection-mssql": "^1.0.23",
-    "meadow-connection-mysql": "^1.0.19",
-    "meadow-connection-postgresql": "^1.0.5",
-    "meadow-connection-solr": "^1.0.3",
-    "meadow-connection-sqlite": "^1.0.20",
-    "meadow-integration": "^1.0.40",
-    "orator-authentication": "^1.0.2",
-    "pict": "^1.0.372",
-    "pict-application": "^1.0.34",
-    "pict-terminalui": "^1.0.0",
-    "pict-view": "^1.0.68",
-    "retold-data-service": "^2.1.2"
-  },
-  "devDependencies": {
-    "pict-docuserve": "^1.4.4",
-    "quackage": "^1.3.0",
-    "stricture": "^4.0.3",
-    "supertest": "^7.2.2"
-  },
-  "mocha": {
-    "diff": true,
-    "extension": [
-      "js"
-    ],
-    "package": "./package.json",
-    "reporter": "spec",
-    "slow": "75",
-    "timeout": "5000",
-    "ui": "tdd",
-    "watch-files": [
-      "source/**/*.js",
-      "test/**/*.js"
-    ],
-    "watch-ignore": [
-      "lib/vendor"
-    ]
-  }
->>>>>>> 64310e1 (Pin sibling Retold modules to their 1.x releases)
 }
