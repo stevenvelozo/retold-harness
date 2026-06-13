@@ -220,3 +220,11 @@ CREATE TABLE IF NOT EXISTS Review (
 	IDUser INTEGER DEFAULT 0,
 	IDCustomer INTEGER DEFAULT 0
 );
+
+-- BookStoreCatalogJoin -- a clean many-to-many join: which Books a BookStore carries.
+CREATE TABLE IF NOT EXISTS BookStoreCatalogJoin (
+	IDBookStoreCatalogJoin INTEGER PRIMARY KEY AUTOINCREMENT,
+	GUIDBookStoreCatalogJoin TEXT DEFAULT '',
+	IDBook INTEGER DEFAULT 0,
+	IDBookStore INTEGER DEFAULT 0
+);

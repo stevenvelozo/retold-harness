@@ -44,6 +44,7 @@
                     "Size": "64"
                 }
             ],
+            "Indices": [],
             "Description": ""
         },
         "Book": {
@@ -126,6 +127,7 @@
                     "Size": "int"
                 }
             ],
+            "Indices": [],
             "Description": ""
         },
         "BookAuthorJoin": {
@@ -160,6 +162,7 @@
                     "Join": "IDCustomer"
                 }
             ],
+            "Indices": [],
             "Description": ""
         },
         "Author": {
@@ -218,6 +221,7 @@
                     "Join": "IDUser"
                 }
             ],
+            "Indices": [],
             "Description": ""
         },
         "BookPrice": {
@@ -293,6 +297,7 @@
                     "Join": "IDBook"
                 }
             ],
+            "Indices": [],
             "Description": ""
         },
         "BookStore": {
@@ -370,6 +375,7 @@
                     "Size": "64"
                 }
             ],
+            "Indices": [],
             "Description": ""
         },
         "BookStoreInventory": {
@@ -455,6 +461,7 @@
                     "Join": "IDUser"
                 }
             ],
+            "Indices": [],
             "Description": ""
         },
         "Review": {
@@ -523,6 +530,7 @@
                     "Join": "IDUser"
                 }
             ],
+            "Indices": [],
             "Description": ""
         },
         "Customer": {
@@ -623,6 +631,7 @@
                     "DataType": "Boolean"
                 }
             ],
+            "Indices": [],
             "Description": ""
         },
         "BookStoreEmployee": {
@@ -705,6 +714,7 @@
                     "Join": "IDCustomer"
                 }
             ],
+            "Indices": [],
             "Description": ""
         },
         "BookStoreSale": {
@@ -789,6 +799,7 @@
                     "Join": "IDCustomer"
                 }
             ],
+            "Indices": [],
             "Description": ""
         },
         "BookStoreSaleItem": {
@@ -875,6 +886,36 @@
                     "Join": "IDCustomer"
                 }
             ],
+            "Indices": [],
+            "Description": ""
+        },
+        "BookStoreCatalogJoin": {
+            "TableName": "BookStoreCatalogJoin",
+            "Domain": "Default",
+            "Columns": [
+                {
+                    "Column": "IDBookStoreCatalogJoin",
+                    "DataType": "ID"
+                },
+                {
+                    "Column": "GUIDBookStoreCatalogJoin",
+                    "DataType": "GUID",
+                    "Size": "255"
+                },
+                {
+                    "Column": "IDBook",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDBook"
+                },
+                {
+                    "Column": "IDBookStore",
+                    "DataType": "Numeric",
+                    "Size": "int",
+                    "Join": "IDBookStore"
+                }
+            ],
+            "Indices": [],
             "Description": ""
         }
     }

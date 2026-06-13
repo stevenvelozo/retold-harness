@@ -188,3 +188,9 @@ $TransactionID 64
 #IDBook -> IDBook
 #IDBookPrice -> IDBookPrice
 #IDCustomer -> IDCustomer
+
+!BookStoreCatalogJoin
+@IDBookStoreCatalogJoin
+%GUIDBookStoreCatalogJoin 255
+#IDBook -> IDBook
+#IDBookStore -> IDBookStore
